@@ -1,0 +1,35 @@
+name: mupdf_android
+description: MuPDF Dart bindings
+version: 0.0.1
+publish_to: none
+
+environment:
+  sdk: ">=2.17.6 <4.0.0"
+
+dependencies:
+  jni:
+    git:
+      url: https://github.com/dart-lang/jnigen
+      ref: main
+      path: jni
+  plugin_platform_interface: ^2.0.2
+
+dev_dependencies:
+  jnigen:
+    path: ../jnigen/jnigen
+  test: any
+  lints: ^2.0.0
+
+flutter:
+  # A JNI plugin uses FFI for calling into C code. Thus the relevant shared
+  # library artifacts must be bundled with final application.
+  # Please refer to README.md for a detailed explanation.
+  plugin:
+    platforms:
+      android:
+        ffiPlugin: true
+      linux:
+        ffiPlugin: true
+      windows:
+        ffiPlugin: true
+

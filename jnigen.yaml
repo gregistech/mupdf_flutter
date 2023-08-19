@@ -1,0 +1,89 @@
+output:
+  dart:
+    path: lib/src/third_party/
+  bindings_type: dart_only
+
+android_sdk_config:
+  add_gradle_deps: true
+  android_example: example/
+
+source_path:
+  - "android/src/main/java"
+
+exclude:
+  fields:
+    - 'com.artifex.mupdf.fitz.LinkDestination#type'
+
+classes:
+  - com.artifex.mupdf.fitz.Archive
+  - com.artifex.mupdf.fitz.Buffer
+  - com.artifex.mupdf.fitz.BufferInputStream
+  - com.artifex.mupdf.fitz.BufferOutputStream
+  - com.artifex.mupdf.fitz.BuildConfig
+  - com.artifex.mupdf.fitz.ColorParams
+  - com.artifex.mupdf.fitz.ColorSpace
+  - com.artifex.mupdf.fitz.Context
+  - com.artifex.mupdf.fitz.Cookie
+  - com.artifex.mupdf.fitz.DOM
+  - com.artifex.mupdf.fitz.DefaultAppearance
+  - com.artifex.mupdf.fitz.DefaultColorSpaces
+  - com.artifex.mupdf.fitz.Device
+  - com.artifex.mupdf.fitz.DisplayList
+  - com.artifex.mupdf.fitz.DisplayListDevice
+  - com.artifex.mupdf.fitz.Document
+  - com.artifex.mupdf.fitz.DocumentWriter
+  - com.artifex.mupdf.fitz.DrawDevice
+  - com.artifex.mupdf.fitz.FileStream
+  - com.artifex.mupdf.fitz.FitzInputStream
+  - com.artifex.mupdf.fitz.Font
+  - com.artifex.mupdf.fitz.Image
+  - com.artifex.mupdf.fitz.Link
+  - com.artifex.mupdf.fitz.LinkDestination
+  - com.artifex.mupdf.fitz.Location
+  - com.artifex.mupdf.fitz.Matrix
+  - com.artifex.mupdf.fitz.MultiArchive
+  - com.artifex.mupdf.fitz.NativeDevice
+  - com.artifex.mupdf.fitz.Outline
+  - com.artifex.mupdf.fitz.OutlineIterator
+  - com.artifex.mupdf.fitz.PDFAnnotation
+  - com.artifex.mupdf.fitz.PDFDocument
+  - com.artifex.mupdf.fitz.PDFGraftMap
+  - com.artifex.mupdf.fitz.PDFObject
+  - com.artifex.mupdf.fitz.PDFPage
+  - com.artifex.mupdf.fitz.PDFWidget
+  - com.artifex.mupdf.fitz.PKCS7DistinguishedName
+  - com.artifex.mupdf.fitz.PKCS7Signer
+  - com.artifex.mupdf.fitz.PKCS7Verifier
+  - com.artifex.mupdf.fitz.Page
+  - com.artifex.mupdf.fitz.Path
+  - com.artifex.mupdf.fitz.PathWalker
+  - com.artifex.mupdf.fitz.Pixmap
+  - com.artifex.mupdf.fitz.Point
+  - com.artifex.mupdf.fitz.Quad
+  - com.artifex.mupdf.fitz.Rect
+  - com.artifex.mupdf.fitz.RectI
+  - com.artifex.mupdf.fitz.SeekableInputOutputStream
+  - com.artifex.mupdf.fitz.SeekableInputStream
+  - com.artifex.mupdf.fitz.SeekableOutputStream
+  - com.artifex.mupdf.fitz.SeekableStream
+  - com.artifex.mupdf.fitz.Shade
+  - com.artifex.mupdf.fitz.Story
+  - com.artifex.mupdf.fitz.StrokeState
+  - com.artifex.mupdf.fitz.StructuredText
+  - com.artifex.mupdf.fitz.StructuredTextWalker
+  - com.artifex.mupdf.fitz.Text
+  - com.artifex.mupdf.fitz.TextWalker
+  - com.artifex.mupdf.fitz.TreeArchive
+  - com.artifex.mupdf.fitz.TryLaterException
+  - com.artifex.mupdf.fitz.android.AndroidDrawDevice
+  - com.artifex.mupdf.fitz.android.AndroidImage
+  - com.gergovari.mupdf.BBoxFinder
+
+enable_experiment:
+  - interface_implementation
+
+maven_downloads:
+  repos:
+    - "ghostscript|Ghostscript|https://maven.ghostscript.com"
+  source_deps:
+    - "com.artifex.mupdf:fitz:1.22.0:aar"
