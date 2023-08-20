@@ -81,9 +81,3 @@ classes:
 
 enable_experiment:
   - interface_implementation
-
-maven_downloads:
-  repos:
-    - "ghostscript|Ghostscript|https://maven.ghostscript.com"
-  source_deps:
-    - "com.artifex.mupdf:fitz:1.22.0:aar"

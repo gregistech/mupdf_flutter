@@ -15,9 +15,6 @@ allprojects {
     repositories {
         google()
         mavenCentral()
-	flatDir {
-	    dirs("../../../mvn_jar")
-	}
     }
 }
 
