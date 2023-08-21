@@ -12,6 +12,13 @@ extension JArrayConversion<T extends JObject> on JArray<T> {
 }
 
 extension Content on Page {
+  String get text {
+    return lines.fold(
+        "",
+        (previousValue, StructuredText_TextLine element) =>
+            previousValue + element.text + "\n");
+  }
+
   StructuredText get structuredText {
     return this.toStructuredText(
         "preserve-ligatures,preserve-whitespace,preserve-spans,preserve-images"
@@ -45,7 +52,7 @@ extension Bounds on Page {
   }
 }
 
-extension Text on StructuredText_TextLine {
+extension TextExt on StructuredText_TextLine {
   String get text {
     return chars.toList().fold(
         "",

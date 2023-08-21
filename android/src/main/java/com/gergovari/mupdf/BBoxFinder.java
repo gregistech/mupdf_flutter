@@ -7,19 +7,15 @@ class Bounder {
 
     void extend(float x, float y) {
         if (x < bbox.x0) {
-            System.out.println("x0: " + x);
             bbox.x0 = x;
         }
         if (y < bbox.y0) {
-            System.out.println("y0: " + y);
             bbox.y0 = y;
         }
         if (x > bbox.x1) {
-            System.out.println("x1: " + x);
             bbox.x1 = x;
         }
         if (y > bbox.y1) {
-            System.out.println("y1: " + y);
             bbox.y1 = y;
         }
     }

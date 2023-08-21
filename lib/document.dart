@@ -1,3 +1,4 @@
+import 'package:jni/jni.dart';
 import 'package:mupdf_android/src/third_party/com/artifex/mupdf/fitz/_package.dart';
 
 import 'document_page_list.dart';
@@ -22,5 +23,11 @@ extension ReplacePage on PDFDocument {
 extension FindPage on Document {
   int findPageIndex(Page page) {
     return this.pages.indexOf(page);
+  }
+}
+
+extension Metadata on Document {
+  String getMetadata(String key) {
+    return getMetaData(key.toJString()).toDartString(deleteOriginal: true);
   }
 }

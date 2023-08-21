@@ -48,12 +48,12 @@ class DocumentPageList implements List<mupdf.Page> {
 
   @override
   mupdf.Page get last {
-    return _document.loadPage(length - 1, length - 1);
+    return _document.loadPage(-1, length - 1);
   }
 
   @override
   set last(mupdf.Page value) {
-    _document.toPDFDocument()?.replacePage(length - 1, value.toPDFPage());
+    _document.toPDFDocument()?.replacePage(-1, value.toPDFPage());
   }
 
   @override
@@ -75,7 +75,7 @@ class DocumentPageList implements List<mupdf.Page> {
 
   @override
   void add(mupdf.Page value) {
-    _document.toPDFDocument()?.insertPage(length, value.toPDFObject());
+    _document.toPDFDocument()?.insertPage(-1, value.toPDFObject());
   }
 
   @override
