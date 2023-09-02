@@ -10,7 +10,7 @@ export 'package:mupdf_android/extensions.dart';
 
 class MuPDF {
   static Map<String, mupdf.Rect> MEDIABOXES = {
-    "A4": mupdf.Rect.ctor1(0, 0, 595, 842)
+    "A4": mupdf.Rect.new1(0, 0, 595, 842)
   };
 
   mupdf.Document open(File file) {

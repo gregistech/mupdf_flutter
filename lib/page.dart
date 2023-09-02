@@ -38,8 +38,8 @@ extension Content on Page {
   }
 
   Pixmap rectToPixmap(Rect rect) {
-    Pixmap pixmap = Pixmap.ctor4(ColorSpace.DeviceRGB, rect, true);
-    DrawDevice device = DrawDevice.ctor2(pixmap);
+    Pixmap pixmap = Pixmap.new4(ColorSpace.DeviceRGB, rect, true);
+    DrawDevice device = DrawDevice.new2(pixmap);
     run(device, Matrix.Identity(), Cookie());
     return pixmap;
   }
@@ -48,7 +48,7 @@ extension Content on Page {
 extension Bounds on Page {
   Rect getMarkBounds() {
     /// TODO: implement BBoxDevice bounds
-    return getBounds();
+    return getBounds(0);
   }
 }
 
