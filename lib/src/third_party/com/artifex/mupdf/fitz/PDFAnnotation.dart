@@ -247,16 +247,16 @@ class PDFAnnotation extends jni.JObject {
         reference, _id_destroy, jni.JniCallType.voidType, []).check();
   }
 
-  static final _id_ctor =
+  static final _id_new0 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"(J)V");
 
   /// from: protected void <init>(long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory PDFAnnotation(
     int j,
   ) {
     return PDFAnnotation.fromRef(jni.Jni.accessors
-        .newObjectWithArgs(_class.reference, _id_ctor, [j]).object);
+        .newObjectWithArgs(_class.reference, _id_new0, [j]).object);
   }
 
   static final _id_equals1 = jni.Jni.accessors
@@ -303,7 +303,7 @@ class PDFAnnotation extends jni.JObject {
       r"(Lcom/artifex/mupdf/fitz/Matrix;Lcom/artifex/mupdf/fitz/ColorSpace;Z)Lcom/artifex/mupdf/fitz/Pixmap;");
 
   /// from: public native com.artifex.mupdf.fitz.Pixmap toPixmap(com.artifex.mupdf.fitz.Matrix matrix, com.artifex.mupdf.fitz.ColorSpace colorSpace, boolean z)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pixmap_.Pixmap toPixmap(
     matrix_.Matrix matrix,
     colorspace_.ColorSpace colorSpace,
@@ -318,7 +318,7 @@ class PDFAnnotation extends jni.JObject {
       _class.reference, r"getBounds", r"()Lcom/artifex/mupdf/fitz/Rect;");
 
   /// from: public native com.artifex.mupdf.fitz.Rect getBounds()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   rect_.Rect getBounds() {
     return const rect_.$RectType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_getBounds, jni.JniCallType.objectType, []).object);
@@ -330,7 +330,7 @@ class PDFAnnotation extends jni.JObject {
       r"()Lcom/artifex/mupdf/fitz/DisplayList;");
 
   /// from: public native com.artifex.mupdf.fitz.DisplayList toDisplayList()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   displaylist_.DisplayList toDisplayList() {
     return const displaylist_.$DisplayListType().fromRef(jni.Jni.accessors
         .callMethodWithArgs(reference, _id_toDisplayList,
@@ -370,7 +370,7 @@ class PDFAnnotation extends jni.JObject {
       .getMethodIDOf(_class.reference, r"getContents", r"()Ljava/lang/String;");
 
   /// from: public native java.lang.String getContents()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString getContents() {
     return const jni.JStringType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_getContents, jni.JniCallType.objectType, []).object);
@@ -391,7 +391,7 @@ class PDFAnnotation extends jni.JObject {
       _class.reference, r"getRect", r"()Lcom/artifex/mupdf/fitz/Rect;");
 
   /// from: public native com.artifex.mupdf.fitz.Rect getRect()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   rect_.Rect getRect() {
     return const rect_.$RectType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_getRect, jni.JniCallType.objectType, []).object);
@@ -432,7 +432,7 @@ class PDFAnnotation extends jni.JObject {
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"getColor", r"()[F");
 
   /// from: public native float[] getColor()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<jni.jfloat> getColor() {
     return const jni.JArrayType(jni.jfloatType()).fromRef(jni.Jni.accessors
         .callMethodWithArgs(
@@ -463,7 +463,7 @@ class PDFAnnotation extends jni.JObject {
       .getMethodIDOf(_class.reference, r"getInteriorColor", r"()[F");
 
   /// from: public native float[] getInteriorColor()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<jni.jfloat> getInteriorColor() {
     return const jni.JArrayType(jni.jfloatType()).fromRef(jni.Jni.accessors
         .callMethodWithArgs(reference, _id_getInteriorColor,
@@ -514,7 +514,7 @@ class PDFAnnotation extends jni.JObject {
       .getMethodIDOf(_class.reference, r"getAuthor", r"()Ljava/lang/String;");
 
   /// from: public native java.lang.String getAuthor()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString getAuthor() {
     return const jni.JStringType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_getAuthor, jni.JniCallType.objectType, []).object);
@@ -575,7 +575,7 @@ class PDFAnnotation extends jni.JObject {
       _class.reference, r"getCreationDate", r"()Ljava/util/Date;");
 
   /// from: public java.util.Date getCreationDate()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject getCreationDate() {
     return const jni.JObjectType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_getCreationDate, jni.JniCallType.objectType, []).object);
@@ -596,7 +596,7 @@ class PDFAnnotation extends jni.JObject {
       _class.reference, r"getModificationDate", r"()Ljava/util/Date;");
 
   /// from: public java.util.Date getModificationDate()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject getModificationDate() {
     return const jni.JObjectType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference,
@@ -631,7 +631,7 @@ class PDFAnnotation extends jni.JObject {
       .getMethodIDOf(_class.reference, r"getLineEndingStyles", r"()[I");
 
   /// from: public native int[] getLineEndingStyles()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<jni.jint> getLineEndingStyles() {
     return const jni.JArrayType(jni.jintType()).fromRef(jni.Jni.accessors
         .callMethodWithArgs(reference, _id_getLineEndingStyles,
@@ -850,7 +850,7 @@ class PDFAnnotation extends jni.JObject {
       _class.reference, r"getQuadPoint", r"(I)Lcom/artifex/mupdf/fitz/Quad;");
 
   /// from: public native com.artifex.mupdf.fitz.Quad getQuadPoint(int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   quad_.Quad getQuadPoint(
     int i,
   ) {
@@ -885,7 +885,7 @@ class PDFAnnotation extends jni.JObject {
       _class.reference, r"getQuadPoints", r"()[Lcom/artifex/mupdf/fitz/Quad;");
 
   /// from: public com.artifex.mupdf.fitz.Quad[] getQuadPoints()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<quad_.Quad> getQuadPoints() {
     return const jni.JArrayType(quad_.$QuadType()).fromRef(jni.Jni.accessors
         .callMethodWithArgs(reference, _id_getQuadPoints,
@@ -925,7 +925,7 @@ class PDFAnnotation extends jni.JObject {
       _class.reference, r"getVertex", r"(I)Lcom/artifex/mupdf/fitz/Point;");
 
   /// from: public native com.artifex.mupdf.fitz.Point getVertex(int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   point_.Point getVertex(
     int i,
   ) {
@@ -973,7 +973,7 @@ class PDFAnnotation extends jni.JObject {
       _class.reference, r"getVertices", r"()[Lcom/artifex/mupdf/fitz/Point;");
 
   /// from: public com.artifex.mupdf.fitz.Point[] getVertices()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<point_.Point> getVertices() {
     return const jni.JArrayType(point_.$PointType()).fromRef(jni.Jni.accessors
         .callMethodWithArgs(
@@ -1029,7 +1029,7 @@ class PDFAnnotation extends jni.JObject {
       r"(II)Lcom/artifex/mupdf/fitz/Point;");
 
   /// from: public native com.artifex.mupdf.fitz.Point getInkListStrokeVertex(int i, int i1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   point_.Point getInkListStrokeVertex(
     int i,
     int i1,
@@ -1117,7 +1117,7 @@ class PDFAnnotation extends jni.JObject {
       _class.reference, r"getInkList", r"()[[Lcom/artifex/mupdf/fitz/Point;");
 
   /// from: public com.artifex.mupdf.fitz.Point[][] getInkList()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<point_.Point> getInkList() {
     return const jni.JArrayType(point_.$PointType()).fromRef(jni.Jni.accessors
         .callMethodWithArgs(
@@ -1137,7 +1137,7 @@ class PDFAnnotation extends jni.JObject {
       .getMethodIDOf(_class.reference, r"getIcon", r"()Ljava/lang/String;");
 
   /// from: public native java.lang.String getIcon()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString getIcon() {
     return const jni.JStringType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_getIcon, jni.JniCallType.objectType, []).object);
@@ -1250,7 +1250,7 @@ class PDFAnnotation extends jni.JObject {
       _class.reference, r"getObject", r"()Lcom/artifex/mupdf/fitz/PDFObject;");
 
   /// from: public native com.artifex.mupdf.fitz.PDFObject getObject()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pdfobject_.PDFObject getObject() {
     return const pdfobject_.$PDFObjectType().fromRef(jni.Jni.accessors
         .callMethodWithArgs(
@@ -1310,7 +1310,7 @@ class PDFAnnotation extends jni.JObject {
       _class.reference, r"getLine", r"()[Lcom/artifex/mupdf/fitz/Point;");
 
   /// from: public native com.artifex.mupdf.fitz.Point[] getLine()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<point_.Point> getLine() {
     return const jni.JArrayType(point_.$PointType()).fromRef(jni.Jni.accessors
         .callMethodWithArgs(
@@ -1337,7 +1337,7 @@ class PDFAnnotation extends jni.JObject {
       r"()Lcom/artifex/mupdf/fitz/DefaultAppearance;");
 
   /// from: public native com.artifex.mupdf.fitz.DefaultAppearance getDefaultAppearance()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   defaultappearance_.DefaultAppearance getDefaultAppearance() {
     return const defaultappearance_.$DefaultAppearanceType().fromRef(
         jni.Jni.accessors.callMethodWithArgs(reference,
@@ -1658,7 +1658,7 @@ class PDFAnnotation extends jni.JObject {
       r"()Lcom/artifex/mupdf/fitz/PDFObject;");
 
   /// from: public native com.artifex.mupdf.fitz.PDFObject getFileSpecification()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pdfobject_.PDFObject getFileSpecification() {
     return const pdfobject_.$PDFObjectType().fromRef(jni.Jni.accessors
         .callMethodWithArgs(reference, _id_getFileSpecification,
@@ -1683,6 +1683,18 @@ class PDFAnnotation extends jni.JObject {
   ) {
     return jni.Jni.accessors.callMethodWithArgs(reference,
         _id_setHiddenForEditing, jni.JniCallType.voidType, [z ? 1 : 0]).check();
+  }
+
+  static final _id_applyRedaction = jni.Jni.accessors
+      .getMethodIDOf(_class.reference, r"applyRedaction", r"(ZI)Z");
+
+  /// from: public native boolean applyRedaction(boolean z, int i)
+  bool applyRedaction(
+    bool z,
+    int i,
+  ) {
+    return jni.Jni.accessors.callMethodWithArgs(reference, _id_applyRedaction,
+        jni.JniCallType.booleanType, [z ? 1 : 0, jni.JValueInt(i)]).boolean;
   }
 }
 

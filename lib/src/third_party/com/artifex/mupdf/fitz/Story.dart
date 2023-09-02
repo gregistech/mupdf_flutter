@@ -76,13 +76,13 @@ class Story extends jni.JObject {
         reference, _id_destroy, jni.JniCallType.voidType, []).check();
   }
 
-  static final _id_ctor = jni.Jni.accessors.getMethodIDOf(
+  static final _id_new0 = jni.Jni.accessors.getMethodIDOf(
       _class.reference,
       r"<init>",
       r"(Ljava/lang/String;Ljava/lang/String;FLcom/artifex/mupdf/fitz/Archive;)V");
 
   /// from: public void <init>(java.lang.String string, java.lang.String string1, float f, com.artifex.mupdf.fitz.Archive archive)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory Story(
     jni.JString string,
     jni.JString string1,
@@ -90,7 +90,7 @@ class Story extends jni.JObject {
     archive_.Archive archive,
   ) {
     return Story.fromRef(jni.Jni.accessors.newObjectWithArgs(
-        _class.reference, _id_ctor, [
+        _class.reference, _id_new0, [
       string.reference,
       string1.reference,
       jni.JValueFloat(f),
@@ -98,35 +98,35 @@ class Story extends jni.JObject {
     ]).object);
   }
 
-  static final _id_ctor1 = jni.Jni.accessors.getMethodIDOf(
+  static final _id_new1 = jni.Jni.accessors.getMethodIDOf(
       _class.reference, r"<init>", r"(Ljava/lang/String;Ljava/lang/String;F)V");
 
   /// from: public void <init>(java.lang.String string, java.lang.String string1, float f)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory Story.ctor1(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Story.new1(
     jni.JString string,
     jni.JString string1,
     double f,
   ) {
     return Story.fromRef(jni.Jni.accessors.newObjectWithArgs(
         _class.reference,
-        _id_ctor1,
+        _id_new1,
         [string.reference, string1.reference, jni.JValueFloat(f)]).object);
   }
 
-  static final _id_ctor2 = jni.Jni.accessors.getMethodIDOf(_class.reference,
+  static final _id_new2 = jni.Jni.accessors.getMethodIDOf(_class.reference,
       r"<init>", r"([BLjava/lang/String;FLcom/artifex/mupdf/fitz/Archive;)V");
 
   /// from: public void <init>(byte[] bs, java.lang.String string, float f, com.artifex.mupdf.fitz.Archive archive)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory Story.ctor2(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Story.new2(
     jni.JArray<jni.jbyte> bs,
     jni.JString string,
     double f,
     archive_.Archive archive,
   ) {
     return Story.fromRef(jni.Jni.accessors.newObjectWithArgs(
-        _class.reference, _id_ctor2, [
+        _class.reference, _id_new2, [
       bs.reference,
       string.reference,
       jni.JValueFloat(f),
@@ -134,35 +134,33 @@ class Story extends jni.JObject {
     ]).object);
   }
 
-  static final _id_ctor3 = jni.Jni.accessors
+  static final _id_new3 = jni.Jni.accessors
       .getMethodIDOf(_class.reference, r"<init>", r"([BLjava/lang/String;F)V");
 
   /// from: public void <init>(byte[] bs, java.lang.String string, float f)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory Story.ctor3(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Story.new3(
     jni.JArray<jni.jbyte> bs,
     jni.JString string,
     double f,
   ) {
-    return Story.fromRef(jni.Jni.accessors.newObjectWithArgs(
-        _class.reference,
-        _id_ctor3,
-        [bs.reference, string.reference, jni.JValueFloat(f)]).object);
+    return Story.fromRef(jni.Jni.accessors.newObjectWithArgs(_class.reference,
+        _id_new3, [bs.reference, string.reference, jni.JValueFloat(f)]).object);
   }
 
-  static final _id_ctor4 = jni.Jni.accessors.getMethodIDOf(_class.reference,
+  static final _id_new4 = jni.Jni.accessors.getMethodIDOf(_class.reference,
       r"<init>", r"(Ljava/lang/String;[BFLcom/artifex/mupdf/fitz/Archive;)V");
 
   /// from: public void <init>(java.lang.String string, byte[] bs, float f, com.artifex.mupdf.fitz.Archive archive)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory Story.ctor4(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Story.new4(
     jni.JString string,
     jni.JArray<jni.jbyte> bs,
     double f,
     archive_.Archive archive,
   ) {
     return Story.fromRef(jni.Jni.accessors.newObjectWithArgs(
-        _class.reference, _id_ctor4, [
+        _class.reference, _id_new4, [
       string.reference,
       bs.reference,
       jni.JValueFloat(f),
@@ -170,35 +168,33 @@ class Story extends jni.JObject {
     ]).object);
   }
 
-  static final _id_ctor5 = jni.Jni.accessors
+  static final _id_new5 = jni.Jni.accessors
       .getMethodIDOf(_class.reference, r"<init>", r"(Ljava/lang/String;[BF)V");
 
   /// from: public void <init>(java.lang.String string, byte[] bs, float f)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory Story.ctor5(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Story.new5(
     jni.JString string,
     jni.JArray<jni.jbyte> bs,
     double f,
   ) {
-    return Story.fromRef(jni.Jni.accessors.newObjectWithArgs(
-        _class.reference,
-        _id_ctor5,
-        [string.reference, bs.reference, jni.JValueFloat(f)]).object);
+    return Story.fromRef(jni.Jni.accessors.newObjectWithArgs(_class.reference,
+        _id_new5, [string.reference, bs.reference, jni.JValueFloat(f)]).object);
   }
 
-  static final _id_ctor6 = jni.Jni.accessors.getMethodIDOf(
+  static final _id_new6 = jni.Jni.accessors.getMethodIDOf(
       _class.reference, r"<init>", r"([B[BFLcom/artifex/mupdf/fitz/Archive;)V");
 
   /// from: public void <init>(byte[] bs, byte[] bs1, float f, com.artifex.mupdf.fitz.Archive archive)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory Story.ctor6(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Story.new6(
     jni.JArray<jni.jbyte> bs,
     jni.JArray<jni.jbyte> bs1,
     double f,
     archive_.Archive archive,
   ) {
     return Story.fromRef(jni.Jni.accessors.newObjectWithArgs(
-        _class.reference, _id_ctor6, [
+        _class.reference, _id_new6, [
       bs.reference,
       bs1.reference,
       jni.JValueFloat(f),
@@ -206,18 +202,18 @@ class Story extends jni.JObject {
     ]).object);
   }
 
-  static final _id_ctor7 =
+  static final _id_new7 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"([B[BF)V");
 
   /// from: public void <init>(byte[] bs, byte[] bs1, float f)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory Story.ctor7(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Story.new7(
     jni.JArray<jni.jbyte> bs,
     jni.JArray<jni.jbyte> bs1,
     double f,
   ) {
     return Story.fromRef(jni.Jni.accessors.newObjectWithArgs(_class.reference,
-        _id_ctor7, [bs.reference, bs1.reference, jni.JValueFloat(f)]).object);
+        _id_new7, [bs.reference, bs1.reference, jni.JValueFloat(f)]).object);
   }
 
   static final _id_place = jni.Jni.accessors.getMethodIDOf(
@@ -252,7 +248,7 @@ class Story extends jni.JObject {
       _class.reference, r"document", r"()Lcom/artifex/mupdf/fitz/DOM;");
 
   /// from: public native com.artifex.mupdf.fitz.DOM document()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   dom_.DOM document() {
     return const dom_.$DOMType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_document, jni.JniCallType.objectType, []).object);

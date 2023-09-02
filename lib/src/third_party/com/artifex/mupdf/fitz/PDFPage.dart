@@ -22,6 +22,8 @@ import "package:jni/jni.dart" as jni;
 
 import "Page.dart" as page_;
 
+import "PDFObject.dart" as pdfobject_;
+
 import "PDFAnnotation.dart" as pdfannotation_;
 
 import "PDFWidget.dart" as pdfwidget_;
@@ -55,13 +57,24 @@ class PDFPage extends page_.Page {
   /// from: static public final int REDACT_IMAGE_PIXELS
   static const REDACT_IMAGE_PIXELS = 2;
 
+  static final _id_getObject = jni.Jni.accessors.getMethodIDOf(
+      _class.reference, r"getObject", r"()Lcom/artifex/mupdf/fitz/PDFObject;");
+
+  /// from: public native com.artifex.mupdf.fitz.PDFObject getObject()
+  /// The returned object must be released after use, by calling the [release] method.
+  pdfobject_.PDFObject getObject() {
+    return const pdfobject_.$PDFObjectType().fromRef(jni.Jni.accessors
+        .callMethodWithArgs(
+            reference, _id_getObject, jni.JniCallType.objectType, []).object);
+  }
+
   static final _id_getAnnotations = jni.Jni.accessors.getMethodIDOf(
       _class.reference,
       r"getAnnotations",
       r"()[Lcom/artifex/mupdf/fitz/PDFAnnotation;");
 
   /// from: public native com.artifex.mupdf.fitz.PDFAnnotation[] getAnnotations()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<pdfannotation_.PDFAnnotation> getAnnotations() {
     return const jni.JArrayType(pdfannotation_.$PDFAnnotationType()).fromRef(
         jni.Jni.accessors.callMethodWithArgs(reference, _id_getAnnotations,
@@ -74,7 +87,7 @@ class PDFPage extends page_.Page {
       r"(I)Lcom/artifex/mupdf/fitz/PDFAnnotation;");
 
   /// from: public native com.artifex.mupdf.fitz.PDFAnnotation createAnnotation(int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pdfannotation_.PDFAnnotation createAnnotation(
     int i,
   ) {
@@ -132,7 +145,7 @@ class PDFPage extends page_.Page {
       r"()[Lcom/artifex/mupdf/fitz/PDFWidget;");
 
   /// from: public native com.artifex.mupdf.fitz.PDFWidget[] getWidgets()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<pdfwidget_.PDFWidget> getWidgets() {
     return const jni.JArrayType(pdfwidget_.$PDFWidgetType()).fromRef(
         jni.Jni.accessors.callMethodWithArgs(
@@ -145,7 +158,7 @@ class PDFPage extends page_.Page {
       r"(FF)Lcom/artifex/mupdf/fitz/PDFWidget;");
 
   /// from: public com.artifex.mupdf.fitz.PDFWidget activateWidgetAt(float f, float f1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pdfwidget_.PDFWidget activateWidgetAt(
     double f,
     double f1,
@@ -164,7 +177,7 @@ class PDFPage extends page_.Page {
       r"()Lcom/artifex/mupdf/fitz/PDFWidget;");
 
   /// from: public native com.artifex.mupdf.fitz.PDFWidget createSignature()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pdfwidget_.PDFWidget createSignature() {
     return const pdfwidget_.$PDFWidgetType().fromRef(jni.Jni.accessors
         .callMethodWithArgs(reference, _id_createSignature,
@@ -175,7 +188,7 @@ class PDFPage extends page_.Page {
       _class.reference, r"getTransform", r"()Lcom/artifex/mupdf/fitz/Matrix;");
 
   /// from: public native com.artifex.mupdf.fitz.Matrix getTransform()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   matrix_.Matrix getTransform() {
     return const matrix_.$MatrixType().fromRef(jni.Jni.accessors
         .callMethodWithArgs(reference, _id_getTransform,
@@ -188,7 +201,7 @@ class PDFPage extends page_.Page {
       r"(Lcom/artifex/mupdf/fitz/Rect;I)Lcom/artifex/mupdf/fitz/Link;");
 
   /// from: public com.artifex.mupdf.fitz.Link createLinkFit(com.artifex.mupdf.fitz.Rect rect, int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   link_.Link createLinkFit(
     rect_.Rect rect,
     int i,
@@ -206,7 +219,7 @@ class PDFPage extends page_.Page {
       r"(Lcom/artifex/mupdf/fitz/Rect;I)Lcom/artifex/mupdf/fitz/Link;");
 
   /// from: public com.artifex.mupdf.fitz.Link createLinkFitB(com.artifex.mupdf.fitz.Rect rect, int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   link_.Link createLinkFitB(
     rect_.Rect rect,
     int i,
@@ -224,7 +237,7 @@ class PDFPage extends page_.Page {
       r"(Lcom/artifex/mupdf/fitz/Rect;IFFF)Lcom/artifex/mupdf/fitz/Link;");
 
   /// from: public com.artifex.mupdf.fitz.Link createLinkXYZ(com.artifex.mupdf.fitz.Rect rect, int i, float f, float f1, float f2)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   link_.Link createLinkXYZ(
     rect_.Rect rect,
     int i,
@@ -248,7 +261,7 @@ class PDFPage extends page_.Page {
       r"(Lcom/artifex/mupdf/fitz/Rect;IFFFF)Lcom/artifex/mupdf/fitz/Link;");
 
   /// from: public com.artifex.mupdf.fitz.Link createLinkFitR(com.artifex.mupdf.fitz.Rect rect, int i, float f, float f1, float f2, float f3)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   link_.Link createLinkFitR(
     rect_.Rect rect,
     int i,
@@ -274,7 +287,7 @@ class PDFPage extends page_.Page {
       r"(Lcom/artifex/mupdf/fitz/Rect;IF)Lcom/artifex/mupdf/fitz/Link;");
 
   /// from: public com.artifex.mupdf.fitz.Link createLinkFitV(com.artifex.mupdf.fitz.Rect rect, int i, float f)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   link_.Link createLinkFitV(
     rect_.Rect rect,
     int i,
@@ -293,7 +306,7 @@ class PDFPage extends page_.Page {
       r"(Lcom/artifex/mupdf/fitz/Rect;IF)Lcom/artifex/mupdf/fitz/Link;");
 
   /// from: public com.artifex.mupdf.fitz.Link createLinkFitBV(com.artifex.mupdf.fitz.Rect rect, int i, float f)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   link_.Link createLinkFitBV(
     rect_.Rect rect,
     int i,
@@ -312,7 +325,7 @@ class PDFPage extends page_.Page {
       r"(Lcom/artifex/mupdf/fitz/Rect;IF)Lcom/artifex/mupdf/fitz/Link;");
 
   /// from: public com.artifex.mupdf.fitz.Link createLinkFitH(com.artifex.mupdf.fitz.Rect rect, int i, float f)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   link_.Link createLinkFitH(
     rect_.Rect rect,
     int i,
@@ -331,7 +344,7 @@ class PDFPage extends page_.Page {
       r"(Lcom/artifex/mupdf/fitz/Rect;IF)Lcom/artifex/mupdf/fitz/Link;");
 
   /// from: public com.artifex.mupdf.fitz.Link createLinkFitBH(com.artifex.mupdf.fitz.Rect rect, int i, float f)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   link_.Link createLinkFitBH(
     rect_.Rect rect,
     int i,

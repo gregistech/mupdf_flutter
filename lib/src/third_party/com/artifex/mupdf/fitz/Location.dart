@@ -55,18 +55,18 @@ class Location extends jni.JObject {
       .getField(reference, _id_page, jni.JniCallType.intType)
       .integer;
 
-  static final _id_ctor =
+  static final _id_new0 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"(II)V");
 
   /// from: public void <init>(int i, int i1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory Location(
     int i,
     int i1,
   ) {
     return Location.fromRef(jni.Jni.accessors.newObjectWithArgs(
         _class.reference,
-        _id_ctor,
+        _id_new0,
         [jni.JValueInt(i), jni.JValueInt(i1)]).object);
   }
 
@@ -94,7 +94,7 @@ class Location extends jni.JObject {
       .getMethodIDOf(_class.reference, r"toString", r"()Ljava/lang/String;");
 
   /// from: public java.lang.String toString()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString toString1() {
     return const jni.JStringType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_toString1, jni.JniCallType.objectType, []).object);

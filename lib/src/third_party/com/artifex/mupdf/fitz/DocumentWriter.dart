@@ -55,28 +55,9 @@ class DocumentWriter_OCRListener extends jni.JObject {
         [jni.JValueInt(i), jni.JValueInt(i1)]).boolean;
   }
 
-  /// Maps a specific port to the implemented methods.
-  static final Map<int, Map<String, Function>> _$methods = {};
-
-  /// Maps a specific port to the type parameters.
-  static final Map<int, Map<String, jni.JObjType>> _$types = {};
-
+  /// Maps a specific port to the implemented interface.
+  static final Map<int, $DocumentWriter_OCRListenerImpl> _$impls = {};
   ReceivePort? _$p;
-
-  static final Finalizer<ReceivePort> _$finalizer = Finalizer(($p) {
-    _$methods.remove($p.sendPort.nativePort);
-    _$types.remove($p.sendPort.nativePort);
-    $p.close();
-  });
-
-  @override
-  void delete() {
-    _$methods.remove(_$p?.sendPort.nativePort);
-    _$types.remove(_$p?.sendPort.nativePort);
-    _$p?.close();
-    _$finalizer.detach(this);
-    super.delete();
-  }
 
   static jni.JObjectPtr _$invoke(
     int port,
@@ -103,25 +84,29 @@ class DocumentWriter_OCRListener extends jni.JObject {
     int $p,
     $MethodInvocation $i,
   ) {
-    final $d = $i.methodDescriptor.toDartString(deleteOriginal: true);
-    final $a = $i.args;
-    if ($d == r"progress(II)Z") {
-      final $r = _$methods[$p]![$d]!(
-        $a[0]
-            .castTo(const jni.JIntegerType(), deleteOriginal: true)
-            .intValue(deleteOriginal: true),
-        $a[1]
-            .castTo(const jni.JIntegerType(), deleteOriginal: true)
-            .intValue(deleteOriginal: true),
-      );
-      return (jni.JBoolean($r)..setAsDeleted()).reference;
+    try {
+      final $d = $i.methodDescriptor.toDartString(releaseOriginal: true);
+      final $a = $i.args;
+      if ($d == r"progress(II)Z") {
+        final $r = _$impls[$p]!.progress(
+          $a[0]
+              .castTo(const jni.JIntegerType(), releaseOriginal: true)
+              .intValue(releaseOriginal: true),
+          $a[1]
+              .castTo(const jni.JIntegerType(), releaseOriginal: true)
+              .intValue(releaseOriginal: true),
+        );
+        return jni.JBoolean($r).toPointer();
+      }
+    } catch (e) {
+      return ProtectedJniExtensions.newDartException(e.toString());
     }
     return jni.nullptr;
   }
 
-  factory DocumentWriter_OCRListener.implement({
-    required bool Function(int i, int i1) progress,
-  }) {
+  factory DocumentWriter_OCRListener.implement(
+    $DocumentWriter_OCRListenerImpl $impl,
+  ) {
     final $p = ReceivePort();
     final $x = DocumentWriter_OCRListener.fromRef(
       ProtectedJniExtensions.newPortProxy(
@@ -131,16 +116,39 @@ class DocumentWriter_OCRListener extends jni.JObject {
       ),
     ).._$p = $p;
     final $a = $p.sendPort.nativePort;
-    _$types[$a] = {};
-    _$methods[$a] = {};
-    _$methods[$a]![r"progress(II)Z"] = progress;
-    _$finalizer.attach($x, $p, detach: $x);
+    _$impls[$a] = $impl;
     $p.listen(($m) {
+      if ($m == null) {
+        _$impls.remove($p.sendPort.nativePort);
+        $p.close();
+        return;
+      }
       final $i = $MethodInvocation.fromMessage($m);
       final $r = _$invokeMethod($p.sendPort.nativePort, $i);
       ProtectedJniExtensions.returnResult($i.result, $r);
     });
     return $x;
+  }
+}
+
+abstract class $DocumentWriter_OCRListenerImpl {
+  factory $DocumentWriter_OCRListenerImpl({
+    required bool Function(int i, int i1) progress,
+  }) = _$DocumentWriter_OCRListenerImpl;
+
+  bool progress(int i, int i1);
+}
+
+class _$DocumentWriter_OCRListenerImpl
+    implements $DocumentWriter_OCRListenerImpl {
+  _$DocumentWriter_OCRListenerImpl({
+    required bool Function(int i, int i1) progress,
+  }) : _progress = progress;
+
+  final bool Function(int i, int i1) _progress;
+
+  bool progress(int i, int i1) {
+    return _progress(i, i1);
   }
 }
 
@@ -204,11 +212,11 @@ class DocumentWriter extends jni.JObject {
         reference, _id_destroy, jni.JniCallType.voidType, []).check();
   }
 
-  static final _id_ctor = jni.Jni.accessors.getMethodIDOf(_class.reference,
+  static final _id_new0 = jni.Jni.accessors.getMethodIDOf(_class.reference,
       r"<init>", r"(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V");
 
   /// from: public void <init>(java.lang.String string, java.lang.String string1, java.lang.String string2)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory DocumentWriter(
     jni.JString string,
     jni.JString string1,
@@ -216,24 +224,24 @@ class DocumentWriter extends jni.JObject {
   ) {
     return DocumentWriter.fromRef(jni.Jni.accessors.newObjectWithArgs(
         _class.reference,
-        _id_ctor,
+        _id_new0,
         [string.reference, string1.reference, string2.reference]).object);
   }
 
-  static final _id_ctor1 = jni.Jni.accessors.getMethodIDOf(
+  static final _id_new1 = jni.Jni.accessors.getMethodIDOf(
       _class.reference,
       r"<init>",
       r"(Lcom/artifex/mupdf/fitz/SeekableOutputStream;Ljava/lang/String;Ljava/lang/String;)V");
 
   /// from: public void <init>(com.artifex.mupdf.fitz.SeekableOutputStream seekableOutputStream, java.lang.String string, java.lang.String string1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory DocumentWriter.ctor1(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory DocumentWriter.new1(
     seekableoutputstream_.SeekableOutputStream seekableOutputStream,
     jni.JString string,
     jni.JString string1,
   ) {
     return DocumentWriter.fromRef(jni.Jni.accessors.newObjectWithArgs(
-        _class.reference, _id_ctor1, [
+        _class.reference, _id_new1, [
       seekableOutputStream.reference,
       string.reference,
       string1.reference
@@ -246,7 +254,7 @@ class DocumentWriter extends jni.JObject {
       r"(Lcom/artifex/mupdf/fitz/Rect;)Lcom/artifex/mupdf/fitz/Device;");
 
   /// from: public native com.artifex.mupdf.fitz.Device beginPage(com.artifex.mupdf.fitz.Rect rect)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   device_.Device beginPage(
     rect_.Rect rect,
   ) {

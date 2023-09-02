@@ -41,13 +41,13 @@ class OutlineIterator_OutlineItem extends jni.JObject {
   );
 
   /// from: public java.lang.String title
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString get title => const jni.JStringType().fromRef(jni.Jni.accessors
       .getField(reference, _id_title, jni.JniCallType.objectType)
       .object);
 
   /// from: public java.lang.String title
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   set title(jni.JString value) =>
       jni.Jni.env.SetObjectField(reference, _id_title, value.reference);
 
@@ -58,13 +58,13 @@ class OutlineIterator_OutlineItem extends jni.JObject {
   );
 
   /// from: public java.lang.String uri
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString get uri => const jni.JStringType().fromRef(jni.Jni.accessors
       .getField(reference, _id_uri, jni.JniCallType.objectType)
       .object);
 
   /// from: public java.lang.String uri
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   set uri(jni.JString value) =>
       jni.Jni.env.SetObjectField(reference, _id_uri, value.reference);
 
@@ -83,18 +83,18 @@ class OutlineIterator_OutlineItem extends jni.JObject {
   set is_open(bool value) =>
       jni.Jni.env.SetBooleanField(reference, _id_is_open, value ? 1 : 0);
 
-  static final _id_ctor = jni.Jni.accessors.getMethodIDOf(
+  static final _id_new0 = jni.Jni.accessors.getMethodIDOf(
       _class.reference, r"<init>", r"(Ljava/lang/String;Ljava/lang/String;Z)V");
 
   /// from: public void <init>(java.lang.String string, java.lang.String string1, boolean z)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory OutlineIterator_OutlineItem(
     jni.JString string,
     jni.JString string1,
     bool z,
   ) {
     return OutlineIterator_OutlineItem.fromRef(jni.Jni.accessors
-        .newObjectWithArgs(_class.reference, _id_ctor,
+        .newObjectWithArgs(_class.reference, _id_new0,
             [string.reference, string1.reference, z ? 1 : 0]).object);
   }
 }
@@ -174,16 +174,16 @@ class OutlineIterator extends jni.JObject {
         reference, _id_destroy, jni.JniCallType.voidType, []).check();
   }
 
-  static final _id_ctor =
+  static final _id_new0 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"(J)V");
 
   /// from: protected void <init>(long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory OutlineIterator(
     int j,
   ) {
     return OutlineIterator.fromRef(jni.Jni.accessors
-        .newObjectWithArgs(_class.reference, _id_ctor, [j]).object);
+        .newObjectWithArgs(_class.reference, _id_new0, [j]).object);
   }
 
   static final _id_next =
@@ -280,20 +280,20 @@ class OutlineIterator extends jni.JObject {
       r"item", r"()Lcom/artifex/mupdf/fitz/OutlineIterator$OutlineItem;");
 
   /// from: public native com.artifex.mupdf.fitz.OutlineIterator$OutlineItem item()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   OutlineIterator_OutlineItem item() {
     return const $OutlineIterator_OutlineItemType().fromRef(jni.Jni.accessors
         .callMethodWithArgs(
             reference, _id_item, jni.JniCallType.objectType, []).object);
   }
 
-  static final _id_delete1 =
+  static final _id_delete =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"delete", r"()I");
 
   /// from: public native int delete()
-  int delete1() {
+  int delete() {
     return jni.Jni.accessors.callMethodWithArgs(
-        reference, _id_delete1, jni.JniCallType.intType, []).integer;
+        reference, _id_delete, jni.JniCallType.intType, []).integer;
   }
 }
 

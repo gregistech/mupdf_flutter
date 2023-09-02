@@ -59,28 +59,9 @@ class SeekableOutputStream extends jni.JObject {
         reference, _id_truncate, jni.JniCallType.voidType, []).check();
   }
 
-  /// Maps a specific port to the implemented methods.
-  static final Map<int, Map<String, Function>> _$methods = {};
-
-  /// Maps a specific port to the type parameters.
-  static final Map<int, Map<String, jni.JObjType>> _$types = {};
-
+  /// Maps a specific port to the implemented interface.
+  static final Map<int, $SeekableOutputStreamImpl> _$impls = {};
   ReceivePort? _$p;
-
-  static final Finalizer<ReceivePort> _$finalizer = Finalizer(($p) {
-    _$methods.remove($p.sendPort.nativePort);
-    _$types.remove($p.sendPort.nativePort);
-    $p.close();
-  });
-
-  @override
-  void delete() {
-    _$methods.remove(_$p?.sendPort.nativePort);
-    _$types.remove(_$p?.sendPort.nativePort);
-    _$p?.close();
-    _$finalizer.detach(this);
-    super.delete();
-  }
 
   static jni.JObjectPtr _$invoke(
     int port,
@@ -107,32 +88,35 @@ class SeekableOutputStream extends jni.JObject {
     int $p,
     $MethodInvocation $i,
   ) {
-    final $d = $i.methodDescriptor.toDartString(deleteOriginal: true);
-    final $a = $i.args;
-    if ($d == r"write([BII)V") {
-      _$methods[$p]![$d]!(
-        $a[0].castTo(const jni.JArrayType(jni.JByteType()),
-            deleteOriginal: true),
-        $a[1]
-            .castTo(const jni.JIntegerType(), deleteOriginal: true)
-            .intValue(deleteOriginal: true),
-        $a[2]
-            .castTo(const jni.JIntegerType(), deleteOriginal: true)
-            .intValue(deleteOriginal: true),
-      );
-      return jni.nullptr;
-    }
-    if ($d == r"truncate()V") {
-      _$methods[$p]![$d]!();
-      return jni.nullptr;
+    try {
+      final $d = $i.methodDescriptor.toDartString(releaseOriginal: true);
+      final $a = $i.args;
+      if ($d == r"write([BII)V") {
+        _$impls[$p]!.write(
+          $a[0].castTo(const jni.JArrayType(jni.jbyteType()),
+              releaseOriginal: true),
+          $a[1]
+              .castTo(const jni.JIntegerType(), releaseOriginal: true)
+              .intValue(releaseOriginal: true),
+          $a[2]
+              .castTo(const jni.JIntegerType(), releaseOriginal: true)
+              .intValue(releaseOriginal: true),
+        );
+        return jni.nullptr;
+      }
+      if ($d == r"truncate()V") {
+        _$impls[$p]!.truncate();
+        return jni.nullptr;
+      }
+    } catch (e) {
+      return ProtectedJniExtensions.newDartException(e.toString());
     }
     return jni.nullptr;
   }
 
-  factory SeekableOutputStream.implement({
-    required void Function(jni.JArray<jni.jbyte> bs, int i, int i1) write,
-    required void Function() truncate,
-  }) {
+  factory SeekableOutputStream.implement(
+    $SeekableOutputStreamImpl $impl,
+  ) {
     final $p = ReceivePort();
     final $x = SeekableOutputStream.fromRef(
       ProtectedJniExtensions.newPortProxy(
@@ -142,17 +126,47 @@ class SeekableOutputStream extends jni.JObject {
       ),
     ).._$p = $p;
     final $a = $p.sendPort.nativePort;
-    _$types[$a] = {};
-    _$methods[$a] = {};
-    _$methods[$a]![r"write([BII)V"] = write;
-    _$methods[$a]![r"truncate()V"] = truncate;
-    _$finalizer.attach($x, $p, detach: $x);
+    _$impls[$a] = $impl;
     $p.listen(($m) {
+      if ($m == null) {
+        _$impls.remove($p.sendPort.nativePort);
+        $p.close();
+        return;
+      }
       final $i = $MethodInvocation.fromMessage($m);
       final $r = _$invokeMethod($p.sendPort.nativePort, $i);
       ProtectedJniExtensions.returnResult($i.result, $r);
     });
     return $x;
+  }
+}
+
+abstract class $SeekableOutputStreamImpl {
+  factory $SeekableOutputStreamImpl({
+    required void Function(jni.JArray<jni.jbyte> bs, int i, int i1) write,
+    required void Function() truncate,
+  }) = _$SeekableOutputStreamImpl;
+
+  void write(jni.JArray<jni.jbyte> bs, int i, int i1);
+  void truncate();
+}
+
+class _$SeekableOutputStreamImpl implements $SeekableOutputStreamImpl {
+  _$SeekableOutputStreamImpl({
+    required void Function(jni.JArray<jni.jbyte> bs, int i, int i1) write,
+    required void Function() truncate,
+  })  : _write = write,
+        _truncate = truncate;
+
+  final void Function(jni.JArray<jni.jbyte> bs, int i, int i1) _write;
+  final void Function() _truncate;
+
+  void write(jni.JArray<jni.jbyte> bs, int i, int i1) {
+    return _write(bs, i, i1);
+  }
+
+  void truncate() {
+    return _truncate();
   }
 }
 

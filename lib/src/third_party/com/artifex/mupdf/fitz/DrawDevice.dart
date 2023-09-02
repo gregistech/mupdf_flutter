@@ -38,16 +38,16 @@ class DrawDevice extends nativedevice_.NativeDevice {
 
   /// The type which includes information such as the signature of this class.
   static const type = $DrawDeviceType();
-  static final _id_ctor2 = jni.Jni.accessors.getMethodIDOf(
+  static final _id_new2 = jni.Jni.accessors.getMethodIDOf(
       _class.reference, r"<init>", r"(Lcom/artifex/mupdf/fitz/Pixmap;)V");
 
   /// from: public void <init>(com.artifex.mupdf.fitz.Pixmap pixmap)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory DrawDevice.ctor2(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory DrawDevice.new2(
     pixmap_.Pixmap pixmap,
   ) {
     return DrawDevice.fromRef(jni.Jni.accessors.newObjectWithArgs(
-        _class.reference, _id_ctor2, [pixmap.reference]).object);
+        _class.reference, _id_new2, [pixmap.reference]).object);
   }
 }
 

@@ -63,36 +63,36 @@ class Point extends jni.JObject {
   /// from: public float y
   set y(double value) => jni.Jni.env.SetFloatField(reference, _id_y, value);
 
-  static final _id_ctor =
+  static final _id_new0 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"(FF)V");
 
   /// from: public void <init>(float f, float f1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory Point(
     double f,
     double f1,
   ) {
     return Point.fromRef(jni.Jni.accessors.newObjectWithArgs(_class.reference,
-        _id_ctor, [jni.JValueFloat(f), jni.JValueFloat(f1)]).object);
+        _id_new0, [jni.JValueFloat(f), jni.JValueFloat(f1)]).object);
   }
 
-  static final _id_ctor1 = jni.Jni.accessors.getMethodIDOf(
+  static final _id_new1 = jni.Jni.accessors.getMethodIDOf(
       _class.reference, r"<init>", r"(Lcom/artifex/mupdf/fitz/Point;)V");
 
   /// from: public void <init>(com.artifex.mupdf.fitz.Point point)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory Point.ctor1(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Point.new1(
     Point point,
   ) {
     return Point.fromRef(jni.Jni.accessors.newObjectWithArgs(
-        _class.reference, _id_ctor1, [point.reference]).object);
+        _class.reference, _id_new1, [point.reference]).object);
   }
 
   static final _id_toString1 = jni.Jni.accessors
       .getMethodIDOf(_class.reference, r"toString", r"()Ljava/lang/String;");
 
   /// from: public java.lang.String toString()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString toString1() {
     return const jni.JStringType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_toString1, jni.JniCallType.objectType, []).object);
@@ -104,7 +104,7 @@ class Point extends jni.JObject {
       r"(Lcom/artifex/mupdf/fitz/Matrix;)Lcom/artifex/mupdf/fitz/Point;");
 
   /// from: public com.artifex.mupdf.fitz.Point transform(com.artifex.mupdf.fitz.Matrix matrix)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Point transform(
     matrix_.Matrix matrix,
   ) {

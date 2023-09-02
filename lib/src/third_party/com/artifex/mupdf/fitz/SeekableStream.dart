@@ -65,28 +65,9 @@ class SeekableStream extends jni.JObject {
         reference, _id_position, jni.JniCallType.longType, []).long;
   }
 
-  /// Maps a specific port to the implemented methods.
-  static final Map<int, Map<String, Function>> _$methods = {};
-
-  /// Maps a specific port to the type parameters.
-  static final Map<int, Map<String, jni.JObjType>> _$types = {};
-
+  /// Maps a specific port to the implemented interface.
+  static final Map<int, $SeekableStreamImpl> _$impls = {};
   ReceivePort? _$p;
-
-  static final Finalizer<ReceivePort> _$finalizer = Finalizer(($p) {
-    _$methods.remove($p.sendPort.nativePort);
-    _$types.remove($p.sendPort.nativePort);
-    $p.close();
-  });
-
-  @override
-  void delete() {
-    _$methods.remove(_$p?.sendPort.nativePort);
-    _$types.remove(_$p?.sendPort.nativePort);
-    _$p?.close();
-    _$finalizer.detach(this);
-    super.delete();
-  }
 
   static jni.JObjectPtr _$invoke(
     int port,
@@ -113,30 +94,33 @@ class SeekableStream extends jni.JObject {
     int $p,
     $MethodInvocation $i,
   ) {
-    final $d = $i.methodDescriptor.toDartString(deleteOriginal: true);
-    final $a = $i.args;
-    if ($d == r"seek(JI)J") {
-      final $r = _$methods[$p]![$d]!(
-        $a[0]
-            .castTo(const jni.JLongType(), deleteOriginal: true)
-            .longValue(deleteOriginal: true),
-        $a[1]
-            .castTo(const jni.JIntegerType(), deleteOriginal: true)
-            .intValue(deleteOriginal: true),
-      );
-      return (jni.JLong($r)..setAsDeleted()).reference;
-    }
-    if ($d == r"position()J") {
-      final $r = _$methods[$p]![$d]!();
-      return (jni.JLong($r)..setAsDeleted()).reference;
+    try {
+      final $d = $i.methodDescriptor.toDartString(releaseOriginal: true);
+      final $a = $i.args;
+      if ($d == r"seek(JI)J") {
+        final $r = _$impls[$p]!.seek(
+          $a[0]
+              .castTo(const jni.JLongType(), releaseOriginal: true)
+              .longValue(releaseOriginal: true),
+          $a[1]
+              .castTo(const jni.JIntegerType(), releaseOriginal: true)
+              .intValue(releaseOriginal: true),
+        );
+        return jni.JLong($r).toPointer();
+      }
+      if ($d == r"position()J") {
+        final $r = _$impls[$p]!.position();
+        return jni.JLong($r).toPointer();
+      }
+    } catch (e) {
+      return ProtectedJniExtensions.newDartException(e.toString());
     }
     return jni.nullptr;
   }
 
-  factory SeekableStream.implement({
-    required int Function(int j, int i) seek,
-    required int Function() position,
-  }) {
+  factory SeekableStream.implement(
+    $SeekableStreamImpl $impl,
+  ) {
     final $p = ReceivePort();
     final $x = SeekableStream.fromRef(
       ProtectedJniExtensions.newPortProxy(
@@ -146,17 +130,47 @@ class SeekableStream extends jni.JObject {
       ),
     ).._$p = $p;
     final $a = $p.sendPort.nativePort;
-    _$types[$a] = {};
-    _$methods[$a] = {};
-    _$methods[$a]![r"seek(JI)J"] = seek;
-    _$methods[$a]![r"position()J"] = position;
-    _$finalizer.attach($x, $p, detach: $x);
+    _$impls[$a] = $impl;
     $p.listen(($m) {
+      if ($m == null) {
+        _$impls.remove($p.sendPort.nativePort);
+        $p.close();
+        return;
+      }
       final $i = $MethodInvocation.fromMessage($m);
       final $r = _$invokeMethod($p.sendPort.nativePort, $i);
       ProtectedJniExtensions.returnResult($i.result, $r);
     });
     return $x;
+  }
+}
+
+abstract class $SeekableStreamImpl {
+  factory $SeekableStreamImpl({
+    required int Function(int j, int i) seek,
+    required int Function() position,
+  }) = _$SeekableStreamImpl;
+
+  int seek(int j, int i);
+  int position();
+}
+
+class _$SeekableStreamImpl implements $SeekableStreamImpl {
+  _$SeekableStreamImpl({
+    required int Function(int j, int i) seek,
+    required int Function() position,
+  })  : _seek = seek,
+        _position = position;
+
+  final int Function(int j, int i) _seek;
+  final int Function() _position;
+
+  int seek(int j, int i) {
+    return _seek(j, i);
+  }
+
+  int position() {
+    return _position();
   }
 }
 

@@ -40,12 +40,12 @@ class AndroidDrawDevice extends nativedevice_.NativeDevice {
 
   /// The type which includes information such as the signature of this class.
   static const type = $AndroidDrawDeviceType();
-  static final _id_ctor2 = jni.Jni.accessors.getMethodIDOf(
+  static final _id_new2 = jni.Jni.accessors.getMethodIDOf(
       _class.reference, r"<init>", r"(Landroid/graphics/Bitmap;IIIIIIZ)V");
 
   /// from: public void <init>(android.graphics.Bitmap bitmap, int i, int i1, int i2, int i3, int i4, int i5, boolean z)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory AndroidDrawDevice.ctor2(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory AndroidDrawDevice.new2(
     jni.JObject bitmap,
     int i,
     int i1,
@@ -56,7 +56,7 @@ class AndroidDrawDevice extends nativedevice_.NativeDevice {
     bool z,
   ) {
     return AndroidDrawDevice.fromRef(
-        jni.Jni.accessors.newObjectWithArgs(_class.reference, _id_ctor2, [
+        jni.Jni.accessors.newObjectWithArgs(_class.reference, _id_new2, [
       bitmap.reference,
       jni.JValueInt(i),
       jni.JValueInt(i1),
@@ -68,12 +68,12 @@ class AndroidDrawDevice extends nativedevice_.NativeDevice {
     ]).object);
   }
 
-  static final _id_ctor3 = jni.Jni.accessors.getMethodIDOf(
+  static final _id_new3 = jni.Jni.accessors.getMethodIDOf(
       _class.reference, r"<init>", r"(Landroid/graphics/Bitmap;IIIIII)V");
 
   /// from: public void <init>(android.graphics.Bitmap bitmap, int i, int i1, int i2, int i3, int i4, int i5)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory AndroidDrawDevice.ctor3(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory AndroidDrawDevice.new3(
     jni.JObject bitmap,
     int i,
     int i1,
@@ -83,7 +83,7 @@ class AndroidDrawDevice extends nativedevice_.NativeDevice {
     int i5,
   ) {
     return AndroidDrawDevice.fromRef(
-        jni.Jni.accessors.newObjectWithArgs(_class.reference, _id_ctor3, [
+        jni.Jni.accessors.newObjectWithArgs(_class.reference, _id_new3, [
       bitmap.reference,
       jni.JValueInt(i),
       jni.JValueInt(i1),
@@ -94,19 +94,19 @@ class AndroidDrawDevice extends nativedevice_.NativeDevice {
     ]).object);
   }
 
-  static final _id_ctor4 = jni.Jni.accessors.getMethodIDOf(
+  static final _id_new4 = jni.Jni.accessors.getMethodIDOf(
       _class.reference, r"<init>", r"(Landroid/graphics/Bitmap;IIZ)V");
 
   /// from: public void <init>(android.graphics.Bitmap bitmap, int i, int i1, boolean z)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory AndroidDrawDevice.ctor4(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory AndroidDrawDevice.new4(
     jni.JObject bitmap,
     int i,
     int i1,
     bool z,
   ) {
     return AndroidDrawDevice.fromRef(jni.Jni.accessors.newObjectWithArgs(
-        _class.reference, _id_ctor4, [
+        _class.reference, _id_new4, [
       bitmap.reference,
       jni.JValueInt(i),
       jni.JValueInt(i1),
@@ -114,45 +114,45 @@ class AndroidDrawDevice extends nativedevice_.NativeDevice {
     ]).object);
   }
 
-  static final _id_ctor5 = jni.Jni.accessors.getMethodIDOf(
+  static final _id_new5 = jni.Jni.accessors.getMethodIDOf(
       _class.reference, r"<init>", r"(Landroid/graphics/Bitmap;II)V");
 
   /// from: public void <init>(android.graphics.Bitmap bitmap, int i, int i1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory AndroidDrawDevice.ctor5(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory AndroidDrawDevice.new5(
     jni.JObject bitmap,
     int i,
     int i1,
   ) {
     return AndroidDrawDevice.fromRef(jni.Jni.accessors.newObjectWithArgs(
         _class.reference,
-        _id_ctor5,
+        _id_new5,
         [bitmap.reference, jni.JValueInt(i), jni.JValueInt(i1)]).object);
   }
 
-  static final _id_ctor6 = jni.Jni.accessors.getMethodIDOf(
+  static final _id_new6 = jni.Jni.accessors.getMethodIDOf(
       _class.reference, r"<init>", r"(Landroid/graphics/Bitmap;Z)V");
 
   /// from: public void <init>(android.graphics.Bitmap bitmap, boolean z)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory AndroidDrawDevice.ctor6(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory AndroidDrawDevice.new6(
     jni.JObject bitmap,
     bool z,
   ) {
     return AndroidDrawDevice.fromRef(jni.Jni.accessors.newObjectWithArgs(
-        _class.reference, _id_ctor6, [bitmap.reference, z ? 1 : 0]).object);
+        _class.reference, _id_new6, [bitmap.reference, z ? 1 : 0]).object);
   }
 
-  static final _id_ctor7 = jni.Jni.accessors.getMethodIDOf(
+  static final _id_new7 = jni.Jni.accessors.getMethodIDOf(
       _class.reference, r"<init>", r"(Landroid/graphics/Bitmap;)V");
 
   /// from: public void <init>(android.graphics.Bitmap bitmap)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory AndroidDrawDevice.ctor7(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory AndroidDrawDevice.new7(
     jni.JObject bitmap,
   ) {
     return AndroidDrawDevice.fromRef(jni.Jni.accessors.newObjectWithArgs(
-        _class.reference, _id_ctor7, [bitmap.reference]).object);
+        _class.reference, _id_new7, [bitmap.reference]).object);
   }
 
   static final _id_drawPage = jni.Jni.accessors.getStaticMethodIDOf(
@@ -161,7 +161,7 @@ class AndroidDrawDevice extends nativedevice_.NativeDevice {
       r"(Lcom/artifex/mupdf/fitz/Page;Lcom/artifex/mupdf/fitz/Matrix;)Landroid/graphics/Bitmap;");
 
   /// from: static public android.graphics.Bitmap drawPage(com.artifex.mupdf.fitz.Page page, com.artifex.mupdf.fitz.Matrix matrix)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static jni.JObject drawPage(
     page_.Page page,
     matrix_.Matrix matrix,
@@ -180,7 +180,7 @@ class AndroidDrawDevice extends nativedevice_.NativeDevice {
       r"(Lcom/artifex/mupdf/fitz/Page;FI)Landroid/graphics/Bitmap;");
 
   /// from: static public android.graphics.Bitmap drawPage(com.artifex.mupdf.fitz.Page page, float f, int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static jni.JObject drawPage1(
     page_.Page page,
     double f,
@@ -200,7 +200,7 @@ class AndroidDrawDevice extends nativedevice_.NativeDevice {
       r"(Lcom/artifex/mupdf/fitz/Page;F)Landroid/graphics/Bitmap;");
 
   /// from: static public android.graphics.Bitmap drawPage(com.artifex.mupdf.fitz.Page page, float f)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static jni.JObject drawPage2(
     page_.Page page,
     double f,
@@ -219,7 +219,7 @@ class AndroidDrawDevice extends nativedevice_.NativeDevice {
       r"(Lcom/artifex/mupdf/fitz/Page;II)Lcom/artifex/mupdf/fitz/Matrix;");
 
   /// from: static public com.artifex.mupdf.fitz.Matrix fitPage(com.artifex.mupdf.fitz.Page page, int i, int i1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static matrix_.Matrix fitPage(
     page_.Page page,
     int i,
@@ -239,7 +239,7 @@ class AndroidDrawDevice extends nativedevice_.NativeDevice {
       r"(Lcom/artifex/mupdf/fitz/Page;II)Landroid/graphics/Bitmap;");
 
   /// from: static public android.graphics.Bitmap drawPageFit(com.artifex.mupdf.fitz.Page page, int i, int i1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static jni.JObject drawPageFit(
     page_.Page page,
     int i,
@@ -259,7 +259,7 @@ class AndroidDrawDevice extends nativedevice_.NativeDevice {
       r"(Lcom/artifex/mupdf/fitz/Page;I)Lcom/artifex/mupdf/fitz/Matrix;");
 
   /// from: static public com.artifex.mupdf.fitz.Matrix fitPageWidth(com.artifex.mupdf.fitz.Page page, int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static matrix_.Matrix fitPageWidth(
     page_.Page page,
     int i,
@@ -278,7 +278,7 @@ class AndroidDrawDevice extends nativedevice_.NativeDevice {
       r"(Lcom/artifex/mupdf/fitz/Page;I)Landroid/graphics/Bitmap;");
 
   /// from: static public android.graphics.Bitmap drawPageFitWidth(com.artifex.mupdf.fitz.Page page, int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static jni.JObject drawPageFitWidth(
     page_.Page page,
     int i,

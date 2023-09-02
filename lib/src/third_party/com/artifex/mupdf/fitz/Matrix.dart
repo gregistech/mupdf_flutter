@@ -117,11 +117,11 @@ class Matrix extends jni.JObject {
   /// from: public float f
   set f(double value) => jni.Jni.env.SetFloatField(reference, _id_f, value);
 
-  static final _id_ctor = jni.Jni.accessors
+  static final _id_new0 = jni.Jni.accessors
       .getMethodIDOf(_class.reference, r"<init>", r"(FFFFFF)V");
 
   /// from: public void <init>(float f, float f1, float f2, float f3, float f4, float f5)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory Matrix(
     double f,
     double f1,
@@ -131,7 +131,7 @@ class Matrix extends jni.JObject {
     double f5,
   ) {
     return Matrix.fromRef(
-        jni.Jni.accessors.newObjectWithArgs(_class.reference, _id_ctor, [
+        jni.Jni.accessors.newObjectWithArgs(_class.reference, _id_new0, [
       jni.JValueFloat(f),
       jni.JValueFloat(f1),
       jni.JValueFloat(f2),
@@ -141,19 +141,19 @@ class Matrix extends jni.JObject {
     ]).object);
   }
 
-  static final _id_ctor1 =
+  static final _id_new1 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"(FFFF)V");
 
   /// from: public void <init>(float f, float f1, float f2, float f3)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory Matrix.ctor1(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Matrix.new1(
     double f,
     double f1,
     double f2,
     double f3,
   ) {
     return Matrix.fromRef(
-        jni.Jni.accessors.newObjectWithArgs(_class.reference, _id_ctor1, [
+        jni.Jni.accessors.newObjectWithArgs(_class.reference, _id_new1, [
       jni.JValueFloat(f),
       jni.JValueFloat(f1),
       jni.JValueFloat(f2),
@@ -161,66 +161,66 @@ class Matrix extends jni.JObject {
     ]).object);
   }
 
-  static final _id_ctor2 =
+  static final _id_new2 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"(FF)V");
 
   /// from: public void <init>(float f, float f1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory Matrix.ctor2(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Matrix.new2(
     double f,
     double f1,
   ) {
     return Matrix.fromRef(jni.Jni.accessors.newObjectWithArgs(_class.reference,
-        _id_ctor2, [jni.JValueFloat(f), jni.JValueFloat(f1)]).object);
+        _id_new2, [jni.JValueFloat(f), jni.JValueFloat(f1)]).object);
   }
 
-  static final _id_ctor3 =
+  static final _id_new3 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"(F)V");
 
   /// from: public void <init>(float f)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory Matrix.ctor3(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Matrix.new3(
     double f,
   ) {
     return Matrix.fromRef(jni.Jni.accessors.newObjectWithArgs(
-        _class.reference, _id_ctor3, [jni.JValueFloat(f)]).object);
+        _class.reference, _id_new3, [jni.JValueFloat(f)]).object);
   }
 
-  static final _id_ctor4 =
+  static final _id_new4 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"()V");
 
   /// from: public void <init>()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory Matrix.ctor4() {
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Matrix.new4() {
     return Matrix.fromRef(jni.Jni.accessors
-        .newObjectWithArgs(_class.reference, _id_ctor4, []).object);
+        .newObjectWithArgs(_class.reference, _id_new4, []).object);
   }
 
-  static final _id_ctor5 = jni.Jni.accessors.getMethodIDOf(
+  static final _id_new5 = jni.Jni.accessors.getMethodIDOf(
       _class.reference, r"<init>", r"(Lcom/artifex/mupdf/fitz/Matrix;)V");
 
   /// from: public void <init>(com.artifex.mupdf.fitz.Matrix matrix)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory Matrix.ctor5(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Matrix.new5(
     Matrix matrix,
   ) {
     return Matrix.fromRef(jni.Jni.accessors.newObjectWithArgs(
-        _class.reference, _id_ctor5, [matrix.reference]).object);
+        _class.reference, _id_new5, [matrix.reference]).object);
   }
 
-  static final _id_ctor6 = jni.Jni.accessors.getMethodIDOf(
+  static final _id_new6 = jni.Jni.accessors.getMethodIDOf(
       _class.reference,
       r"<init>",
       r"(Lcom/artifex/mupdf/fitz/Matrix;Lcom/artifex/mupdf/fitz/Matrix;)V");
 
   /// from: public void <init>(com.artifex.mupdf.fitz.Matrix matrix, com.artifex.mupdf.fitz.Matrix matrix1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory Matrix.ctor6(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Matrix.new6(
     Matrix matrix,
     Matrix matrix1,
   ) {
     return Matrix.fromRef(jni.Jni.accessors.newObjectWithArgs(_class.reference,
-        _id_ctor6, [matrix.reference, matrix1.reference]).object);
+        _id_new6, [matrix.reference, matrix1.reference]).object);
   }
 
   static final _id_concat = jni.Jni.accessors.getMethodIDOf(
@@ -229,7 +229,7 @@ class Matrix extends jni.JObject {
       r"(Lcom/artifex/mupdf/fitz/Matrix;)Lcom/artifex/mupdf/fitz/Matrix;");
 
   /// from: public com.artifex.mupdf.fitz.Matrix concat(com.artifex.mupdf.fitz.Matrix matrix)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Matrix concat(
     Matrix matrix,
   ) {
@@ -244,7 +244,7 @@ class Matrix extends jni.JObject {
       _class.reference, r"scale", r"(FF)Lcom/artifex/mupdf/fitz/Matrix;");
 
   /// from: public com.artifex.mupdf.fitz.Matrix scale(float f, float f1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Matrix scale(
     double f,
     double f1,
@@ -260,7 +260,7 @@ class Matrix extends jni.JObject {
       _class.reference, r"scale", r"(F)Lcom/artifex/mupdf/fitz/Matrix;");
 
   /// from: public com.artifex.mupdf.fitz.Matrix scale(float f)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Matrix scale1(
     double f,
   ) {
@@ -275,7 +275,7 @@ class Matrix extends jni.JObject {
       _class.reference, r"translate", r"(FF)Lcom/artifex/mupdf/fitz/Matrix;");
 
   /// from: public com.artifex.mupdf.fitz.Matrix translate(float f, float f1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Matrix translate(
     double f,
     double f1,
@@ -291,7 +291,7 @@ class Matrix extends jni.JObject {
       _class.reference, r"invert", r"()Lcom/artifex/mupdf/fitz/Matrix;");
 
   /// from: public com.artifex.mupdf.fitz.Matrix invert()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Matrix invert() {
     return const $MatrixType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_invert, jni.JniCallType.objectType, []).object);
@@ -301,7 +301,7 @@ class Matrix extends jni.JObject {
       _class.reference, r"rotate", r"(F)Lcom/artifex/mupdf/fitz/Matrix;");
 
   /// from: public com.artifex.mupdf.fitz.Matrix rotate(float f)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Matrix rotate(
     double f,
   ) {
@@ -316,7 +316,7 @@ class Matrix extends jni.JObject {
       .getMethodIDOf(_class.reference, r"toString", r"()Ljava/lang/String;");
 
   /// from: public java.lang.String toString()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString toString1() {
     return const jni.JStringType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_toString1, jni.JniCallType.objectType, []).object);
@@ -326,7 +326,7 @@ class Matrix extends jni.JObject {
       _class.reference, r"Identity", r"()Lcom/artifex/mupdf/fitz/Matrix;");
 
   /// from: static public com.artifex.mupdf.fitz.Matrix Identity()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static Matrix Identity() {
     return const $MatrixType().fromRef(jni.Jni.accessors
         .callStaticMethodWithArgs(_class.reference, _id_Identity,
@@ -337,7 +337,7 @@ class Matrix extends jni.JObject {
       _class.reference, r"Scale", r"(F)Lcom/artifex/mupdf/fitz/Matrix;");
 
   /// from: static public com.artifex.mupdf.fitz.Matrix Scale(float f)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static Matrix Scale(
     double f,
   ) {
@@ -350,7 +350,7 @@ class Matrix extends jni.JObject {
       _class.reference, r"Scale", r"(FF)Lcom/artifex/mupdf/fitz/Matrix;");
 
   /// from: static public com.artifex.mupdf.fitz.Matrix Scale(float f, float f1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static Matrix Scale1(
     double f,
     double f1,
@@ -367,7 +367,7 @@ class Matrix extends jni.JObject {
       _class.reference, r"Translate", r"(FF)Lcom/artifex/mupdf/fitz/Matrix;");
 
   /// from: static public com.artifex.mupdf.fitz.Matrix Translate(float f, float f1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static Matrix Translate(
     double f,
     double f1,
@@ -384,7 +384,7 @@ class Matrix extends jni.JObject {
       _class.reference, r"Rotate", r"(F)Lcom/artifex/mupdf/fitz/Matrix;");
 
   /// from: static public com.artifex.mupdf.fitz.Matrix Rotate(float f)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static Matrix Rotate(
     double f,
   ) {
@@ -399,7 +399,7 @@ class Matrix extends jni.JObject {
       r"(Lcom/artifex/mupdf/fitz/Matrix;)Lcom/artifex/mupdf/fitz/Matrix;");
 
   /// from: static public com.artifex.mupdf.fitz.Matrix Inverted(com.artifex.mupdf.fitz.Matrix matrix)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static Matrix Inverted(
     Matrix matrix,
   ) {

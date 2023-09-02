@@ -43,14 +43,14 @@ class BufferOutputStream extends jni.JObject {
   );
 
   /// from: protected com.artifex.mupdf.fitz.Buffer buffer
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   buffer_.Buffer get buffer =>
       const buffer_.$BufferType().fromRef(jni.Jni.accessors
           .getField(reference, _id_buffer, jni.JniCallType.objectType)
           .object);
 
   /// from: protected com.artifex.mupdf.fitz.Buffer buffer
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   set buffer(buffer_.Buffer value) =>
       jni.Jni.env.SetObjectField(reference, _id_buffer, value.reference);
 
@@ -84,16 +84,16 @@ class BufferOutputStream extends jni.JObject {
   set resetPosition(int value) =>
       jni.Jni.env.SetIntField(reference, _id_resetPosition, value);
 
-  static final _id_ctor = jni.Jni.accessors.getMethodIDOf(
+  static final _id_new0 = jni.Jni.accessors.getMethodIDOf(
       _class.reference, r"<init>", r"(Lcom/artifex/mupdf/fitz/Buffer;)V");
 
   /// from: public void <init>(com.artifex.mupdf.fitz.Buffer buffer)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory BufferOutputStream(
     buffer_.Buffer buffer,
   ) {
     return BufferOutputStream.fromRef(jni.Jni.accessors.newObjectWithArgs(
-        _class.reference, _id_ctor, [buffer.reference]).object);
+        _class.reference, _id_new0, [buffer.reference]).object);
   }
 
   static final _id_write =

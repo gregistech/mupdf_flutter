@@ -159,11 +159,11 @@ class Quad extends jni.JObject {
   set lr_y(double value) =>
       jni.Jni.env.SetFloatField(reference, _id_lr_y, value);
 
-  static final _id_ctor = jni.Jni.accessors
+  static final _id_new0 = jni.Jni.accessors
       .getMethodIDOf(_class.reference, r"<init>", r"(FFFFFFFF)V");
 
   /// from: public void <init>(float f, float f1, float f2, float f3, float f4, float f5, float f6, float f7)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory Quad(
     double f,
     double f1,
@@ -175,7 +175,7 @@ class Quad extends jni.JObject {
     double f7,
   ) {
     return Quad.fromRef(
-        jni.Jni.accessors.newObjectWithArgs(_class.reference, _id_ctor, [
+        jni.Jni.accessors.newObjectWithArgs(_class.reference, _id_new0, [
       jni.JValueFloat(f),
       jni.JValueFloat(f1),
       jni.JValueFloat(f2),
@@ -187,23 +187,23 @@ class Quad extends jni.JObject {
     ]).object);
   }
 
-  static final _id_ctor1 = jni.Jni.accessors.getMethodIDOf(
+  static final _id_new1 = jni.Jni.accessors.getMethodIDOf(
       _class.reference, r"<init>", r"(Lcom/artifex/mupdf/fitz/Rect;)V");
 
   /// from: public void <init>(com.artifex.mupdf.fitz.Rect rect)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory Quad.ctor1(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Quad.new1(
     rect_.Rect rect,
   ) {
     return Quad.fromRef(jni.Jni.accessors.newObjectWithArgs(
-        _class.reference, _id_ctor1, [rect.reference]).object);
+        _class.reference, _id_new1, [rect.reference]).object);
   }
 
   static final _id_toRect = jni.Jni.accessors.getMethodIDOf(
       _class.reference, r"toRect", r"()Lcom/artifex/mupdf/fitz/Rect;");
 
   /// from: public com.artifex.mupdf.fitz.Rect toRect()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   rect_.Rect toRect() {
     return const rect_.$RectType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_toRect, jni.JniCallType.objectType, []).object);
@@ -215,7 +215,7 @@ class Quad extends jni.JObject {
       r"(Lcom/artifex/mupdf/fitz/Matrix;)Lcom/artifex/mupdf/fitz/Quad;");
 
   /// from: public com.artifex.mupdf.fitz.Quad transformed(com.artifex.mupdf.fitz.Matrix matrix)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Quad transformed(
     matrix_.Matrix matrix,
   ) {
@@ -232,7 +232,7 @@ class Quad extends jni.JObject {
       r"(Lcom/artifex/mupdf/fitz/Matrix;)Lcom/artifex/mupdf/fitz/Quad;");
 
   /// from: public com.artifex.mupdf.fitz.Quad transform(com.artifex.mupdf.fitz.Matrix matrix)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Quad transform(
     matrix_.Matrix matrix,
   ) {
@@ -300,7 +300,7 @@ class Quad extends jni.JObject {
       .getMethodIDOf(_class.reference, r"toString", r"()Ljava/lang/String;");
 
   /// from: public java.lang.String toString()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString toString1() {
     return const jni.JStringType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_toString1, jni.JniCallType.objectType, []).object);

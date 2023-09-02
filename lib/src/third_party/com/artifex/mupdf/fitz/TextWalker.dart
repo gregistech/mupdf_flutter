@@ -61,28 +61,9 @@ class TextWalker extends jni.JObject {
     ]).check();
   }
 
-  /// Maps a specific port to the implemented methods.
-  static final Map<int, Map<String, Function>> _$methods = {};
-
-  /// Maps a specific port to the type parameters.
-  static final Map<int, Map<String, jni.JObjType>> _$types = {};
-
+  /// Maps a specific port to the implemented interface.
+  static final Map<int, $TextWalkerImpl> _$impls = {};
   ReceivePort? _$p;
-
-  static final Finalizer<ReceivePort> _$finalizer = Finalizer(($p) {
-    _$methods.remove($p.sendPort.nativePort);
-    _$types.remove($p.sendPort.nativePort);
-    $p.close();
-  });
-
-  @override
-  void delete() {
-    _$methods.remove(_$p?.sendPort.nativePort);
-    _$types.remove(_$p?.sendPort.nativePort);
-    _$p?.close();
-    _$finalizer.detach(this);
-    super.delete();
-  }
 
   static jni.JObjectPtr _$invoke(
     int port,
@@ -109,33 +90,35 @@ class TextWalker extends jni.JObject {
     int $p,
     $MethodInvocation $i,
   ) {
-    final $d = $i.methodDescriptor.toDartString(deleteOriginal: true);
-    final $a = $i.args;
-    if ($d ==
-        r"showGlyph(Lcom/artifex/mupdf/fitz/Font;Lcom/artifex/mupdf/fitz/Matrix;IIZ)V") {
-      _$methods[$p]![$d]!(
-        $a[0].castTo(const font_.$FontType(), deleteOriginal: true),
-        $a[1].castTo(const matrix_.$MatrixType(), deleteOriginal: true),
-        $a[2]
-            .castTo(const jni.JIntegerType(), deleteOriginal: true)
-            .intValue(deleteOriginal: true),
-        $a[3]
-            .castTo(const jni.JIntegerType(), deleteOriginal: true)
-            .intValue(deleteOriginal: true),
-        $a[4]
-            .castTo(const jni.JBooleanType(), deleteOriginal: true)
-            .booleanValue(deleteOriginal: true),
-      );
-      return jni.nullptr;
+    try {
+      final $d = $i.methodDescriptor.toDartString(releaseOriginal: true);
+      final $a = $i.args;
+      if ($d ==
+          r"showGlyph(Lcom/artifex/mupdf/fitz/Font;Lcom/artifex/mupdf/fitz/Matrix;IIZ)V") {
+        _$impls[$p]!.showGlyph(
+          $a[0].castTo(const font_.$FontType(), releaseOriginal: true),
+          $a[1].castTo(const matrix_.$MatrixType(), releaseOriginal: true),
+          $a[2]
+              .castTo(const jni.JIntegerType(), releaseOriginal: true)
+              .intValue(releaseOriginal: true),
+          $a[3]
+              .castTo(const jni.JIntegerType(), releaseOriginal: true)
+              .intValue(releaseOriginal: true),
+          $a[4]
+              .castTo(const jni.JBooleanType(), releaseOriginal: true)
+              .booleanValue(releaseOriginal: true),
+        );
+        return jni.nullptr;
+      }
+    } catch (e) {
+      return ProtectedJniExtensions.newDartException(e.toString());
     }
     return jni.nullptr;
   }
 
-  factory TextWalker.implement({
-    required void Function(
-            font_.Font font, matrix_.Matrix matrix, int i, int i1, bool z)
-        showGlyph,
-  }) {
+  factory TextWalker.implement(
+    $TextWalkerImpl $impl,
+  ) {
     final $p = ReceivePort();
     final $x = TextWalker.fromRef(
       ProtectedJniExtensions.newPortProxy(
@@ -145,18 +128,44 @@ class TextWalker extends jni.JObject {
       ),
     ).._$p = $p;
     final $a = $p.sendPort.nativePort;
-    _$types[$a] = {};
-    _$methods[$a] = {};
-    _$methods[$a]![
-            r"showGlyph(Lcom/artifex/mupdf/fitz/Font;Lcom/artifex/mupdf/fitz/Matrix;IIZ)V"] =
-        showGlyph;
-    _$finalizer.attach($x, $p, detach: $x);
+    _$impls[$a] = $impl;
     $p.listen(($m) {
+      if ($m == null) {
+        _$impls.remove($p.sendPort.nativePort);
+        $p.close();
+        return;
+      }
       final $i = $MethodInvocation.fromMessage($m);
       final $r = _$invokeMethod($p.sendPort.nativePort, $i);
       ProtectedJniExtensions.returnResult($i.result, $r);
     });
     return $x;
+  }
+}
+
+abstract class $TextWalkerImpl {
+  factory $TextWalkerImpl({
+    required void Function(
+            font_.Font font, matrix_.Matrix matrix, int i, int i1, bool z)
+        showGlyph,
+  }) = _$TextWalkerImpl;
+
+  void showGlyph(font_.Font font, matrix_.Matrix matrix, int i, int i1, bool z);
+}
+
+class _$TextWalkerImpl implements $TextWalkerImpl {
+  _$TextWalkerImpl({
+    required void Function(
+            font_.Font font, matrix_.Matrix matrix, int i, int i1, bool z)
+        showGlyph,
+  }) : _showGlyph = showGlyph;
+
+  final void Function(
+      font_.Font font, matrix_.Matrix matrix, int i, int i1, bool z) _showGlyph;
+
+  void showGlyph(
+      font_.Font font, matrix_.Matrix matrix, int i, int i1, bool z) {
+    return _showGlyph(font, matrix, i, i1, z);
   }
 }
 

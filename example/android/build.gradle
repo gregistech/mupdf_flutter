@@ -14,6 +14,9 @@ buildscript {
 allprojects {
     repositories {
         google()
+        flatDir {
+            dirs "../../../mvn_jar"
+        }
         mavenCentral()
     }
 }

@@ -72,64 +72,64 @@ class Image extends jni.JObject {
         reference, _id_destroy, jni.JniCallType.voidType, []).check();
   }
 
-  static final _id_ctor =
+  static final _id_new0 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"(J)V");
 
   /// from: protected void <init>(long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory Image(
     int j,
   ) {
     return Image.fromRef(jni.Jni.accessors
-        .newObjectWithArgs(_class.reference, _id_ctor, [j]).object);
+        .newObjectWithArgs(_class.reference, _id_new0, [j]).object);
   }
 
-  static final _id_ctor1 = jni.Jni.accessors.getMethodIDOf(
+  static final _id_new1 = jni.Jni.accessors.getMethodIDOf(
       _class.reference, r"<init>", r"(Lcom/artifex/mupdf/fitz/Pixmap;)V");
 
   /// from: public void <init>(com.artifex.mupdf.fitz.Pixmap pixmap)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory Image.ctor1(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Image.new1(
     pixmap_.Pixmap pixmap,
   ) {
     return Image.fromRef(jni.Jni.accessors.newObjectWithArgs(
-        _class.reference, _id_ctor1, [pixmap.reference]).object);
+        _class.reference, _id_new1, [pixmap.reference]).object);
   }
 
-  static final _id_ctor2 = jni.Jni.accessors
+  static final _id_new2 = jni.Jni.accessors
       .getMethodIDOf(_class.reference, r"<init>", r"(Ljava/lang/String;)V");
 
   /// from: public void <init>(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory Image.ctor2(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Image.new2(
     jni.JString string,
   ) {
     return Image.fromRef(jni.Jni.accessors.newObjectWithArgs(
-        _class.reference, _id_ctor2, [string.reference]).object);
+        _class.reference, _id_new2, [string.reference]).object);
   }
 
-  static final _id_ctor3 =
+  static final _id_new3 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"([B)V");
 
   /// from: public void <init>(byte[] bs)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory Image.ctor3(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Image.new3(
     jni.JArray<jni.jbyte> bs,
   ) {
     return Image.fromRef(jni.Jni.accessors
-        .newObjectWithArgs(_class.reference, _id_ctor3, [bs.reference]).object);
+        .newObjectWithArgs(_class.reference, _id_new3, [bs.reference]).object);
   }
 
-  static final _id_ctor4 = jni.Jni.accessors.getMethodIDOf(
+  static final _id_new4 = jni.Jni.accessors.getMethodIDOf(
       _class.reference, r"<init>", r"(Lcom/artifex/mupdf/fitz/Buffer;)V");
 
   /// from: public void <init>(com.artifex.mupdf.fitz.Buffer buffer)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory Image.ctor4(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Image.new4(
     buffer_.Buffer buffer,
   ) {
     return Image.fromRef(jni.Jni.accessors.newObjectWithArgs(
-        _class.reference, _id_ctor4, [buffer.reference]).object);
+        _class.reference, _id_new4, [buffer.reference]).object);
   }
 
   static final _id_getWidth =
@@ -174,7 +174,7 @@ class Image extends jni.JObject {
       r"()Lcom/artifex/mupdf/fitz/ColorSpace;");
 
   /// from: public native com.artifex.mupdf.fitz.ColorSpace getColorSpace()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   colorspace_.ColorSpace getColorSpace() {
     return const colorspace_.$ColorSpaceType().fromRef(jni.Jni.accessors
         .callMethodWithArgs(reference, _id_getColorSpace,
@@ -221,7 +221,7 @@ class Image extends jni.JObject {
       .getMethodIDOf(_class.reference, r"getColorKey", r"()[I");
 
   /// from: public native int[] getColorKey()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<jni.jint> getColorKey() {
     return const jni.JArrayType(jni.jintType()).fromRef(jni.Jni.accessors
         .callMethodWithArgs(
@@ -232,7 +232,7 @@ class Image extends jni.JObject {
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"getDecode", r"()[F");
 
   /// from: public native float[] getDecode()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<jni.jfloat> getDecode() {
     return const jni.JArrayType(jni.jfloatType()).fromRef(jni.Jni.accessors
         .callMethodWithArgs(
@@ -252,7 +252,7 @@ class Image extends jni.JObject {
       _class.reference, r"getMask", r"()Lcom/artifex/mupdf/fitz/Image;");
 
   /// from: public native com.artifex.mupdf.fitz.Image getMask()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Image getMask() {
     return const $ImageType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_getMask, jni.JniCallType.objectType, []).object);
@@ -273,7 +273,7 @@ class Image extends jni.JObject {
       _class.reference, r"toPixmap", r"()Lcom/artifex/mupdf/fitz/Pixmap;");
 
   /// from: public native com.artifex.mupdf.fitz.Pixmap toPixmap()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pixmap_.Pixmap toPixmap() {
     return const pixmap_.$PixmapType().fromRef(jni.Jni.accessors
         .callMethodWithArgs(

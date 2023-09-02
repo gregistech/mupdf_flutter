@@ -68,23 +68,23 @@ class DisplayList extends jni.JObject {
         reference, _id_destroy, jni.JniCallType.voidType, []).check();
   }
 
-  static final _id_ctor = jni.Jni.accessors.getMethodIDOf(
+  static final _id_new0 = jni.Jni.accessors.getMethodIDOf(
       _class.reference, r"<init>", r"(Lcom/artifex/mupdf/fitz/Rect;)V");
 
   /// from: public void <init>(com.artifex.mupdf.fitz.Rect rect)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory DisplayList(
     rect_.Rect rect,
   ) {
     return DisplayList.fromRef(jni.Jni.accessors.newObjectWithArgs(
-        _class.reference, _id_ctor, [rect.reference]).object);
+        _class.reference, _id_new0, [rect.reference]).object);
   }
 
   static final _id_getBounds = jni.Jni.accessors.getMethodIDOf(
       _class.reference, r"getBounds", r"()Lcom/artifex/mupdf/fitz/Rect;");
 
   /// from: public native com.artifex.mupdf.fitz.Rect getBounds()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   rect_.Rect getBounds() {
     return const rect_.$RectType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_getBounds, jni.JniCallType.objectType, []).object);
@@ -96,7 +96,7 @@ class DisplayList extends jni.JObject {
       r"(Lcom/artifex/mupdf/fitz/Matrix;Lcom/artifex/mupdf/fitz/ColorSpace;Z)Lcom/artifex/mupdf/fitz/Pixmap;");
 
   /// from: public native com.artifex.mupdf.fitz.Pixmap toPixmap(com.artifex.mupdf.fitz.Matrix matrix, com.artifex.mupdf.fitz.ColorSpace colorSpace, boolean z)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pixmap_.Pixmap toPixmap(
     matrix_.Matrix matrix,
     colorspace_.ColorSpace colorSpace,
@@ -113,7 +113,7 @@ class DisplayList extends jni.JObject {
       r"(Ljava/lang/String;)Lcom/artifex/mupdf/fitz/StructuredText;");
 
   /// from: public native com.artifex.mupdf.fitz.StructuredText toStructuredText(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   structuredtext_.StructuredText toStructuredText(
     jni.JString string,
   ) {
@@ -128,7 +128,7 @@ class DisplayList extends jni.JObject {
       r"()Lcom/artifex/mupdf/fitz/StructuredText;");
 
   /// from: public com.artifex.mupdf.fitz.StructuredText toStructuredText()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   structuredtext_.StructuredText toStructuredText1() {
     return const structuredtext_.$StructuredTextType().fromRef(jni.Jni.accessors
         .callMethodWithArgs(reference, _id_toStructuredText1,
@@ -139,7 +139,7 @@ class DisplayList extends jni.JObject {
       r"search", r"(Ljava/lang/String;)[[Lcom/artifex/mupdf/fitz/Quad;");
 
   /// from: public native com.artifex.mupdf.fitz.Quad[][] search(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<quad_.Quad> search(
     jni.JString string,
   ) {

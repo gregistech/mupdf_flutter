@@ -112,7 +112,7 @@ class DefaultColorSpaces extends jni.JObject {
       r"()Lcom/artifex/mupdf/fitz/ColorSpace;");
 
   /// from: public native com.artifex.mupdf.fitz.ColorSpace getDefaultGray()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   colorspace_.ColorSpace getDefaultGray() {
     return const colorspace_.$ColorSpaceType().fromRef(jni.Jni.accessors
         .callMethodWithArgs(reference, _id_getDefaultGray,
@@ -125,7 +125,7 @@ class DefaultColorSpaces extends jni.JObject {
       r"()Lcom/artifex/mupdf/fitz/ColorSpace;");
 
   /// from: public native com.artifex.mupdf.fitz.ColorSpace getDefaultRGB()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   colorspace_.ColorSpace getDefaultRGB() {
     return const colorspace_.$ColorSpaceType().fromRef(jni.Jni.accessors
         .callMethodWithArgs(reference, _id_getDefaultRGB,
@@ -138,7 +138,7 @@ class DefaultColorSpaces extends jni.JObject {
       r"()Lcom/artifex/mupdf/fitz/ColorSpace;");
 
   /// from: public native com.artifex.mupdf.fitz.ColorSpace getDefaultCMYK()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   colorspace_.ColorSpace getDefaultCMYK() {
     return const colorspace_.$ColorSpaceType().fromRef(jni.Jni.accessors
         .callMethodWithArgs(reference, _id_getDefaultCMYK,
@@ -151,7 +151,7 @@ class DefaultColorSpaces extends jni.JObject {
       r"()Lcom/artifex/mupdf/fitz/ColorSpace;");
 
   /// from: public native com.artifex.mupdf.fitz.ColorSpace getOutputIntent()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   colorspace_.ColorSpace getOutputIntent() {
     return const colorspace_.$ColorSpaceType().fromRef(jni.Jni.accessors
         .callMethodWithArgs(reference, _id_getOutputIntent,

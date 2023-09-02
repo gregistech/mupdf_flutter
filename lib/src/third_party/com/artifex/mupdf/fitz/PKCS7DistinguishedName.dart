@@ -41,13 +41,13 @@ class PKCS7DistinguishedName extends jni.JObject {
   );
 
   /// from: public java.lang.String cn
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString get cn => const jni.JStringType().fromRef(jni.Jni.accessors
       .getField(reference, _id_cn, jni.JniCallType.objectType)
       .object);
 
   /// from: public java.lang.String cn
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   set cn(jni.JString value) =>
       jni.Jni.env.SetObjectField(reference, _id_cn, value.reference);
 
@@ -58,13 +58,13 @@ class PKCS7DistinguishedName extends jni.JObject {
   );
 
   /// from: public java.lang.String o
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString get o => const jni.JStringType().fromRef(jni.Jni.accessors
       .getField(reference, _id_o, jni.JniCallType.objectType)
       .object);
 
   /// from: public java.lang.String o
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   set o(jni.JString value) =>
       jni.Jni.env.SetObjectField(reference, _id_o, value.reference);
 
@@ -75,13 +75,13 @@ class PKCS7DistinguishedName extends jni.JObject {
   );
 
   /// from: public java.lang.String ou
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString get ou => const jni.JStringType().fromRef(jni.Jni.accessors
       .getField(reference, _id_ou, jni.JniCallType.objectType)
       .object);
 
   /// from: public java.lang.String ou
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   set ou(jni.JString value) =>
       jni.Jni.env.SetObjectField(reference, _id_ou, value.reference);
 
@@ -92,13 +92,13 @@ class PKCS7DistinguishedName extends jni.JObject {
   );
 
   /// from: public java.lang.String email
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString get email => const jni.JStringType().fromRef(jni.Jni.accessors
       .getField(reference, _id_email, jni.JniCallType.objectType)
       .object);
 
   /// from: public java.lang.String email
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   set email(jni.JString value) =>
       jni.Jni.env.SetObjectField(reference, _id_email, value.reference);
 
@@ -109,24 +109,24 @@ class PKCS7DistinguishedName extends jni.JObject {
   );
 
   /// from: public java.lang.String c
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString get c => const jni.JStringType().fromRef(jni.Jni.accessors
       .getField(reference, _id_c, jni.JniCallType.objectType)
       .object);
 
   /// from: public java.lang.String c
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   set c(jni.JString value) =>
       jni.Jni.env.SetObjectField(reference, _id_c, value.reference);
 
-  static final _id_ctor =
+  static final _id_new0 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"()V");
 
   /// from: public void <init>()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory PKCS7DistinguishedName() {
     return PKCS7DistinguishedName.fromRef(jni.Jni.accessors
-        .newObjectWithArgs(_class.reference, _id_ctor, []).object);
+        .newObjectWithArgs(_class.reference, _id_new0, []).object);
   }
 }
 

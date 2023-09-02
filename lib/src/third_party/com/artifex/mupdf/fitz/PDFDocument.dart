@@ -40,6 +40,8 @@ import "SeekableOutputStream.dart" as seekableoutputstream_;
 
 import "SeekableInputStream.dart" as seekableinputstream_;
 
+import "LinkDestination.dart" as linkdestination_;
+
 /// from: com.artifex.mupdf.fitz.PDFDocument$JsEventListener$AlertResult
 class PDFDocument_JsEventListener_AlertResult extends jni.JObject {
   @override
@@ -84,14 +86,14 @@ class PDFDocument_JsEventListener_AlertResult extends jni.JObject {
   set checkboxChecked(bool value) => jni.Jni.env
       .SetBooleanField(reference, _id_checkboxChecked, value ? 1 : 0);
 
-  static final _id_ctor =
+  static final _id_new0 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"()V");
 
   /// from: public void <init>()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory PDFDocument_JsEventListener_AlertResult() {
     return PDFDocument_JsEventListener_AlertResult.fromRef(jni.Jni.accessors
-        .newObjectWithArgs(_class.reference, _id_ctor, []).object);
+        .newObjectWithArgs(_class.reference, _id_new0, []).object);
   }
 }
 
@@ -172,7 +174,7 @@ class PDFDocument_JsEventListener extends jni.JObject {
       r"(Lcom/artifex/mupdf/fitz/PDFDocument;Ljava/lang/String;Ljava/lang/String;IIZLjava/lang/String;Z)Lcom/artifex/mupdf/fitz/PDFDocument$JsEventListener$AlertResult;");
 
   /// from: public abstract com.artifex.mupdf.fitz.PDFDocument$JsEventListener$AlertResult onAlert(com.artifex.mupdf.fitz.PDFDocument pDFDocument, java.lang.String string, java.lang.String string1, int i, int i1, boolean z, java.lang.String string2, boolean z1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   PDFDocument_JsEventListener_AlertResult onAlert(
     PDFDocument pDFDocument,
     jni.JString string,
@@ -197,28 +199,9 @@ class PDFDocument_JsEventListener extends jni.JObject {
     ]).object);
   }
 
-  /// Maps a specific port to the implemented methods.
-  static final Map<int, Map<String, Function>> _$methods = {};
-
-  /// Maps a specific port to the type parameters.
-  static final Map<int, Map<String, jni.JObjType>> _$types = {};
-
+  /// Maps a specific port to the implemented interface.
+  static final Map<int, $PDFDocument_JsEventListenerImpl> _$impls = {};
   ReceivePort? _$p;
-
-  static final Finalizer<ReceivePort> _$finalizer = Finalizer(($p) {
-    _$methods.remove($p.sendPort.nativePort);
-    _$types.remove($p.sendPort.nativePort);
-    $p.close();
-  });
-
-  @override
-  void delete() {
-    _$methods.remove(_$p?.sendPort.nativePort);
-    _$types.remove(_$p?.sendPort.nativePort);
-    _$p?.close();
-    _$finalizer.detach(this);
-    super.delete();
-  }
 
   static jni.JObjectPtr _$invoke(
     int port,
@@ -245,36 +228,66 @@ class PDFDocument_JsEventListener extends jni.JObject {
     int $p,
     $MethodInvocation $i,
   ) {
-    final $d = $i.methodDescriptor.toDartString(deleteOriginal: true);
-    final $a = $i.args;
-    if ($d ==
-        r"onAlert(Lcom/artifex/mupdf/fitz/PDFDocument;Ljava/lang/String;Ljava/lang/String;IIZLjava/lang/String;Z)Lcom/artifex/mupdf/fitz/PDFDocument$JsEventListener$AlertResult;") {
-      final $r = _$methods[$p]![$d]!(
-        $a[0].castTo(const $PDFDocumentType(), deleteOriginal: true),
-        $a[1].castTo(const jni.JStringType(), deleteOriginal: true),
-        $a[2].castTo(const jni.JStringType(), deleteOriginal: true),
-        $a[3]
-            .castTo(const jni.JIntegerType(), deleteOriginal: true)
-            .intValue(deleteOriginal: true),
-        $a[4]
-            .castTo(const jni.JIntegerType(), deleteOriginal: true)
-            .intValue(deleteOriginal: true),
-        $a[5]
-            .castTo(const jni.JBooleanType(), deleteOriginal: true)
-            .booleanValue(deleteOriginal: true),
-        $a[6].castTo(const jni.JStringType(), deleteOriginal: true),
-        $a[7]
-            .castTo(const jni.JBooleanType(), deleteOriginal: true)
-            .booleanValue(deleteOriginal: true),
-      );
-      return (($r as jni.JObject).castTo(const jni.JObjectType())
-            ..setAsDeleted())
-          .reference;
+    try {
+      final $d = $i.methodDescriptor.toDartString(releaseOriginal: true);
+      final $a = $i.args;
+      if ($d ==
+          r"onAlert(Lcom/artifex/mupdf/fitz/PDFDocument;Ljava/lang/String;Ljava/lang/String;IIZLjava/lang/String;Z)Lcom/artifex/mupdf/fitz/PDFDocument$JsEventListener$AlertResult;") {
+        final $r = _$impls[$p]!.onAlert(
+          $a[0].castTo(const $PDFDocumentType(), releaseOriginal: true),
+          $a[1].castTo(const jni.JStringType(), releaseOriginal: true),
+          $a[2].castTo(const jni.JStringType(), releaseOriginal: true),
+          $a[3]
+              .castTo(const jni.JIntegerType(), releaseOriginal: true)
+              .intValue(releaseOriginal: true),
+          $a[4]
+              .castTo(const jni.JIntegerType(), releaseOriginal: true)
+              .intValue(releaseOriginal: true),
+          $a[5]
+              .castTo(const jni.JBooleanType(), releaseOriginal: true)
+              .booleanValue(releaseOriginal: true),
+          $a[6].castTo(const jni.JStringType(), releaseOriginal: true),
+          $a[7]
+              .castTo(const jni.JBooleanType(), releaseOriginal: true)
+              .booleanValue(releaseOriginal: true),
+        );
+        return ($r as jni.JObject).castTo(const jni.JObjectType()).toPointer();
+      }
+    } catch (e) {
+      return ProtectedJniExtensions.newDartException(e.toString());
     }
     return jni.nullptr;
   }
 
-  factory PDFDocument_JsEventListener.implement({
+  factory PDFDocument_JsEventListener.implement(
+    $PDFDocument_JsEventListenerImpl $impl,
+  ) {
+    final $p = ReceivePort();
+    final $x = PDFDocument_JsEventListener.fromRef(
+      ProtectedJniExtensions.newPortProxy(
+        r"com.artifex.mupdf.fitz.PDFDocument$JsEventListener",
+        $p,
+        _$invokePointer,
+      ),
+    ).._$p = $p;
+    final $a = $p.sendPort.nativePort;
+    _$impls[$a] = $impl;
+    $p.listen(($m) {
+      if ($m == null) {
+        _$impls.remove($p.sendPort.nativePort);
+        $p.close();
+        return;
+      }
+      final $i = $MethodInvocation.fromMessage($m);
+      final $r = _$invokeMethod($p.sendPort.nativePort, $i);
+      ProtectedJniExtensions.returnResult($i.result, $r);
+    });
+    return $x;
+  }
+}
+
+abstract class $PDFDocument_JsEventListenerImpl {
+  factory $PDFDocument_JsEventListenerImpl({
     required PDFDocument_JsEventListener_AlertResult Function(
             PDFDocument pDFDocument,
             jni.JString string,
@@ -285,28 +298,54 @@ class PDFDocument_JsEventListener extends jni.JObject {
             jni.JString string2,
             bool z1)
         onAlert,
-  }) {
-    final $p = ReceivePort();
-    final $x = PDFDocument_JsEventListener.fromRef(
-      ProtectedJniExtensions.newPortProxy(
-        r"com.artifex.mupdf.fitz.PDFDocument$JsEventListener",
-        $p,
-        _$invokePointer,
-      ),
-    ).._$p = $p;
-    final $a = $p.sendPort.nativePort;
-    _$types[$a] = {};
-    _$methods[$a] = {};
-    _$methods[$a]![
-            r"onAlert(Lcom/artifex/mupdf/fitz/PDFDocument;Ljava/lang/String;Ljava/lang/String;IIZLjava/lang/String;Z)Lcom/artifex/mupdf/fitz/PDFDocument$JsEventListener$AlertResult;"] =
-        onAlert;
-    _$finalizer.attach($x, $p, detach: $x);
-    $p.listen(($m) {
-      final $i = $MethodInvocation.fromMessage($m);
-      final $r = _$invokeMethod($p.sendPort.nativePort, $i);
-      ProtectedJniExtensions.returnResult($i.result, $r);
-    });
-    return $x;
+  }) = _$PDFDocument_JsEventListenerImpl;
+
+  PDFDocument_JsEventListener_AlertResult onAlert(
+      PDFDocument pDFDocument,
+      jni.JString string,
+      jni.JString string1,
+      int i,
+      int i1,
+      bool z,
+      jni.JString string2,
+      bool z1);
+}
+
+class _$PDFDocument_JsEventListenerImpl
+    implements $PDFDocument_JsEventListenerImpl {
+  _$PDFDocument_JsEventListenerImpl({
+    required PDFDocument_JsEventListener_AlertResult Function(
+            PDFDocument pDFDocument,
+            jni.JString string,
+            jni.JString string1,
+            int i,
+            int i1,
+            bool z,
+            jni.JString string2,
+            bool z1)
+        onAlert,
+  }) : _onAlert = onAlert;
+
+  final PDFDocument_JsEventListener_AlertResult Function(
+      PDFDocument pDFDocument,
+      jni.JString string,
+      jni.JString string1,
+      int i,
+      int i1,
+      bool z,
+      jni.JString string2,
+      bool z1) _onAlert;
+
+  PDFDocument_JsEventListener_AlertResult onAlert(
+      PDFDocument pDFDocument,
+      jni.JString string,
+      jni.JString string1,
+      int i,
+      int i1,
+      bool z,
+      jni.JString string2,
+      bool z1) {
+    return _onAlert(pDFDocument, string, string1, i, i1, z, string2, z1);
   }
 }
 
@@ -359,7 +398,7 @@ class PDFDocument_PDFEmbeddedFileParams extends jni.JObject {
   );
 
   /// from: public final java.lang.String filename
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString get filename => const jni.JStringType().fromRef(jni.Jni.accessors
       .getField(reference, _id_filename, jni.JniCallType.objectType)
       .object);
@@ -371,7 +410,7 @@ class PDFDocument_PDFEmbeddedFileParams extends jni.JObject {
   );
 
   /// from: public final java.lang.String mimetype
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString get mimetype => const jni.JStringType().fromRef(jni.Jni.accessors
       .getField(reference, _id_mimetype, jni.JniCallType.objectType)
       .object);
@@ -394,7 +433,7 @@ class PDFDocument_PDFEmbeddedFileParams extends jni.JObject {
   );
 
   /// from: public final java.util.Date creationDate
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject get creationDate =>
       const jni.JObjectType().fromRef(jni.Jni.accessors
           .getField(reference, _id_creationDate, jni.JniCallType.objectType)
@@ -407,17 +446,17 @@ class PDFDocument_PDFEmbeddedFileParams extends jni.JObject {
   );
 
   /// from: public final java.util.Date modificationDate
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject get modificationDate =>
       const jni.JObjectType().fromRef(jni.Jni.accessors
           .getField(reference, _id_modificationDate, jni.JniCallType.objectType)
           .object);
 
-  static final _id_ctor = jni.Jni.accessors.getMethodIDOf(_class.reference,
+  static final _id_new0 = jni.Jni.accessors.getMethodIDOf(_class.reference,
       r"<init>", r"(Ljava/lang/String;Ljava/lang/String;IJJ)V");
 
   /// from: protected void <init>(java.lang.String string, java.lang.String string1, int i, long j, long j1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory PDFDocument_PDFEmbeddedFileParams(
     jni.JString string,
     jni.JString string1,
@@ -426,7 +465,7 @@ class PDFDocument_PDFEmbeddedFileParams extends jni.JObject {
     int j1,
   ) {
     return PDFDocument_PDFEmbeddedFileParams.fromRef(jni.Jni.accessors
-        .newObjectWithArgs(_class.reference, _id_ctor, [
+        .newObjectWithArgs(_class.reference, _id_new0, [
       string.reference,
       string1.reference,
       jni.JValueInt(i),
@@ -530,26 +569,26 @@ class PDFDocument extends document_.Document {
         reference, _id_finalize, jni.JniCallType.voidType, []).check();
   }
 
-  static final _id_ctor =
+  static final _id_new0 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"(J)V");
 
   /// from: protected void <init>(long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory PDFDocument(
     int j,
   ) {
     return PDFDocument.fromRef(jni.Jni.accessors
-        .newObjectWithArgs(_class.reference, _id_ctor, [j]).object);
+        .newObjectWithArgs(_class.reference, _id_new0, [j]).object);
   }
 
-  static final _id_ctor1 =
+  static final _id_new1 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"()V");
 
   /// from: public void <init>()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory PDFDocument.ctor1() {
+  /// The returned object must be released after use, by calling the [release] method.
+  factory PDFDocument.new1() {
     return PDFDocument.fromRef(jni.Jni.accessors
-        .newObjectWithArgs(_class.reference, _id_ctor1, []).object);
+        .newObjectWithArgs(_class.reference, _id_new1, []).object);
   }
 
   static final _id_isPDF =
@@ -565,7 +604,7 @@ class PDFDocument extends document_.Document {
       _class.reference, r"findPage", r"(I)Lcom/artifex/mupdf/fitz/PDFObject;");
 
   /// from: public native com.artifex.mupdf.fitz.PDFObject findPage(int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pdfobject_.PDFObject findPage(
     int i,
   ) {
@@ -578,7 +617,7 @@ class PDFDocument extends document_.Document {
       _class.reference, r"getTrailer", r"()Lcom/artifex/mupdf/fitz/PDFObject;");
 
   /// from: public native com.artifex.mupdf.fitz.PDFObject getTrailer()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pdfobject_.PDFObject getTrailer() {
     return const pdfobject_.$PDFObjectType().fromRef(jni.Jni.accessors
         .callMethodWithArgs(
@@ -598,7 +637,7 @@ class PDFDocument extends document_.Document {
       _class.reference, r"newNull", r"()Lcom/artifex/mupdf/fitz/PDFObject;");
 
   /// from: public native com.artifex.mupdf.fitz.PDFObject newNull()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pdfobject_.PDFObject newNull() {
     return const pdfobject_.$PDFObjectType().fromRef(jni.Jni.accessors
         .callMethodWithArgs(
@@ -611,7 +650,7 @@ class PDFDocument extends document_.Document {
       r"(Z)Lcom/artifex/mupdf/fitz/PDFObject;");
 
   /// from: public native com.artifex.mupdf.fitz.PDFObject newBoolean(boolean z)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pdfobject_.PDFObject newBoolean(
     bool z,
   ) {
@@ -626,7 +665,7 @@ class PDFDocument extends document_.Document {
       r"(I)Lcom/artifex/mupdf/fitz/PDFObject;");
 
   /// from: public native com.artifex.mupdf.fitz.PDFObject newInteger(int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pdfobject_.PDFObject newInteger(
     int i,
   ) {
@@ -639,7 +678,7 @@ class PDFDocument extends document_.Document {
       _class.reference, r"newReal", r"(F)Lcom/artifex/mupdf/fitz/PDFObject;");
 
   /// from: public native com.artifex.mupdf.fitz.PDFObject newReal(float f)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pdfobject_.PDFObject newReal(
     double f,
   ) {
@@ -652,7 +691,7 @@ class PDFDocument extends document_.Document {
       r"newString", r"(Ljava/lang/String;)Lcom/artifex/mupdf/fitz/PDFObject;");
 
   /// from: public native com.artifex.mupdf.fitz.PDFObject newString(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pdfobject_.PDFObject newString(
     jni.JString string,
   ) {
@@ -667,7 +706,7 @@ class PDFDocument extends document_.Document {
       r"([B)Lcom/artifex/mupdf/fitz/PDFObject;");
 
   /// from: public native com.artifex.mupdf.fitz.PDFObject newByteString(byte[] bs)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pdfobject_.PDFObject newByteString(
     jni.JArray<jni.jbyte> bs,
   ) {
@@ -680,7 +719,7 @@ class PDFDocument extends document_.Document {
       r"newName", r"(Ljava/lang/String;)Lcom/artifex/mupdf/fitz/PDFObject;");
 
   /// from: public native com.artifex.mupdf.fitz.PDFObject newName(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pdfobject_.PDFObject newName(
     jni.JString string,
   ) {
@@ -695,7 +734,7 @@ class PDFDocument extends document_.Document {
       r"(II)Lcom/artifex/mupdf/fitz/PDFObject;");
 
   /// from: public native com.artifex.mupdf.fitz.PDFObject newIndirect(int i, int i1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pdfobject_.PDFObject newIndirect(
     int i,
     int i1,
@@ -712,7 +751,7 @@ class PDFDocument extends document_.Document {
       _class.reference, r"newArray", r"()Lcom/artifex/mupdf/fitz/PDFObject;");
 
   /// from: public native com.artifex.mupdf.fitz.PDFObject newArray()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pdfobject_.PDFObject newArray() {
     return const pdfobject_.$PDFObjectType().fromRef(jni.Jni.accessors
         .callMethodWithArgs(
@@ -725,7 +764,7 @@ class PDFDocument extends document_.Document {
       r"()Lcom/artifex/mupdf/fitz/PDFObject;");
 
   /// from: public native com.artifex.mupdf.fitz.PDFObject newDictionary()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pdfobject_.PDFObject newDictionary() {
     return const pdfobject_.$PDFObjectType().fromRef(jni.Jni.accessors
         .callMethodWithArgs(reference, _id_newDictionary,
@@ -738,7 +777,7 @@ class PDFDocument extends document_.Document {
       r"(Lcom/artifex/mupdf/fitz/PDFObject;)Lcom/artifex/mupdf/fitz/PDFObject;");
 
   /// from: public native com.artifex.mupdf.fitz.PDFObject addObject(com.artifex.mupdf.fitz.PDFObject pDFObject)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pdfobject_.PDFObject addObject(
     pdfobject_.PDFObject pDFObject,
   ) {
@@ -753,7 +792,7 @@ class PDFDocument extends document_.Document {
       r"()Lcom/artifex/mupdf/fitz/PDFObject;");
 
   /// from: public native com.artifex.mupdf.fitz.PDFObject createObject()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pdfobject_.PDFObject createObject() {
     return const pdfobject_.$PDFObjectType().fromRef(jni.Jni.accessors
         .callMethodWithArgs(reference, _id_createObject,
@@ -790,7 +829,7 @@ class PDFDocument extends document_.Document {
       r"()Lcom/artifex/mupdf/fitz/PDFGraftMap;");
 
   /// from: public native com.artifex.mupdf.fitz.PDFGraftMap newPDFGraftMap()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pdfgraftmap_.PDFGraftMap newPDFGraftMap() {
     return const pdfgraftmap_.$PDFGraftMapType().fromRef(jni.Jni.accessors
         .callMethodWithArgs(reference, _id_newPDFGraftMap,
@@ -803,7 +842,7 @@ class PDFDocument extends document_.Document {
       r"(Lcom/artifex/mupdf/fitz/PDFObject;)Lcom/artifex/mupdf/fitz/PDFObject;");
 
   /// from: public native com.artifex.mupdf.fitz.PDFObject graftObject(com.artifex.mupdf.fitz.PDFObject pDFObject)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pdfobject_.PDFObject graftObject(
     pdfobject_.PDFObject pDFObject,
   ) {
@@ -834,7 +873,7 @@ class PDFDocument extends document_.Document {
       r"(Lcom/artifex/mupdf/fitz/Buffer;Ljava/lang/Object;)Lcom/artifex/mupdf/fitz/PDFObject;");
 
   /// from: public com.artifex.mupdf.fitz.PDFObject addRawStream(com.artifex.mupdf.fitz.Buffer buffer, java.lang.Object object)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pdfobject_.PDFObject addRawStream(
     buffer_.Buffer buffer,
     jni.JObject object,
@@ -853,7 +892,7 @@ class PDFDocument extends document_.Document {
       r"(Lcom/artifex/mupdf/fitz/Buffer;Ljava/lang/Object;)Lcom/artifex/mupdf/fitz/PDFObject;");
 
   /// from: public com.artifex.mupdf.fitz.PDFObject addStream(com.artifex.mupdf.fitz.Buffer buffer, java.lang.Object object)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pdfobject_.PDFObject addStream(
     buffer_.Buffer buffer,
     jni.JObject object,
@@ -872,7 +911,7 @@ class PDFDocument extends document_.Document {
       r"(Ljava/lang/String;Ljava/lang/Object;)Lcom/artifex/mupdf/fitz/PDFObject;");
 
   /// from: public com.artifex.mupdf.fitz.PDFObject addRawStream(java.lang.String string, java.lang.Object object)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pdfobject_.PDFObject addRawStream1(
     jni.JString string,
     jni.JObject object,
@@ -891,7 +930,7 @@ class PDFDocument extends document_.Document {
       r"(Ljava/lang/String;Ljava/lang/Object;)Lcom/artifex/mupdf/fitz/PDFObject;");
 
   /// from: public com.artifex.mupdf.fitz.PDFObject addStream(java.lang.String string, java.lang.Object object)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pdfobject_.PDFObject addStream1(
     jni.JString string,
     jni.JObject object,
@@ -910,7 +949,7 @@ class PDFDocument extends document_.Document {
       r"(Lcom/artifex/mupdf/fitz/Buffer;)Lcom/artifex/mupdf/fitz/PDFObject;");
 
   /// from: public com.artifex.mupdf.fitz.PDFObject addRawStream(com.artifex.mupdf.fitz.Buffer buffer)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pdfobject_.PDFObject addRawStream2(
     buffer_.Buffer buffer,
   ) {
@@ -925,7 +964,7 @@ class PDFDocument extends document_.Document {
       r"(Lcom/artifex/mupdf/fitz/Buffer;)Lcom/artifex/mupdf/fitz/PDFObject;");
 
   /// from: public com.artifex.mupdf.fitz.PDFObject addStream(com.artifex.mupdf.fitz.Buffer buffer)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pdfobject_.PDFObject addStream2(
     buffer_.Buffer buffer,
   ) {
@@ -940,7 +979,7 @@ class PDFDocument extends document_.Document {
       r"(Ljava/lang/String;)Lcom/artifex/mupdf/fitz/PDFObject;");
 
   /// from: public com.artifex.mupdf.fitz.PDFObject addRawStream(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pdfobject_.PDFObject addRawStream3(
     jni.JString string,
   ) {
@@ -955,7 +994,7 @@ class PDFDocument extends document_.Document {
       r"(Ljava/lang/String;)Lcom/artifex/mupdf/fitz/PDFObject;");
 
   /// from: public com.artifex.mupdf.fitz.PDFObject addStream(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pdfobject_.PDFObject addStream3(
     jni.JString string,
   ) {
@@ -970,7 +1009,7 @@ class PDFDocument extends document_.Document {
       r"(Lcom/artifex/mupdf/fitz/Rect;ILcom/artifex/mupdf/fitz/PDFObject;Lcom/artifex/mupdf/fitz/Buffer;)Lcom/artifex/mupdf/fitz/PDFObject;");
 
   /// from: public com.artifex.mupdf.fitz.PDFObject addPage(com.artifex.mupdf.fitz.Rect rect, int i, com.artifex.mupdf.fitz.PDFObject pDFObject, com.artifex.mupdf.fitz.Buffer buffer)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pdfobject_.PDFObject addPage(
     rect_.Rect rect,
     int i,
@@ -993,7 +1032,7 @@ class PDFDocument extends document_.Document {
       r"(Lcom/artifex/mupdf/fitz/Rect;ILcom/artifex/mupdf/fitz/PDFObject;Ljava/lang/String;)Lcom/artifex/mupdf/fitz/PDFObject;");
 
   /// from: public com.artifex.mupdf.fitz.PDFObject addPage(com.artifex.mupdf.fitz.Rect rect, int i, com.artifex.mupdf.fitz.PDFObject pDFObject, java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pdfobject_.PDFObject addPage1(
     rect_.Rect rect,
     int i,
@@ -1044,7 +1083,7 @@ class PDFDocument extends document_.Document {
       r"(Lcom/artifex/mupdf/fitz/Image;)Lcom/artifex/mupdf/fitz/PDFObject;");
 
   /// from: public native com.artifex.mupdf.fitz.PDFObject addImage(com.artifex.mupdf.fitz.Image image)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pdfobject_.PDFObject addImage(
     image_.Image image,
   ) {
@@ -1059,7 +1098,7 @@ class PDFDocument extends document_.Document {
       r"(Lcom/artifex/mupdf/fitz/Font;I)Lcom/artifex/mupdf/fitz/PDFObject;");
 
   /// from: public native com.artifex.mupdf.fitz.PDFObject addSimpleFont(com.artifex.mupdf.fitz.Font font, int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pdfobject_.PDFObject addSimpleFont(
     font_.Font font,
     int i,
@@ -1078,7 +1117,7 @@ class PDFDocument extends document_.Document {
       r"(Lcom/artifex/mupdf/fitz/Font;IIZ)Lcom/artifex/mupdf/fitz/PDFObject;");
 
   /// from: public native com.artifex.mupdf.fitz.PDFObject addCJKFont(com.artifex.mupdf.fitz.Font font, int i, int i1, boolean z)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pdfobject_.PDFObject addCJKFont(
     font_.Font font,
     int i,
@@ -1101,7 +1140,7 @@ class PDFDocument extends document_.Document {
       r"(Lcom/artifex/mupdf/fitz/Font;)Lcom/artifex/mupdf/fitz/PDFObject;");
 
   /// from: public native com.artifex.mupdf.fitz.PDFObject addFont(com.artifex.mupdf.fitz.Font font)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pdfobject_.PDFObject addFont(
     font_.Font font,
   ) {
@@ -1406,7 +1445,7 @@ class PDFDocument extends document_.Document {
       _class.reference, r"undoRedoStep", r"(I)Ljava/lang/String;");
 
   /// from: public native java.lang.String undoRedoStep(int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString undoRedoStep(
     int i,
   ) {
@@ -1482,6 +1521,15 @@ class PDFDocument extends document_.Document {
         reference, _id_endOperation, jni.JniCallType.voidType, []).check();
   }
 
+  static final _id_abandonOperation = jni.Jni.accessors
+      .getMethodIDOf(_class.reference, r"abandonOperation", r"()V");
+
+  /// from: public native void abandonOperation()
+  void abandonOperation() {
+    return jni.Jni.accessors.callMethodWithArgs(
+        reference, _id_abandonOperation, jni.JniCallType.voidType, []).check();
+  }
+
   static final _id_getLanguage =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"getLanguage", r"()I");
 
@@ -1532,6 +1580,156 @@ class PDFDocument extends document_.Document {
         jni.JniCallType.voidType, [jni.JValueInt(i)]).check();
   }
 
+  static final _id_formatURIFromPathAndNamedDest = jni.Jni.accessors
+      .getStaticMethodIDOf(_class.reference, r"formatURIFromPathAndNamedDest",
+          r"(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;");
+
+  /// from: static protected native java.lang.String formatURIFromPathAndNamedDest(java.lang.String string, java.lang.String string1)
+  /// The returned object must be released after use, by calling the [release] method.
+  static jni.JString formatURIFromPathAndNamedDest(
+    jni.JString string,
+    jni.JString string1,
+  ) {
+    return const jni.JStringType().fromRef(jni.Jni.accessors
+        .callStaticMethodWithArgs(
+            _class.reference,
+            _id_formatURIFromPathAndNamedDest,
+            jni.JniCallType.objectType,
+            [string.reference, string1.reference]).object);
+  }
+
+  static final _id_formatURIFromPathAndExplicitDest = jni.Jni.accessors
+      .getStaticMethodIDOf(
+          _class.reference,
+          r"formatURIFromPathAndExplicitDest",
+          r"(Ljava/lang/String;Lcom/artifex/mupdf/fitz/LinkDestination;)Ljava/lang/String;");
+
+  /// from: static protected native java.lang.String formatURIFromPathAndExplicitDest(java.lang.String string, com.artifex.mupdf.fitz.LinkDestination linkDestination)
+  /// The returned object must be released after use, by calling the [release] method.
+  static jni.JString formatURIFromPathAndExplicitDest(
+    jni.JString string,
+    linkdestination_.LinkDestination linkDestination,
+  ) {
+    return const jni.JStringType().fromRef(jni.Jni.accessors
+        .callStaticMethodWithArgs(
+            _class.reference,
+            _id_formatURIFromPathAndExplicitDest,
+            jni.JniCallType.objectType,
+            [string.reference, linkDestination.reference]).object);
+  }
+
+  static final _id_appendNamedDestToURI = jni.Jni.accessors.getStaticMethodIDOf(
+      _class.reference,
+      r"appendNamedDestToURI",
+      r"(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;");
+
+  /// from: static protected native java.lang.String appendNamedDestToURI(java.lang.String string, java.lang.String string1)
+  /// The returned object must be released after use, by calling the [release] method.
+  static jni.JString appendNamedDestToURI(
+    jni.JString string,
+    jni.JString string1,
+  ) {
+    return const jni.JStringType().fromRef(jni.Jni.accessors
+        .callStaticMethodWithArgs(
+            _class.reference,
+            _id_appendNamedDestToURI,
+            jni.JniCallType.objectType,
+            [string.reference, string1.reference]).object);
+  }
+
+  static final _id_appendExplicitDestToURI = jni.Jni.accessors.getStaticMethodIDOf(
+      _class.reference,
+      r"appendExplicitDestToURI",
+      r"(Ljava/lang/String;Lcom/artifex/mupdf/fitz/LinkDestination;)Ljava/lang/String;");
+
+  /// from: static protected native java.lang.String appendExplicitDestToURI(java.lang.String string, com.artifex.mupdf.fitz.LinkDestination linkDestination)
+  /// The returned object must be released after use, by calling the [release] method.
+  static jni.JString appendExplicitDestToURI(
+    jni.JString string,
+    linkdestination_.LinkDestination linkDestination,
+  ) {
+    return const jni.JStringType().fromRef(jni.Jni.accessors
+        .callStaticMethodWithArgs(
+            _class.reference,
+            _id_appendExplicitDestToURI,
+            jni.JniCallType.objectType,
+            [string.reference, linkDestination.reference]).object);
+  }
+
+  static final _id_formatURIFromPathAndDest = jni.Jni.accessors
+      .getStaticMethodIDOf(_class.reference, r"formatURIFromPathAndDest",
+          r"(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;");
+
+  /// from: static public java.lang.String formatURIFromPathAndDest(java.lang.String string, java.lang.String string1)
+  /// The returned object must be released after use, by calling the [release] method.
+  static jni.JString formatURIFromPathAndDest(
+    jni.JString string,
+    jni.JString string1,
+  ) {
+    return const jni.JStringType().fromRef(jni.Jni.accessors
+        .callStaticMethodWithArgs(
+            _class.reference,
+            _id_formatURIFromPathAndDest,
+            jni.JniCallType.objectType,
+            [string.reference, string1.reference]).object);
+  }
+
+  static final _id_formatURIFromPathAndDest1 = jni.Jni.accessors
+      .getStaticMethodIDOf(_class.reference, r"formatURIFromPathAndDest",
+          r"(Ljava/lang/String;Lcom/artifex/mupdf/fitz/LinkDestination;)Ljava/lang/String;");
+
+  /// from: static public java.lang.String formatURIFromPathAndDest(java.lang.String string, com.artifex.mupdf.fitz.LinkDestination linkDestination)
+  /// The returned object must be released after use, by calling the [release] method.
+  static jni.JString formatURIFromPathAndDest1(
+    jni.JString string,
+    linkdestination_.LinkDestination linkDestination,
+  ) {
+    return const jni.JStringType().fromRef(jni.Jni.accessors
+        .callStaticMethodWithArgs(
+            _class.reference,
+            _id_formatURIFromPathAndDest1,
+            jni.JniCallType.objectType,
+            [string.reference, linkDestination.reference]).object);
+  }
+
+  static final _id_appendDestToURI = jni.Jni.accessors.getStaticMethodIDOf(
+      _class.reference,
+      r"appendDestToURI",
+      r"(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;");
+
+  /// from: static public java.lang.String appendDestToURI(java.lang.String string, java.lang.String string1)
+  /// The returned object must be released after use, by calling the [release] method.
+  static jni.JString appendDestToURI(
+    jni.JString string,
+    jni.JString string1,
+  ) {
+    return const jni.JStringType().fromRef(jni.Jni.accessors
+        .callStaticMethodWithArgs(
+            _class.reference,
+            _id_appendDestToURI,
+            jni.JniCallType.objectType,
+            [string.reference, string1.reference]).object);
+  }
+
+  static final _id_appendDestToURI1 = jni.Jni.accessors.getStaticMethodIDOf(
+      _class.reference,
+      r"appendDestToURI",
+      r"(Ljava/lang/String;Lcom/artifex/mupdf/fitz/LinkDestination;)Ljava/lang/String;");
+
+  /// from: static public java.lang.String appendDestToURI(java.lang.String string, com.artifex.mupdf.fitz.LinkDestination linkDestination)
+  /// The returned object must be released after use, by calling the [release] method.
+  static jni.JString appendDestToURI1(
+    jni.JString string,
+    linkdestination_.LinkDestination linkDestination,
+  ) {
+    return const jni.JStringType().fromRef(jni.Jni.accessors
+        .callStaticMethodWithArgs(
+            _class.reference,
+            _id_appendDestToURI1,
+            jni.JniCallType.objectType,
+            [string.reference, linkDestination.reference]).object);
+  }
+
   static final _id_countSignatures = jni.Jni.accessors
       .getMethodIDOf(_class.reference, r"countSignatures", r"()I");
 
@@ -1547,7 +1745,7 @@ class PDFDocument extends document_.Document {
       r"(Ljava/lang/String;Ljava/lang/String;Lcom/artifex/mupdf/fitz/Buffer;JJZ)Lcom/artifex/mupdf/fitz/PDFObject;");
 
   /// from: public native com.artifex.mupdf.fitz.PDFObject addEmbeddedFile(java.lang.String string, java.lang.String string1, com.artifex.mupdf.fitz.Buffer buffer, long j, long j1, boolean z)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pdfobject_.PDFObject addEmbeddedFile(
     jni.JString string,
     jni.JString string1,
@@ -1574,7 +1772,7 @@ class PDFDocument extends document_.Document {
       r"(Lcom/artifex/mupdf/fitz/PDFObject;)Lcom/artifex/mupdf/fitz/PDFDocument$PDFEmbeddedFileParams;");
 
   /// from: public native com.artifex.mupdf.fitz.PDFDocument$PDFEmbeddedFileParams getEmbeddedFileParams(com.artifex.mupdf.fitz.PDFObject pDFObject)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   PDFDocument_PDFEmbeddedFileParams getEmbeddedFileParams(
     pdfobject_.PDFObject pDFObject,
   ) {
@@ -1592,7 +1790,7 @@ class PDFDocument extends document_.Document {
       r"(Lcom/artifex/mupdf/fitz/PDFObject;)Lcom/artifex/mupdf/fitz/Buffer;");
 
   /// from: public native com.artifex.mupdf.fitz.Buffer loadEmbeddedFileContents(com.artifex.mupdf.fitz.PDFObject pDFObject)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   buffer_.Buffer loadEmbeddedFileContents(
     pdfobject_.PDFObject pDFObject,
   ) {
@@ -1623,7 +1821,7 @@ class PDFDocument extends document_.Document {
       r"(Ljava/lang/String;Ljava/lang/String;Ljava/io/InputStream;Ljava/util/Date;Ljava/util/Date;Z)Lcom/artifex/mupdf/fitz/PDFObject;");
 
   /// from: public com.artifex.mupdf.fitz.PDFObject addEmbeddedFile(java.lang.String string, java.lang.String string1, java.io.InputStream inputStream, java.util.Date date, java.util.Date date1, boolean z)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pdfobject_.PDFObject addEmbeddedFile1(
     jni.JString string,
     jni.JString string1,

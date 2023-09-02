@@ -85,15 +85,21 @@ class StructuredTextWalker extends jni.JObject {
   }
 
   static final _id_beginLine = jni.Jni.accessors.getMethodIDOf(
-      _class.reference, r"beginLine", r"(Lcom/artifex/mupdf/fitz/Rect;I)V");
+      _class.reference,
+      r"beginLine",
+      r"(Lcom/artifex/mupdf/fitz/Rect;ILcom/artifex/mupdf/fitz/Point;)V");
 
-  /// from: public abstract void beginLine(com.artifex.mupdf.fitz.Rect rect, int i)
+  /// from: public abstract void beginLine(com.artifex.mupdf.fitz.Rect rect, int i, com.artifex.mupdf.fitz.Point point)
   void beginLine(
     rect_.Rect rect,
     int i,
+    point_.Point point,
   ) {
-    return jni.Jni.accessors.callMethodWithArgs(reference, _id_beginLine,
-        jni.JniCallType.voidType, [rect.reference, jni.JValueInt(i)]).check();
+    return jni.Jni.accessors.callMethodWithArgs(
+        reference,
+        _id_beginLine,
+        jni.JniCallType.voidType,
+        [rect.reference, jni.JValueInt(i), point.reference]).check();
   }
 
   static final _id_endLine =
@@ -128,28 +134,9 @@ class StructuredTextWalker extends jni.JObject {
     ]).check();
   }
 
-  /// Maps a specific port to the implemented methods.
-  static final Map<int, Map<String, Function>> _$methods = {};
-
-  /// Maps a specific port to the type parameters.
-  static final Map<int, Map<String, jni.JObjType>> _$types = {};
-
+  /// Maps a specific port to the implemented interface.
+  static final Map<int, $StructuredTextWalkerImpl> _$impls = {};
   ReceivePort? _$p;
-
-  static final Finalizer<ReceivePort> _$finalizer = Finalizer(($p) {
-    _$methods.remove($p.sendPort.nativePort);
-    _$types.remove($p.sendPort.nativePort);
-    $p.close();
-  });
-
-  @override
-  void delete() {
-    _$methods.remove(_$p?.sendPort.nativePort);
-    _$types.remove(_$p?.sendPort.nativePort);
-    _$p?.close();
-    _$finalizer.detach(this);
-    super.delete();
-  }
 
   static jni.JObjectPtr _$invoke(
     int port,
@@ -176,70 +163,67 @@ class StructuredTextWalker extends jni.JObject {
     int $p,
     $MethodInvocation $i,
   ) {
-    final $d = $i.methodDescriptor.toDartString(deleteOriginal: true);
-    final $a = $i.args;
-    if ($d ==
-        r"onImageBlock(Lcom/artifex/mupdf/fitz/Rect;Lcom/artifex/mupdf/fitz/Matrix;Lcom/artifex/mupdf/fitz/Image;)V") {
-      _$methods[$p]![$d]!(
-        $a[0].castTo(const rect_.$RectType(), deleteOriginal: true),
-        $a[1].castTo(const matrix_.$MatrixType(), deleteOriginal: true),
-        $a[2].castTo(const image_.$ImageType(), deleteOriginal: true),
-      );
-      return jni.nullptr;
-    }
-    if ($d == r"beginTextBlock(Lcom/artifex/mupdf/fitz/Rect;)V") {
-      _$methods[$p]![$d]!(
-        $a[0].castTo(const rect_.$RectType(), deleteOriginal: true),
-      );
-      return jni.nullptr;
-    }
-    if ($d == r"endTextBlock()V") {
-      _$methods[$p]![$d]!();
-      return jni.nullptr;
-    }
-    if ($d == r"beginLine(Lcom/artifex/mupdf/fitz/Rect;I)V") {
-      _$methods[$p]![$d]!(
-        $a[0].castTo(const rect_.$RectType(), deleteOriginal: true),
-        $a[1]
-            .castTo(const jni.JIntegerType(), deleteOriginal: true)
-            .intValue(deleteOriginal: true),
-      );
-      return jni.nullptr;
-    }
-    if ($d == r"endLine()V") {
-      _$methods[$p]![$d]!();
-      return jni.nullptr;
-    }
-    if ($d ==
-        r"onChar(ILcom/artifex/mupdf/fitz/Point;Lcom/artifex/mupdf/fitz/Font;FLcom/artifex/mupdf/fitz/Quad;)V") {
-      _$methods[$p]![$d]!(
-        $a[0]
-            .castTo(const jni.JIntegerType(), deleteOriginal: true)
-            .intValue(deleteOriginal: true),
-        $a[1].castTo(const point_.$PointType(), deleteOriginal: true),
-        $a[2].castTo(const font_.$FontType(), deleteOriginal: true),
-        $a[3]
-            .castTo(const jni.JFloatType(), deleteOriginal: true)
-            .floatValue(deleteOriginal: true),
-        $a[4].castTo(const quad_.$QuadType(), deleteOriginal: true),
-      );
-      return jni.nullptr;
+    try {
+      final $d = $i.methodDescriptor.toDartString(releaseOriginal: true);
+      final $a = $i.args;
+      if ($d ==
+          r"onImageBlock(Lcom/artifex/mupdf/fitz/Rect;Lcom/artifex/mupdf/fitz/Matrix;Lcom/artifex/mupdf/fitz/Image;)V") {
+        _$impls[$p]!.onImageBlock(
+          $a[0].castTo(const rect_.$RectType(), releaseOriginal: true),
+          $a[1].castTo(const matrix_.$MatrixType(), releaseOriginal: true),
+          $a[2].castTo(const image_.$ImageType(), releaseOriginal: true),
+        );
+        return jni.nullptr;
+      }
+      if ($d == r"beginTextBlock(Lcom/artifex/mupdf/fitz/Rect;)V") {
+        _$impls[$p]!.beginTextBlock(
+          $a[0].castTo(const rect_.$RectType(), releaseOriginal: true),
+        );
+        return jni.nullptr;
+      }
+      if ($d == r"endTextBlock()V") {
+        _$impls[$p]!.endTextBlock();
+        return jni.nullptr;
+      }
+      if ($d ==
+          r"beginLine(Lcom/artifex/mupdf/fitz/Rect;ILcom/artifex/mupdf/fitz/Point;)V") {
+        _$impls[$p]!.beginLine(
+          $a[0].castTo(const rect_.$RectType(), releaseOriginal: true),
+          $a[1]
+              .castTo(const jni.JIntegerType(), releaseOriginal: true)
+              .intValue(releaseOriginal: true),
+          $a[2].castTo(const point_.$PointType(), releaseOriginal: true),
+        );
+        return jni.nullptr;
+      }
+      if ($d == r"endLine()V") {
+        _$impls[$p]!.endLine();
+        return jni.nullptr;
+      }
+      if ($d ==
+          r"onChar(ILcom/artifex/mupdf/fitz/Point;Lcom/artifex/mupdf/fitz/Font;FLcom/artifex/mupdf/fitz/Quad;)V") {
+        _$impls[$p]!.onChar(
+          $a[0]
+              .castTo(const jni.JIntegerType(), releaseOriginal: true)
+              .intValue(releaseOriginal: true),
+          $a[1].castTo(const point_.$PointType(), releaseOriginal: true),
+          $a[2].castTo(const font_.$FontType(), releaseOriginal: true),
+          $a[3]
+              .castTo(const jni.JFloatType(), releaseOriginal: true)
+              .floatValue(releaseOriginal: true),
+          $a[4].castTo(const quad_.$QuadType(), releaseOriginal: true),
+        );
+        return jni.nullptr;
+      }
+    } catch (e) {
+      return ProtectedJniExtensions.newDartException(e.toString());
     }
     return jni.nullptr;
   }
 
-  factory StructuredTextWalker.implement({
-    required void Function(
-            rect_.Rect rect, matrix_.Matrix matrix, image_.Image image)
-        onImageBlock,
-    required void Function(rect_.Rect rect) beginTextBlock,
-    required void Function() endTextBlock,
-    required void Function(rect_.Rect rect, int i) beginLine,
-    required void Function() endLine,
-    required void Function(int i, point_.Point point, font_.Font font, double f,
-            quad_.Quad quad)
-        onChar,
-  }) {
+  factory StructuredTextWalker.implement(
+    $StructuredTextWalkerImpl $impl,
+  ) {
     final $p = ReceivePort();
     final $x = StructuredTextWalker.fromRef(
       ProtectedJniExtensions.newPortProxy(
@@ -249,26 +233,99 @@ class StructuredTextWalker extends jni.JObject {
       ),
     ).._$p = $p;
     final $a = $p.sendPort.nativePort;
-    _$types[$a] = {};
-    _$methods[$a] = {};
-    _$methods[$a]![
-            r"onImageBlock(Lcom/artifex/mupdf/fitz/Rect;Lcom/artifex/mupdf/fitz/Matrix;Lcom/artifex/mupdf/fitz/Image;)V"] =
-        onImageBlock;
-    _$methods[$a]![r"beginTextBlock(Lcom/artifex/mupdf/fitz/Rect;)V"] =
-        beginTextBlock;
-    _$methods[$a]![r"endTextBlock()V"] = endTextBlock;
-    _$methods[$a]![r"beginLine(Lcom/artifex/mupdf/fitz/Rect;I)V"] = beginLine;
-    _$methods[$a]![r"endLine()V"] = endLine;
-    _$methods[$a]![
-            r"onChar(ILcom/artifex/mupdf/fitz/Point;Lcom/artifex/mupdf/fitz/Font;FLcom/artifex/mupdf/fitz/Quad;)V"] =
-        onChar;
-    _$finalizer.attach($x, $p, detach: $x);
+    _$impls[$a] = $impl;
     $p.listen(($m) {
+      if ($m == null) {
+        _$impls.remove($p.sendPort.nativePort);
+        $p.close();
+        return;
+      }
       final $i = $MethodInvocation.fromMessage($m);
       final $r = _$invokeMethod($p.sendPort.nativePort, $i);
       ProtectedJniExtensions.returnResult($i.result, $r);
     });
     return $x;
+  }
+}
+
+abstract class $StructuredTextWalkerImpl {
+  factory $StructuredTextWalkerImpl({
+    required void Function(
+            rect_.Rect rect, matrix_.Matrix matrix, image_.Image image)
+        onImageBlock,
+    required void Function(rect_.Rect rect) beginTextBlock,
+    required void Function() endTextBlock,
+    required void Function(rect_.Rect rect, int i, point_.Point point)
+        beginLine,
+    required void Function() endLine,
+    required void Function(int i, point_.Point point, font_.Font font, double f,
+            quad_.Quad quad)
+        onChar,
+  }) = _$StructuredTextWalkerImpl;
+
+  void onImageBlock(rect_.Rect rect, matrix_.Matrix matrix, image_.Image image);
+  void beginTextBlock(rect_.Rect rect);
+  void endTextBlock();
+  void beginLine(rect_.Rect rect, int i, point_.Point point);
+  void endLine();
+  void onChar(
+      int i, point_.Point point, font_.Font font, double f, quad_.Quad quad);
+}
+
+class _$StructuredTextWalkerImpl implements $StructuredTextWalkerImpl {
+  _$StructuredTextWalkerImpl({
+    required void Function(
+            rect_.Rect rect, matrix_.Matrix matrix, image_.Image image)
+        onImageBlock,
+    required void Function(rect_.Rect rect) beginTextBlock,
+    required void Function() endTextBlock,
+    required void Function(rect_.Rect rect, int i, point_.Point point)
+        beginLine,
+    required void Function() endLine,
+    required void Function(int i, point_.Point point, font_.Font font, double f,
+            quad_.Quad quad)
+        onChar,
+  })  : _onImageBlock = onImageBlock,
+        _beginTextBlock = beginTextBlock,
+        _endTextBlock = endTextBlock,
+        _beginLine = beginLine,
+        _endLine = endLine,
+        _onChar = onChar;
+
+  final void Function(
+      rect_.Rect rect, matrix_.Matrix matrix, image_.Image image) _onImageBlock;
+  final void Function(rect_.Rect rect) _beginTextBlock;
+  final void Function() _endTextBlock;
+  final void Function(rect_.Rect rect, int i, point_.Point point) _beginLine;
+  final void Function() _endLine;
+  final void Function(
+          int i, point_.Point point, font_.Font font, double f, quad_.Quad quad)
+      _onChar;
+
+  void onImageBlock(
+      rect_.Rect rect, matrix_.Matrix matrix, image_.Image image) {
+    return _onImageBlock(rect, matrix, image);
+  }
+
+  void beginTextBlock(rect_.Rect rect) {
+    return _beginTextBlock(rect);
+  }
+
+  void endTextBlock() {
+    return _endTextBlock();
+  }
+
+  void beginLine(rect_.Rect rect, int i, point_.Point point) {
+    return _beginLine(rect, i, point);
+  }
+
+  void endLine() {
+    return _endLine();
+  }
+
+  void onChar(
+      int i, point_.Point point, font_.Font font, double f, quad_.Quad quad) {
+    return _onChar(i, point, font, f, quad);
   }
 }
 

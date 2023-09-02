@@ -36,20 +36,20 @@ class AndroidImage extends image_.Image {
 
   /// The type which includes information such as the signature of this class.
   static const type = $AndroidImageType();
-  static final _id_ctor5 = jni.Jni.accessors.getMethodIDOf(
+  static final _id_new5 = jni.Jni.accessors.getMethodIDOf(
       _class.reference,
       r"<init>",
       r"(Landroid/graphics/Bitmap;Lcom/artifex/mupdf/fitz/android/AndroidImage;)V");
 
   /// from: public void <init>(android.graphics.Bitmap bitmap, com.artifex.mupdf.fitz.android.AndroidImage androidImage)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory AndroidImage.ctor5(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory AndroidImage.new5(
     jni.JObject bitmap,
     AndroidImage androidImage,
   ) {
     return AndroidImage.fromRef(jni.Jni.accessors.newObjectWithArgs(
         _class.reference,
-        _id_ctor5,
+        _id_new5,
         [bitmap.reference, androidImage.reference]).object);
   }
 }

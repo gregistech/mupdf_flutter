@@ -53,45 +53,45 @@ class Archive extends jni.JObject {
         reference, _id_destroy, jni.JniCallType.voidType, []).check();
   }
 
-  static final _id_ctor = jni.Jni.accessors
+  static final _id_new0 = jni.Jni.accessors
       .getMethodIDOf(_class.reference, r"<init>", r"(Ljava/lang/String;)V");
 
   /// from: public void <init>(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory Archive(
     jni.JString string,
   ) {
     return Archive.fromRef(jni.Jni.accessors.newObjectWithArgs(
-        _class.reference, _id_ctor, [string.reference]).object);
+        _class.reference, _id_new0, [string.reference]).object);
   }
 
-  static final _id_ctor1 =
+  static final _id_new1 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"()V");
 
   /// from: public void <init>()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory Archive.ctor1() {
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Archive.new1() {
     return Archive.fromRef(jni.Jni.accessors
-        .newObjectWithArgs(_class.reference, _id_ctor1, []).object);
+        .newObjectWithArgs(_class.reference, _id_new1, []).object);
   }
 
-  static final _id_ctor2 =
+  static final _id_new2 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"(J)V");
 
   /// from: protected void <init>(long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory Archive.ctor2(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Archive.new2(
     int j,
   ) {
     return Archive.fromRef(jni.Jni.accessors
-        .newObjectWithArgs(_class.reference, _id_ctor2, [j]).object);
+        .newObjectWithArgs(_class.reference, _id_new2, [j]).object);
   }
 
   static final _id_getFormat = jni.Jni.accessors
       .getMethodIDOf(_class.reference, r"getFormat", r"()Ljava/lang/String;");
 
   /// from: public native java.lang.String getFormat()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString getFormat() {
     return const jni.JStringType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_getFormat, jni.JniCallType.objectType, []).object);
@@ -110,7 +110,7 @@ class Archive extends jni.JObject {
       .getMethodIDOf(_class.reference, r"listEntries", r"()Ljava/lang/String;");
 
   /// from: public native java.lang.String listEntries()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString listEntries() {
     return const jni.JStringType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_listEntries, jni.JniCallType.objectType, []).object);
@@ -131,7 +131,7 @@ class Archive extends jni.JObject {
       r"readEntry", r"(Ljava/lang/String;)Lcom/artifex/mupdf/fitz/Buffer;");
 
   /// from: public native com.artifex.mupdf.fitz.Buffer readEntry(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   buffer_.Buffer readEntry(
     jni.JString string,
   ) {

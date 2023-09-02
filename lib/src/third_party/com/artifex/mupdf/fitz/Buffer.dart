@@ -51,38 +51,38 @@ class Buffer extends jni.JObject {
         reference, _id_destroy, jni.JniCallType.voidType, []).check();
   }
 
-  static final _id_ctor =
+  static final _id_new0 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"(I)V");
 
   /// from: public void <init>(int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory Buffer(
     int i,
   ) {
     return Buffer.fromRef(jni.Jni.accessors.newObjectWithArgs(
-        _class.reference, _id_ctor, [jni.JValueInt(i)]).object);
+        _class.reference, _id_new0, [jni.JValueInt(i)]).object);
   }
 
-  static final _id_ctor1 =
+  static final _id_new1 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"()V");
 
   /// from: public void <init>()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory Buffer.ctor1() {
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Buffer.new1() {
     return Buffer.fromRef(jni.Jni.accessors
-        .newObjectWithArgs(_class.reference, _id_ctor1, []).object);
+        .newObjectWithArgs(_class.reference, _id_new1, []).object);
   }
 
-  static final _id_ctor2 =
+  static final _id_new2 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"(J)V");
 
   /// from: protected void <init>(long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory Buffer.ctor2(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Buffer.new2(
     int j,
   ) {
     return Buffer.fromRef(jni.Jni.accessors
-        .newObjectWithArgs(_class.reference, _id_ctor2, [j]).object);
+        .newObjectWithArgs(_class.reference, _id_new2, [j]).object);
   }
 
   static final _id_getLength =
@@ -222,7 +222,7 @@ class Buffer extends jni.JObject {
       _class.reference, r"slice", r"(II)Lcom/artifex/mupdf/fitz/Buffer;");
 
   /// from: public native com.artifex.mupdf.fitz.Buffer slice(int i, int i1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Buffer slice(
     int i,
     int i1,
@@ -238,7 +238,7 @@ class Buffer extends jni.JObject {
       _class.reference, r"slice", r"(I)Lcom/artifex/mupdf/fitz/Buffer;");
 
   /// from: public com.artifex.mupdf.fitz.Buffer slice(int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Buffer slice1(
     int i,
   ) {
@@ -253,7 +253,7 @@ class Buffer extends jni.JObject {
       _class.reference, r"slice", r"()Lcom/artifex/mupdf/fitz/Buffer;");
 
   /// from: public com.artifex.mupdf.fitz.Buffer slice()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Buffer slice2() {
     return const $BufferType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_slice2, jni.JniCallType.objectType, []).object);

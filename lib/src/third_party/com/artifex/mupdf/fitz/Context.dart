@@ -56,28 +56,9 @@ class Context_Log extends jni.JObject {
         jni.JniCallType.voidType, [string.reference]).check();
   }
 
-  /// Maps a specific port to the implemented methods.
-  static final Map<int, Map<String, Function>> _$methods = {};
-
-  /// Maps a specific port to the type parameters.
-  static final Map<int, Map<String, jni.JObjType>> _$types = {};
-
+  /// Maps a specific port to the implemented interface.
+  static final Map<int, $Context_LogImpl> _$impls = {};
   ReceivePort? _$p;
-
-  static final Finalizer<ReceivePort> _$finalizer = Finalizer(($p) {
-    _$methods.remove($p.sendPort.nativePort);
-    _$types.remove($p.sendPort.nativePort);
-    $p.close();
-  });
-
-  @override
-  void delete() {
-    _$methods.remove(_$p?.sendPort.nativePort);
-    _$types.remove(_$p?.sendPort.nativePort);
-    _$p?.close();
-    _$finalizer.detach(this);
-    super.delete();
-  }
 
   static jni.JObjectPtr _$invoke(
     int port,
@@ -104,27 +85,30 @@ class Context_Log extends jni.JObject {
     int $p,
     $MethodInvocation $i,
   ) {
-    final $d = $i.methodDescriptor.toDartString(deleteOriginal: true);
-    final $a = $i.args;
-    if ($d == r"error(Ljava/lang/String;)V") {
-      _$methods[$p]![$d]!(
-        $a[0].castTo(const jni.JStringType(), deleteOriginal: true),
-      );
-      return jni.nullptr;
-    }
-    if ($d == r"warning(Ljava/lang/String;)V") {
-      _$methods[$p]![$d]!(
-        $a[0].castTo(const jni.JStringType(), deleteOriginal: true),
-      );
-      return jni.nullptr;
+    try {
+      final $d = $i.methodDescriptor.toDartString(releaseOriginal: true);
+      final $a = $i.args;
+      if ($d == r"error(Ljava/lang/String;)V") {
+        _$impls[$p]!.error(
+          $a[0].castTo(const jni.JStringType(), releaseOriginal: true),
+        );
+        return jni.nullptr;
+      }
+      if ($d == r"warning(Ljava/lang/String;)V") {
+        _$impls[$p]!.warning(
+          $a[0].castTo(const jni.JStringType(), releaseOriginal: true),
+        );
+        return jni.nullptr;
+      }
+    } catch (e) {
+      return ProtectedJniExtensions.newDartException(e.toString());
     }
     return jni.nullptr;
   }
 
-  factory Context_Log.implement({
-    required void Function(jni.JString string) error,
-    required void Function(jni.JString string) warning,
-  }) {
+  factory Context_Log.implement(
+    $Context_LogImpl $impl,
+  ) {
     final $p = ReceivePort();
     final $x = Context_Log.fromRef(
       ProtectedJniExtensions.newPortProxy(
@@ -134,17 +118,47 @@ class Context_Log extends jni.JObject {
       ),
     ).._$p = $p;
     final $a = $p.sendPort.nativePort;
-    _$types[$a] = {};
-    _$methods[$a] = {};
-    _$methods[$a]![r"error(Ljava/lang/String;)V"] = error;
-    _$methods[$a]![r"warning(Ljava/lang/String;)V"] = warning;
-    _$finalizer.attach($x, $p, detach: $x);
+    _$impls[$a] = $impl;
     $p.listen(($m) {
+      if ($m == null) {
+        _$impls.remove($p.sendPort.nativePort);
+        $p.close();
+        return;
+      }
       final $i = $MethodInvocation.fromMessage($m);
       final $r = _$invokeMethod($p.sendPort.nativePort, $i);
       ProtectedJniExtensions.returnResult($i.result, $r);
     });
     return $x;
+  }
+}
+
+abstract class $Context_LogImpl {
+  factory $Context_LogImpl({
+    required void Function(jni.JString string) error,
+    required void Function(jni.JString string) warning,
+  }) = _$Context_LogImpl;
+
+  void error(jni.JString string);
+  void warning(jni.JString string);
+}
+
+class _$Context_LogImpl implements $Context_LogImpl {
+  _$Context_LogImpl({
+    required void Function(jni.JString string) error,
+    required void Function(jni.JString string) warning,
+  })  : _error = error,
+        _warning = warning;
+
+  final void Function(jni.JString string) _error;
+  final void Function(jni.JString string) _warning;
+
+  void error(jni.JString string) {
+    return _error(string);
+  }
+
+  void warning(jni.JString string) {
+    return _warning(string);
   }
 }
 
@@ -193,13 +207,13 @@ class Context_Version extends jni.JObject {
   );
 
   /// from: public java.lang.String version
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString get version => const jni.JStringType().fromRef(jni.Jni.accessors
       .getField(reference, _id_version, jni.JniCallType.objectType)
       .object);
 
   /// from: public java.lang.String version
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   set version(jni.JString value) =>
       jni.Jni.env.SetObjectField(reference, _id_version, value.reference);
 
@@ -245,14 +259,14 @@ class Context_Version extends jni.JObject {
   /// from: public int patch
   set patch(int value) => jni.Jni.env.SetIntField(reference, _id_patch, value);
 
-  static final _id_ctor =
+  static final _id_new0 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"()V");
 
   /// from: public void <init>()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory Context_Version() {
     return Context_Version.fromRef(jni.Jni.accessors
-        .newObjectWithArgs(_class.reference, _id_ctor, []).object);
+        .newObjectWithArgs(_class.reference, _id_new0, []).object);
   }
 }
 
@@ -294,14 +308,14 @@ class Context extends jni.JObject {
 
   /// The type which includes information such as the signature of this class.
   static const type = $ContextType();
-  static final _id_ctor =
+  static final _id_new0 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"()V");
 
   /// from: public void <init>()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory Context() {
     return Context.fromRef(jni.Jni.accessors
-        .newObjectWithArgs(_class.reference, _id_ctor, []).object);
+        .newObjectWithArgs(_class.reference, _id_new0, []).object);
   }
 
   static final _id_init =
@@ -320,6 +334,20 @@ class Context extends jni.JObject {
   static void emptyStore() {
     return jni.Jni.accessors.callStaticMethodWithArgs(
         _class.reference, _id_emptyStore, jni.JniCallType.voidType, []).check();
+  }
+
+  static final _id_shrinkStore = jni.Jni.accessors
+      .getStaticMethodIDOf(_class.reference, r"shrinkStore", r"(I)Z");
+
+  /// from: static public native boolean shrinkStore(int i)
+  static bool shrinkStore(
+    int i,
+  ) {
+    return jni.Jni.accessors.callStaticMethodWithArgs(
+        _class.reference,
+        _id_shrinkStore,
+        jni.JniCallType.booleanType,
+        [jni.JValueInt(i)]).boolean;
   }
 
   static final _id_enableICC = jni.Jni.accessors
@@ -382,7 +410,7 @@ class Context extends jni.JObject {
       r"()Lcom/artifex/mupdf/fitz/Context$Version;");
 
   /// from: static public native com.artifex.mupdf.fitz.Context$Version getVersion()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static Context_Version getVersion() {
     return const $Context_VersionType().fromRef(jni.Jni.accessors
         .callStaticMethodWithArgs(_class.reference, _id_getVersion,

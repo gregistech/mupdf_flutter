@@ -61,33 +61,33 @@ class Path extends jni.JObject {
         reference, _id_destroy, jni.JniCallType.voidType, []).check();
   }
 
-  static final _id_ctor =
+  static final _id_new0 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"()V");
 
   /// from: public void <init>()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory Path() {
     return Path.fromRef(jni.Jni.accessors
-        .newObjectWithArgs(_class.reference, _id_ctor, []).object);
+        .newObjectWithArgs(_class.reference, _id_new0, []).object);
   }
 
-  static final _id_ctor1 = jni.Jni.accessors.getMethodIDOf(
+  static final _id_new1 = jni.Jni.accessors.getMethodIDOf(
       _class.reference, r"<init>", r"(Lcom/artifex/mupdf/fitz/Path;)V");
 
   /// from: public void <init>(com.artifex.mupdf.fitz.Path path)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory Path.ctor1(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Path.new1(
     Path path,
   ) {
     return Path.fromRef(jni.Jni.accessors.newObjectWithArgs(
-        _class.reference, _id_ctor1, [path.reference]).object);
+        _class.reference, _id_new1, [path.reference]).object);
   }
 
   static final _id_currentPoint = jni.Jni.accessors.getMethodIDOf(
       _class.reference, r"currentPoint", r"()Lcom/artifex/mupdf/fitz/Point;");
 
   /// from: public native com.artifex.mupdf.fitz.Point currentPoint()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   point_.Point currentPoint() {
     return const point_.$PointType().fromRef(jni.Jni.accessors
         .callMethodWithArgs(reference, _id_currentPoint,
@@ -298,7 +298,7 @@ class Path extends jni.JObject {
       r"(Lcom/artifex/mupdf/fitz/StrokeState;Lcom/artifex/mupdf/fitz/Matrix;)Lcom/artifex/mupdf/fitz/Rect;");
 
   /// from: public native com.artifex.mupdf.fitz.Rect getBounds(com.artifex.mupdf.fitz.StrokeState strokeState, com.artifex.mupdf.fitz.Matrix matrix)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   rect_.Rect getBounds(
     strokestate_.StrokeState strokeState,
     matrix_.Matrix matrix,
@@ -319,6 +319,31 @@ class Path extends jni.JObject {
   ) {
     return jni.Jni.accessors.callMethodWithArgs(reference, _id_walk,
         jni.JniCallType.voidType, [pathWalker.reference]).check();
+  }
+
+  static final _id_toString1 = jni.Jni.accessors.getMethodIDOf(
+      _class.reference, r"toString", r"(Ljava/lang/String;)Ljava/lang/String;");
+
+  /// from: public java.lang.String toString(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JString toString1(
+    jni.JString string,
+  ) {
+    return const jni.JStringType().fromRef(jni.Jni.accessors.callMethodWithArgs(
+        reference,
+        _id_toString1,
+        jni.JniCallType.objectType,
+        [string.reference]).object);
+  }
+
+  static final _id_toString2 = jni.Jni.accessors
+      .getMethodIDOf(_class.reference, r"toString", r"()Ljava/lang/String;");
+
+  /// from: public java.lang.String toString()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JString toString2() {
+    return const jni.JStringType().fromRef(jni.Jni.accessors.callMethodWithArgs(
+        reference, _id_toString2, jni.JniCallType.objectType, []).object);
   }
 }
 

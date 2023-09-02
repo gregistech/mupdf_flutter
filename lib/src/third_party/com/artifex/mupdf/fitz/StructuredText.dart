@@ -49,7 +49,7 @@ class StructuredText_TextBlock extends jni.JObject {
   );
 
   /// from: public com.artifex.mupdf.fitz.StructuredText$TextLine[] lines
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<StructuredText_TextLine> get lines =>
       const jni.JArrayType($StructuredText_TextLineType()).fromRef(jni
           .Jni.accessors
@@ -57,7 +57,7 @@ class StructuredText_TextBlock extends jni.JObject {
           .object);
 
   /// from: public com.artifex.mupdf.fitz.StructuredText$TextLine[] lines
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   set lines(jni.JArray<StructuredText_TextLine> value) =>
       jni.Jni.env.SetObjectField(reference, _id_lines, value.reference);
 
@@ -68,24 +68,24 @@ class StructuredText_TextBlock extends jni.JObject {
   );
 
   /// from: public com.artifex.mupdf.fitz.Rect bbox
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   rect_.Rect get bbox => const rect_.$RectType().fromRef(jni.Jni.accessors
       .getField(reference, _id_bbox, jni.JniCallType.objectType)
       .object);
 
   /// from: public com.artifex.mupdf.fitz.Rect bbox
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   set bbox(rect_.Rect value) =>
       jni.Jni.env.SetObjectField(reference, _id_bbox, value.reference);
 
-  static final _id_ctor =
+  static final _id_new0 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"()V");
 
   /// from: public void <init>()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory StructuredText_TextBlock() {
     return StructuredText_TextBlock.fromRef(jni.Jni.accessors
-        .newObjectWithArgs(_class.reference, _id_ctor, []).object);
+        .newObjectWithArgs(_class.reference, _id_new0, []).object);
   }
 }
 
@@ -151,24 +151,41 @@ class StructuredText_TextChar extends jni.JObject {
   );
 
   /// from: public com.artifex.mupdf.fitz.Quad quad
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   quad_.Quad get quad => const quad_.$QuadType().fromRef(jni.Jni.accessors
       .getField(reference, _id_quad, jni.JniCallType.objectType)
       .object);
 
   /// from: public com.artifex.mupdf.fitz.Quad quad
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   set quad(quad_.Quad value) =>
       jni.Jni.env.SetObjectField(reference, _id_quad, value.reference);
 
-  static final _id_ctor =
+  static final _id_origin = jni.Jni.accessors.getFieldIDOf(
+    _class.reference,
+    r"origin",
+    r"Lcom/artifex/mupdf/fitz/Point;",
+  );
+
+  /// from: public com.artifex.mupdf.fitz.Point origin
+  /// The returned object must be released after use, by calling the [release] method.
+  point_.Point get origin => const point_.$PointType().fromRef(jni.Jni.accessors
+      .getField(reference, _id_origin, jni.JniCallType.objectType)
+      .object);
+
+  /// from: public com.artifex.mupdf.fitz.Point origin
+  /// The returned object must be released after use, by calling the [release] method.
+  set origin(point_.Point value) =>
+      jni.Jni.env.SetObjectField(reference, _id_origin, value.reference);
+
+  static final _id_new0 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"()V");
 
   /// from: public void <init>()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory StructuredText_TextChar() {
     return StructuredText_TextChar.fromRef(jni.Jni.accessors
-        .newObjectWithArgs(_class.reference, _id_ctor, []).object);
+        .newObjectWithArgs(_class.reference, _id_new0, []).object);
   }
 
   static final _id_isWhitespace = jni.Jni.accessors
@@ -229,7 +246,7 @@ class StructuredText_TextLine extends jni.JObject {
   );
 
   /// from: public com.artifex.mupdf.fitz.StructuredText$TextChar[] chars
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<StructuredText_TextChar> get chars =>
       const jni.JArrayType($StructuredText_TextCharType()).fromRef(jni
           .Jni.accessors
@@ -237,7 +254,7 @@ class StructuredText_TextLine extends jni.JObject {
           .object);
 
   /// from: public com.artifex.mupdf.fitz.StructuredText$TextChar[] chars
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   set chars(jni.JArray<StructuredText_TextChar> value) =>
       jni.Jni.env.SetObjectField(reference, _id_chars, value.reference);
 
@@ -248,24 +265,41 @@ class StructuredText_TextLine extends jni.JObject {
   );
 
   /// from: public com.artifex.mupdf.fitz.Rect bbox
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   rect_.Rect get bbox => const rect_.$RectType().fromRef(jni.Jni.accessors
       .getField(reference, _id_bbox, jni.JniCallType.objectType)
       .object);
 
   /// from: public com.artifex.mupdf.fitz.Rect bbox
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   set bbox(rect_.Rect value) =>
       jni.Jni.env.SetObjectField(reference, _id_bbox, value.reference);
 
-  static final _id_ctor =
+  static final _id_dir = jni.Jni.accessors.getFieldIDOf(
+    _class.reference,
+    r"dir",
+    r"Lcom/artifex/mupdf/fitz/Point;",
+  );
+
+  /// from: public com.artifex.mupdf.fitz.Point dir
+  /// The returned object must be released after use, by calling the [release] method.
+  point_.Point get dir => const point_.$PointType().fromRef(jni.Jni.accessors
+      .getField(reference, _id_dir, jni.JniCallType.objectType)
+      .object);
+
+  /// from: public com.artifex.mupdf.fitz.Point dir
+  /// The returned object must be released after use, by calling the [release] method.
+  set dir(point_.Point value) =>
+      jni.Jni.env.SetObjectField(reference, _id_dir, value.reference);
+
+  static final _id_new0 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"()V");
 
   /// from: public void <init>()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory StructuredText_TextLine() {
     return StructuredText_TextLine.fromRef(jni.Jni.accessors
-        .newObjectWithArgs(_class.reference, _id_ctor, []).object);
+        .newObjectWithArgs(_class.reference, _id_new0, []).object);
   }
 }
 
@@ -342,7 +376,7 @@ class StructuredText extends jni.JObject {
       r"search", r"(Ljava/lang/String;)[[Lcom/artifex/mupdf/fitz/Quad;");
 
   /// from: public native com.artifex.mupdf.fitz.Quad[][] search(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<quad_.Quad> search(
     jni.JString string,
   ) {
@@ -357,7 +391,7 @@ class StructuredText extends jni.JObject {
       r"(Lcom/artifex/mupdf/fitz/Point;Lcom/artifex/mupdf/fitz/Point;)[Lcom/artifex/mupdf/fitz/Quad;");
 
   /// from: public native com.artifex.mupdf.fitz.Quad[] highlight(com.artifex.mupdf.fitz.Point point, com.artifex.mupdf.fitz.Point point1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<quad_.Quad> highlight(
     point_.Point point,
     point_.Point point1,
@@ -376,7 +410,7 @@ class StructuredText extends jni.JObject {
       r"(Lcom/artifex/mupdf/fitz/Point;Lcom/artifex/mupdf/fitz/Point;I)Lcom/artifex/mupdf/fitz/Quad;");
 
   /// from: public native com.artifex.mupdf.fitz.Quad snapSelection(com.artifex.mupdf.fitz.Point point, com.artifex.mupdf.fitz.Point point1, int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   quad_.Quad snapSelection(
     point_.Point point,
     point_.Point point1,
@@ -395,7 +429,7 @@ class StructuredText extends jni.JObject {
       r"(Lcom/artifex/mupdf/fitz/Point;Lcom/artifex/mupdf/fitz/Point;)Ljava/lang/String;");
 
   /// from: public native java.lang.String copy(com.artifex.mupdf.fitz.Point point, com.artifex.mupdf.fitz.Point point1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString copy(
     point_.Point point,
     point_.Point point1,
@@ -422,7 +456,7 @@ class StructuredText extends jni.JObject {
       r"getBlocks", r"()[Lcom/artifex/mupdf/fitz/StructuredText$TextBlock;");
 
   /// from: public com.artifex.mupdf.fitz.StructuredText$TextBlock[] getBlocks()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<StructuredText_TextBlock> getBlocks() {
     return const jni.JArrayType($StructuredText_TextBlockType()).fromRef(
         jni.Jni.accessors.callMethodWithArgs(

@@ -41,7 +41,7 @@ class ColorSpace extends jni.JObject {
   );
 
   /// from: static public com.artifex.mupdf.fitz.ColorSpace DeviceGray
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static ColorSpace get DeviceGray =>
       const $ColorSpaceType().fromRef(jni.Jni.accessors
           .getStaticField(
@@ -49,7 +49,7 @@ class ColorSpace extends jni.JObject {
           .object);
 
   /// from: static public com.artifex.mupdf.fitz.ColorSpace DeviceGray
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static set DeviceGray(ColorSpace value) => jni.Jni.env
       .SetStaticObjectField(_class.reference, _id_DeviceGray, value.reference);
 
@@ -60,7 +60,7 @@ class ColorSpace extends jni.JObject {
   );
 
   /// from: static public com.artifex.mupdf.fitz.ColorSpace DeviceRGB
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static ColorSpace get DeviceRGB =>
       const $ColorSpaceType().fromRef(jni.Jni.accessors
           .getStaticField(
@@ -68,7 +68,7 @@ class ColorSpace extends jni.JObject {
           .object);
 
   /// from: static public com.artifex.mupdf.fitz.ColorSpace DeviceRGB
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static set DeviceRGB(ColorSpace value) => jni.Jni.env
       .SetStaticObjectField(_class.reference, _id_DeviceRGB, value.reference);
 
@@ -79,7 +79,7 @@ class ColorSpace extends jni.JObject {
   );
 
   /// from: static public com.artifex.mupdf.fitz.ColorSpace DeviceBGR
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static ColorSpace get DeviceBGR =>
       const $ColorSpaceType().fromRef(jni.Jni.accessors
           .getStaticField(
@@ -87,7 +87,7 @@ class ColorSpace extends jni.JObject {
           .object);
 
   /// from: static public com.artifex.mupdf.fitz.ColorSpace DeviceBGR
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static set DeviceBGR(ColorSpace value) => jni.Jni.env
       .SetStaticObjectField(_class.reference, _id_DeviceBGR, value.reference);
 
@@ -98,7 +98,7 @@ class ColorSpace extends jni.JObject {
   );
 
   /// from: static public com.artifex.mupdf.fitz.ColorSpace DeviceCMYK
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static ColorSpace get DeviceCMYK =>
       const $ColorSpaceType().fromRef(jni.Jni.accessors
           .getStaticField(
@@ -106,7 +106,7 @@ class ColorSpace extends jni.JObject {
           .object);
 
   /// from: static public com.artifex.mupdf.fitz.ColorSpace DeviceCMYK
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static set DeviceCMYK(ColorSpace value) => jni.Jni.env
       .SetStaticObjectField(_class.reference, _id_DeviceCMYK, value.reference);
 
@@ -134,7 +134,7 @@ class ColorSpace extends jni.JObject {
       r"(J)Lcom/artifex/mupdf/fitz/ColorSpace;");
 
   /// from: static protected com.artifex.mupdf.fitz.ColorSpace fromPointer(long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static ColorSpace fromPointer(
     int j,
   ) {
@@ -156,7 +156,7 @@ class ColorSpace extends jni.JObject {
       .getMethodIDOf(_class.reference, r"toString", r"()Ljava/lang/String;");
 
   /// from: public java.lang.String toString()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString toString1() {
     return const jni.JStringType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_toString1, jni.JniCallType.objectType, []).object);
@@ -216,15 +216,6 @@ class ColorSpace extends jni.JObject {
         reference, _id_isDeviceN, jni.JniCallType.booleanType, []).boolean;
   }
 
-  static final _id_isLabICC =
-      jni.Jni.accessors.getMethodIDOf(_class.reference, r"isLabICC", r"()Z");
-
-  /// from: public native boolean isLabICC()
-  bool isLabICC() {
-    return jni.Jni.accessors.callMethodWithArgs(
-        reference, _id_isLabICC, jni.JniCallType.booleanType, []).boolean;
-  }
-
   static final _id_isSubtractive = jni.Jni.accessors
       .getMethodIDOf(_class.reference, r"isSubtractive", r"()Z");
 
@@ -232,33 +223,6 @@ class ColorSpace extends jni.JObject {
   bool isSubtractive() {
     return jni.Jni.accessors.callMethodWithArgs(
         reference, _id_isSubtractive, jni.JniCallType.booleanType, []).boolean;
-  }
-
-  static final _id_isDevice =
-      jni.Jni.accessors.getMethodIDOf(_class.reference, r"isDevice", r"()Z");
-
-  /// from: public native boolean isDevice()
-  bool isDevice() {
-    return jni.Jni.accessors.callMethodWithArgs(
-        reference, _id_isDevice, jni.JniCallType.booleanType, []).boolean;
-  }
-
-  static final _id_isDeviceGray = jni.Jni.accessors
-      .getMethodIDOf(_class.reference, r"isDeviceGray", r"()Z");
-
-  /// from: public native boolean isDeviceGray()
-  bool isDeviceGray() {
-    return jni.Jni.accessors.callMethodWithArgs(
-        reference, _id_isDeviceGray, jni.JniCallType.booleanType, []).boolean;
-  }
-
-  static final _id_isDeviceCMYK = jni.Jni.accessors
-      .getMethodIDOf(_class.reference, r"isDeviceCMYK", r"()Z");
-
-  /// from: public native boolean isDeviceCMYK()
-  bool isDeviceCMYK() {
-    return jni.Jni.accessors.callMethodWithArgs(
-        reference, _id_isDeviceCMYK, jni.JniCallType.booleanType, []).boolean;
   }
 }
 

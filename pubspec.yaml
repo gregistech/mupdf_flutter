@@ -12,11 +12,14 @@ dependencies:
       url: https://github.com/dart-lang/jnigen
       ref: main
       path: jni
+  jnigen:
+    git:
+      url: https://github.com/dart-lang/jnigen
+      ref: main
+      path: jnigen
   plugin_platform_interface: ^2.0.2
 
 dev_dependencies:
-  jnigen:
-    path: ../jnigen/jnigen
   test: any
   lints: ^2.0.0
 

@@ -72,16 +72,16 @@ class NativeDevice extends device_.Device {
         reference, _id_destroy, jni.JniCallType.voidType, []).check();
   }
 
-  static final _id_ctor1 =
+  static final _id_new1 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"(J)V");
 
   /// from: protected void <init>(long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory NativeDevice.ctor1(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory NativeDevice.new1(
     int j,
   ) {
     return NativeDevice.fromRef(jni.Jni.accessors
-        .newObjectWithArgs(_class.reference, _id_ctor1, [j]).object);
+        .newObjectWithArgs(_class.reference, _id_new1, [j]).object);
   }
 
   static final _id_close =

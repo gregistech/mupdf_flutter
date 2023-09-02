@@ -57,11 +57,11 @@ class Pixmap extends jni.JObject {
         reference, _id_destroy, jni.JniCallType.voidType, []).check();
   }
 
-  static final _id_ctor = jni.Jni.accessors.getMethodIDOf(_class.reference,
+  static final _id_new0 = jni.Jni.accessors.getMethodIDOf(_class.reference,
       r"<init>", r"(Lcom/artifex/mupdf/fitz/ColorSpace;IIIIZ)V");
 
   /// from: public void <init>(com.artifex.mupdf.fitz.ColorSpace colorSpace, int i, int i1, int i2, int i3, boolean z)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory Pixmap(
     colorspace_.ColorSpace colorSpace,
     int i,
@@ -71,7 +71,7 @@ class Pixmap extends jni.JObject {
     bool z,
   ) {
     return Pixmap.fromRef(
-        jni.Jni.accessors.newObjectWithArgs(_class.reference, _id_ctor, [
+        jni.Jni.accessors.newObjectWithArgs(_class.reference, _id_new0, [
       colorSpace.reference,
       jni.JValueInt(i),
       jni.JValueInt(i1),
@@ -81,12 +81,12 @@ class Pixmap extends jni.JObject {
     ]).object);
   }
 
-  static final _id_ctor1 = jni.Jni.accessors.getMethodIDOf(_class.reference,
+  static final _id_new1 = jni.Jni.accessors.getMethodIDOf(_class.reference,
       r"<init>", r"(Lcom/artifex/mupdf/fitz/ColorSpace;IIII)V");
 
   /// from: public void <init>(com.artifex.mupdf.fitz.ColorSpace colorSpace, int i, int i1, int i2, int i3)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory Pixmap.ctor1(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Pixmap.new1(
     colorspace_.ColorSpace colorSpace,
     int i,
     int i1,
@@ -94,7 +94,7 @@ class Pixmap extends jni.JObject {
     int i3,
   ) {
     return Pixmap.fromRef(
-        jni.Jni.accessors.newObjectWithArgs(_class.reference, _id_ctor1, [
+        jni.Jni.accessors.newObjectWithArgs(_class.reference, _id_new1, [
       colorSpace.reference,
       jni.JValueInt(i),
       jni.JValueInt(i1),
@@ -103,19 +103,19 @@ class Pixmap extends jni.JObject {
     ]).object);
   }
 
-  static final _id_ctor2 = jni.Jni.accessors.getMethodIDOf(_class.reference,
+  static final _id_new2 = jni.Jni.accessors.getMethodIDOf(_class.reference,
       r"<init>", r"(Lcom/artifex/mupdf/fitz/ColorSpace;IIZ)V");
 
   /// from: public void <init>(com.artifex.mupdf.fitz.ColorSpace colorSpace, int i, int i1, boolean z)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory Pixmap.ctor2(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Pixmap.new2(
     colorspace_.ColorSpace colorSpace,
     int i,
     int i1,
     bool z,
   ) {
     return Pixmap.fromRef(jni.Jni.accessors.newObjectWithArgs(
-        _class.reference, _id_ctor2, [
+        _class.reference, _id_new2, [
       colorSpace.reference,
       jni.JValueInt(i),
       jni.JValueInt(i1),
@@ -123,66 +123,66 @@ class Pixmap extends jni.JObject {
     ]).object);
   }
 
-  static final _id_ctor3 = jni.Jni.accessors.getMethodIDOf(
+  static final _id_new3 = jni.Jni.accessors.getMethodIDOf(
       _class.reference, r"<init>", r"(Lcom/artifex/mupdf/fitz/ColorSpace;II)V");
 
   /// from: public void <init>(com.artifex.mupdf.fitz.ColorSpace colorSpace, int i, int i1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory Pixmap.ctor3(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Pixmap.new3(
     colorspace_.ColorSpace colorSpace,
     int i,
     int i1,
   ) {
     return Pixmap.fromRef(jni.Jni.accessors.newObjectWithArgs(
         _class.reference,
-        _id_ctor3,
+        _id_new3,
         [colorSpace.reference, jni.JValueInt(i), jni.JValueInt(i1)]).object);
   }
 
-  static final _id_ctor4 = jni.Jni.accessors.getMethodIDOf(
+  static final _id_new4 = jni.Jni.accessors.getMethodIDOf(
       _class.reference,
       r"<init>",
       r"(Lcom/artifex/mupdf/fitz/ColorSpace;Lcom/artifex/mupdf/fitz/Rect;Z)V");
 
   /// from: public void <init>(com.artifex.mupdf.fitz.ColorSpace colorSpace, com.artifex.mupdf.fitz.Rect rect, boolean z)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory Pixmap.ctor4(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Pixmap.new4(
     colorspace_.ColorSpace colorSpace,
     rect_.Rect rect,
     bool z,
   ) {
     return Pixmap.fromRef(jni.Jni.accessors.newObjectWithArgs(_class.reference,
-        _id_ctor4, [colorSpace.reference, rect.reference, z ? 1 : 0]).object);
+        _id_new4, [colorSpace.reference, rect.reference, z ? 1 : 0]).object);
   }
 
-  static final _id_ctor5 = jni.Jni.accessors.getMethodIDOf(
+  static final _id_new5 = jni.Jni.accessors.getMethodIDOf(
       _class.reference,
       r"<init>",
       r"(Lcom/artifex/mupdf/fitz/ColorSpace;Lcom/artifex/mupdf/fitz/Rect;)V");
 
   /// from: public void <init>(com.artifex.mupdf.fitz.ColorSpace colorSpace, com.artifex.mupdf.fitz.Rect rect)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory Pixmap.ctor5(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Pixmap.new5(
     colorspace_.ColorSpace colorSpace,
     rect_.Rect rect,
   ) {
     return Pixmap.fromRef(jni.Jni.accessors.newObjectWithArgs(_class.reference,
-        _id_ctor5, [colorSpace.reference, rect.reference]).object);
+        _id_new5, [colorSpace.reference, rect.reference]).object);
   }
 
-  static final _id_ctor6 = jni.Jni.accessors.getMethodIDOf(
+  static final _id_new6 = jni.Jni.accessors.getMethodIDOf(
       _class.reference,
       r"<init>",
       r"(Lcom/artifex/mupdf/fitz/Pixmap;Lcom/artifex/mupdf/fitz/Pixmap;)V");
 
   /// from: public void <init>(com.artifex.mupdf.fitz.Pixmap pixmap, com.artifex.mupdf.fitz.Pixmap pixmap1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory Pixmap.ctor6(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Pixmap.new6(
     Pixmap pixmap,
     Pixmap pixmap1,
   ) {
     return Pixmap.fromRef(jni.Jni.accessors.newObjectWithArgs(_class.reference,
-        _id_ctor6, [pixmap.reference, pixmap1.reference]).object);
+        _id_new6, [pixmap.reference, pixmap1.reference]).object);
   }
 
   static final _id_clear =
@@ -341,7 +341,7 @@ class Pixmap extends jni.JObject {
       r"()Lcom/artifex/mupdf/fitz/ColorSpace;");
 
   /// from: public native com.artifex.mupdf.fitz.ColorSpace getColorSpace()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   colorspace_.ColorSpace getColorSpace() {
     return const colorspace_.$ColorSpaceType().fromRef(jni.Jni.accessors
         .callMethodWithArgs(reference, _id_getColorSpace,
@@ -352,7 +352,7 @@ class Pixmap extends jni.JObject {
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"getSamples", r"()[B");
 
   /// from: public native byte[] getSamples()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<jni.jbyte> getSamples() {
     return const jni.JArrayType(jni.jbyteType()).fromRef(jni.Jni.accessors
         .callMethodWithArgs(
@@ -379,7 +379,7 @@ class Pixmap extends jni.JObject {
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"getPixels", r"()[I");
 
   /// from: public native int[] getPixels()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<jni.jint> getPixels() {
     return const jni.JArrayType(jni.jintType()).fromRef(jni.Jni.accessors
         .callMethodWithArgs(
@@ -469,7 +469,7 @@ class Pixmap extends jni.JObject {
       r"(Lcom/artifex/mupdf/fitz/ColorSpace;Lcom/artifex/mupdf/fitz/ColorSpace;Lcom/artifex/mupdf/fitz/DefaultColorSpaces;IZ)Lcom/artifex/mupdf/fitz/Pixmap;");
 
   /// from: public native com.artifex.mupdf.fitz.Pixmap convertToColorSpace(com.artifex.mupdf.fitz.ColorSpace colorSpace, com.artifex.mupdf.fitz.ColorSpace colorSpace1, com.artifex.mupdf.fitz.DefaultColorSpaces defaultColorSpaces, int i, boolean z)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   Pixmap convertToColorSpace(
     colorspace_.ColorSpace colorSpace,
     colorspace_.ColorSpace colorSpace1,
@@ -491,7 +491,7 @@ class Pixmap extends jni.JObject {
       _class.reference, r"getBounds", r"()Lcom/artifex/mupdf/fitz/Rect;");
 
   /// from: public com.artifex.mupdf.fitz.Rect getBounds()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   rect_.Rect getBounds() {
     return const rect_.$RectType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_getBounds, jni.JniCallType.objectType, []).object);
@@ -501,7 +501,7 @@ class Pixmap extends jni.JObject {
       .getMethodIDOf(_class.reference, r"toString", r"()Ljava/lang/String;");
 
   /// from: public java.lang.String toString()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString toString1() {
     return const jni.JStringType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_toString1, jni.JniCallType.objectType, []).object);

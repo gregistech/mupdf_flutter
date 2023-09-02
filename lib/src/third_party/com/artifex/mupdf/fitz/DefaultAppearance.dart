@@ -41,13 +41,13 @@ class DefaultAppearance extends jni.JObject {
   );
 
   /// from: public java.lang.String font
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString get font => const jni.JStringType().fromRef(jni.Jni.accessors
       .getField(reference, _id_font, jni.JniCallType.objectType)
       .object);
 
   /// from: public java.lang.String font
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   set font(jni.JString value) =>
       jni.Jni.env.SetObjectField(reference, _id_font, value.reference);
 
@@ -73,25 +73,25 @@ class DefaultAppearance extends jni.JObject {
   );
 
   /// from: public float[] color
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<jni.jfloat> get color =>
       const jni.JArrayType(jni.jfloatType()).fromRef(jni.Jni.accessors
           .getField(reference, _id_color, jni.JniCallType.objectType)
           .object);
 
   /// from: public float[] color
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   set color(jni.JArray<jni.jfloat> value) =>
       jni.Jni.env.SetObjectField(reference, _id_color, value.reference);
 
-  static final _id_ctor =
+  static final _id_new0 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"()V");
 
   /// from: public void <init>()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory DefaultAppearance() {
     return DefaultAppearance.fromRef(jni.Jni.accessors
-        .newObjectWithArgs(_class.reference, _id_ctor, []).object);
+        .newObjectWithArgs(_class.reference, _id_new0, []).object);
   }
 }
 

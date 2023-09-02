@@ -73,36 +73,36 @@ class Font extends jni.JObject {
         reference, _id_destroy, jni.JniCallType.voidType, []).check();
   }
 
-  static final _id_ctor = jni.Jni.accessors
+  static final _id_new0 = jni.Jni.accessors
       .getMethodIDOf(_class.reference, r"<init>", r"(Ljava/lang/String;I)V");
 
   /// from: public void <init>(java.lang.String string, int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory Font(
     jni.JString string,
     int i,
   ) {
     return Font.fromRef(jni.Jni.accessors.newObjectWithArgs(_class.reference,
-        _id_ctor, [string.reference, jni.JValueInt(i)]).object);
+        _id_new0, [string.reference, jni.JValueInt(i)]).object);
   }
 
-  static final _id_ctor1 = jni.Jni.accessors
+  static final _id_new1 = jni.Jni.accessors
       .getMethodIDOf(_class.reference, r"<init>", r"(Ljava/lang/String;)V");
 
   /// from: public void <init>(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory Font.ctor1(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Font.new1(
     jni.JString string,
   ) {
     return Font.fromRef(jni.Jni.accessors.newObjectWithArgs(
-        _class.reference, _id_ctor1, [string.reference]).object);
+        _class.reference, _id_new1, [string.reference]).object);
   }
 
   static final _id_getName = jni.Jni.accessors
       .getMethodIDOf(_class.reference, r"getName", r"()Ljava/lang/String;");
 
   /// from: public native java.lang.String getName()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString getName() {
     return const jni.JStringType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_getName, jni.JniCallType.objectType, []).object);
@@ -146,7 +146,7 @@ class Font extends jni.JObject {
       .getMethodIDOf(_class.reference, r"toString", r"()Ljava/lang/String;");
 
   /// from: public java.lang.String toString()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString toString1() {
     return const jni.JStringType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_toString1, jni.JniCallType.objectType, []).object);

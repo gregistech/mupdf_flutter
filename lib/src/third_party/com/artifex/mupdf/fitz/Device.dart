@@ -357,26 +357,26 @@ class Device extends jni.JObject {
         reference, _id_destroy, jni.JniCallType.voidType, []).check();
   }
 
-  static final _id_ctor =
+  static final _id_new0 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"()V");
 
   /// from: protected void <init>()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory Device() {
     return Device.fromRef(jni.Jni.accessors
-        .newObjectWithArgs(_class.reference, _id_ctor, []).object);
+        .newObjectWithArgs(_class.reference, _id_new0, []).object);
   }
 
-  static final _id_ctor1 =
+  static final _id_new1 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"(J)V");
 
   /// from: protected void <init>(long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory Device.ctor1(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory Device.new1(
     int j,
   ) {
     return Device.fromRef(jni.Jni.accessors
-        .newObjectWithArgs(_class.reference, _id_ctor1, [j]).object);
+        .newObjectWithArgs(_class.reference, _id_new1, [j]).object);
   }
 
   static final _id_close =

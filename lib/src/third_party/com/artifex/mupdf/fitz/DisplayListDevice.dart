@@ -38,16 +38,16 @@ class DisplayListDevice extends nativedevice_.NativeDevice {
 
   /// The type which includes information such as the signature of this class.
   static const type = $DisplayListDeviceType();
-  static final _id_ctor2 = jni.Jni.accessors.getMethodIDOf(
+  static final _id_new2 = jni.Jni.accessors.getMethodIDOf(
       _class.reference, r"<init>", r"(Lcom/artifex/mupdf/fitz/DisplayList;)V");
 
   /// from: public void <init>(com.artifex.mupdf.fitz.DisplayList displayList)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory DisplayListDevice.ctor2(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory DisplayListDevice.new2(
     displaylist_.DisplayList displayList,
   ) {
     return DisplayListDevice.fromRef(jni.Jni.accessors.newObjectWithArgs(
-        _class.reference, _id_ctor2, [displayList.reference]).object);
+        _class.reference, _id_new2, [displayList.reference]).object);
   }
 }
 

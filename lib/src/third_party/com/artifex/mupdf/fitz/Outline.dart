@@ -40,13 +40,13 @@ class Outline extends jni.JObject {
   );
 
   /// from: public java.lang.String title
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString get title => const jni.JStringType().fromRef(jni.Jni.accessors
       .getField(reference, _id_title, jni.JniCallType.objectType)
       .object);
 
   /// from: public java.lang.String title
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   set title(jni.JString value) =>
       jni.Jni.env.SetObjectField(reference, _id_title, value.reference);
 
@@ -57,13 +57,13 @@ class Outline extends jni.JObject {
   );
 
   /// from: public java.lang.String uri
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString get uri => const jni.JStringType().fromRef(jni.Jni.accessors
       .getField(reference, _id_uri, jni.JniCallType.objectType)
       .object);
 
   /// from: public java.lang.String uri
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   set uri(jni.JString value) =>
       jni.Jni.env.SetObjectField(reference, _id_uri, value.reference);
 
@@ -74,24 +74,24 @@ class Outline extends jni.JObject {
   );
 
   /// from: public com.artifex.mupdf.fitz.Outline[] down
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<Outline> get down =>
       const jni.JArrayType($OutlineType()).fromRef(jni.Jni.accessors
           .getField(reference, _id_down, jni.JniCallType.objectType)
           .object);
 
   /// from: public com.artifex.mupdf.fitz.Outline[] down
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   set down(jni.JArray<Outline> value) =>
       jni.Jni.env.SetObjectField(reference, _id_down, value.reference);
 
-  static final _id_ctor = jni.Jni.accessors.getMethodIDOf(
+  static final _id_new0 = jni.Jni.accessors.getMethodIDOf(
       _class.reference,
       r"<init>",
       r"(Ljava/lang/String;Ljava/lang/String;[Lcom/artifex/mupdf/fitz/Outline;)V");
 
   /// from: public void <init>(java.lang.String string, java.lang.String string1, com.artifex.mupdf.fitz.Outline[] outlines)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory Outline(
     jni.JString string,
     jni.JString string1,
@@ -99,7 +99,7 @@ class Outline extends jni.JObject {
   ) {
     return Outline.fromRef(jni.Jni.accessors.newObjectWithArgs(
         _class.reference,
-        _id_ctor,
+        _id_new0,
         [string.reference, string1.reference, outlines.reference]).object);
   }
 
@@ -107,7 +107,7 @@ class Outline extends jni.JObject {
       .getMethodIDOf(_class.reference, r"toString", r"()Ljava/lang/String;");
 
   /// from: public java.lang.String toString()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString toString1() {
     return const jni.JStringType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_toString1, jni.JniCallType.objectType, []).object);

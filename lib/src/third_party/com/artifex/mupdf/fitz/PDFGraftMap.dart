@@ -62,7 +62,7 @@ class PDFGraftMap extends jni.JObject {
       r"(Lcom/artifex/mupdf/fitz/PDFObject;)Lcom/artifex/mupdf/fitz/PDFObject;");
 
   /// from: public native com.artifex.mupdf.fitz.PDFObject graftObject(com.artifex.mupdf.fitz.PDFObject pDFObject)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pdfobject_.PDFObject graftObject(
     pdfobject_.PDFObject pDFObject,
   ) {

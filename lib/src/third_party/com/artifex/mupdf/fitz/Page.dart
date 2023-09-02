@@ -57,6 +57,25 @@ class Page extends jni.JObject {
 
   /// The type which includes information such as the signature of this class.
   static const type = $PageType();
+
+  /// from: static public final int MEDIA_BOX
+  static const MEDIA_BOX = 0;
+
+  /// from: static public final int CROP_BOX
+  static const CROP_BOX = 1;
+
+  /// from: static public final int BLEED_BOX
+  static const BLEED_BOX = 2;
+
+  /// from: static public final int TRIM_BOX
+  static const TRIM_BOX = 3;
+
+  /// from: static public final int ART_BOX
+  static const ART_BOX = 4;
+
+  /// from: static public final int UNKNOWN_BOX
+  static const UNKNOWN_BOX = 5;
+
   static final _id_finalize =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"finalize", r"()V");
 
@@ -75,26 +94,41 @@ class Page extends jni.JObject {
         reference, _id_destroy, jni.JniCallType.voidType, []).check();
   }
 
-  static final _id_ctor =
+  static final _id_new0 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"(J)V");
 
   /// from: protected void <init>(long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory Page(
     int j,
   ) {
     return Page.fromRef(jni.Jni.accessors
-        .newObjectWithArgs(_class.reference, _id_ctor, [j]).object);
+        .newObjectWithArgs(_class.reference, _id_new0, [j]).object);
   }
 
   static final _id_getBounds = jni.Jni.accessors.getMethodIDOf(
+      _class.reference, r"getBounds", r"(I)Lcom/artifex/mupdf/fitz/Rect;");
+
+  /// from: public com.artifex.mupdf.fitz.Rect getBounds(int i)
+  /// The returned object must be released after use, by calling the [release] method.
+  rect_.Rect getBounds(
+    int i,
+  ) {
+    return const rect_.$RectType().fromRef(jni.Jni.accessors.callMethodWithArgs(
+        reference,
+        _id_getBounds,
+        jni.JniCallType.objectType,
+        [jni.JValueInt(i)]).object);
+  }
+
+  static final _id_getBounds1 = jni.Jni.accessors.getMethodIDOf(
       _class.reference, r"getBounds", r"()Lcom/artifex/mupdf/fitz/Rect;");
 
-  /// from: public native com.artifex.mupdf.fitz.Rect getBounds()
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  rect_.Rect getBounds() {
+  /// from: public com.artifex.mupdf.fitz.Rect getBounds()
+  /// The returned object must be released after use, by calling the [release] method.
+  rect_.Rect getBounds1() {
     return const rect_.$RectType().fromRef(jni.Jni.accessors.callMethodWithArgs(
-        reference, _id_getBounds, jni.JniCallType.objectType, []).object);
+        reference, _id_getBounds1, jni.JniCallType.objectType, []).object);
   }
 
   static final _id_run = jni.Jni.accessors.getMethodIDOf(
@@ -187,7 +221,7 @@ class Page extends jni.JObject {
       _class.reference, r"getLinks", r"()[Lcom/artifex/mupdf/fitz/Link;");
 
   /// from: public native com.artifex.mupdf.fitz.Link[] getLinks()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<link_.Link> getLinks() {
     return const jni.JArrayType(link_.$LinkType()).fromRef(jni.Jni.accessors
         .callMethodWithArgs(
@@ -200,7 +234,7 @@ class Page extends jni.JObject {
       r"(Lcom/artifex/mupdf/fitz/Matrix;Lcom/artifex/mupdf/fitz/ColorSpace;ZZ)Lcom/artifex/mupdf/fitz/Pixmap;");
 
   /// from: public native com.artifex.mupdf.fitz.Pixmap toPixmap(com.artifex.mupdf.fitz.Matrix matrix, com.artifex.mupdf.fitz.ColorSpace colorSpace, boolean z, boolean z1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pixmap_.Pixmap toPixmap(
     matrix_.Matrix matrix,
     colorspace_.ColorSpace colorSpace,
@@ -223,7 +257,7 @@ class Page extends jni.JObject {
       r"(Lcom/artifex/mupdf/fitz/Matrix;Lcom/artifex/mupdf/fitz/ColorSpace;Z)Lcom/artifex/mupdf/fitz/Pixmap;");
 
   /// from: public com.artifex.mupdf.fitz.Pixmap toPixmap(com.artifex.mupdf.fitz.Matrix matrix, com.artifex.mupdf.fitz.ColorSpace colorSpace, boolean z)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pixmap_.Pixmap toPixmap1(
     matrix_.Matrix matrix,
     colorspace_.ColorSpace colorSpace,
@@ -243,7 +277,7 @@ class Page extends jni.JObject {
       r"(Z)Lcom/artifex/mupdf/fitz/DisplayList;");
 
   /// from: public native com.artifex.mupdf.fitz.DisplayList toDisplayList(boolean z)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   displaylist_.DisplayList toDisplayList(
     bool z,
   ) {
@@ -258,7 +292,7 @@ class Page extends jni.JObject {
       r"()Lcom/artifex/mupdf/fitz/DisplayList;");
 
   /// from: public com.artifex.mupdf.fitz.DisplayList toDisplayList()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   displaylist_.DisplayList toDisplayList1() {
     return const displaylist_.$DisplayListType().fromRef(jni.Jni.accessors
         .callMethodWithArgs(reference, _id_toDisplayList1,
@@ -271,7 +305,7 @@ class Page extends jni.JObject {
       r"(Ljava/lang/String;)Lcom/artifex/mupdf/fitz/StructuredText;");
 
   /// from: public native com.artifex.mupdf.fitz.StructuredText toStructuredText(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   structuredtext_.StructuredText toStructuredText(
     jni.JString string,
   ) {
@@ -286,7 +320,7 @@ class Page extends jni.JObject {
       r"()Lcom/artifex/mupdf/fitz/StructuredText;");
 
   /// from: public com.artifex.mupdf.fitz.StructuredText toStructuredText()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   structuredtext_.StructuredText toStructuredText1() {
     return const structuredtext_.$StructuredTextType().fromRef(jni.Jni.accessors
         .callMethodWithArgs(reference, _id_toStructuredText1,
@@ -297,7 +331,7 @@ class Page extends jni.JObject {
       r"search", r"(Ljava/lang/String;)[[Lcom/artifex/mupdf/fitz/Quad;");
 
   /// from: public native com.artifex.mupdf.fitz.Quad[][] search(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<quad_.Quad> search(
     jni.JString string,
   ) {
@@ -310,7 +344,7 @@ class Page extends jni.JObject {
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"textAsHtml", r"()[B");
 
   /// from: public native byte[] textAsHtml()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<jni.jbyte> textAsHtml() {
     return const jni.JArrayType(jni.jbyteType()).fromRef(jni.Jni.accessors
         .callMethodWithArgs(
@@ -321,7 +355,7 @@ class Page extends jni.JObject {
       _class.reference, r"getDocument", r"()Lcom/artifex/mupdf/fitz/Document;");
 
   /// from: public native com.artifex.mupdf.fitz.Document getDocument()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   document_.Document getDocument() {
     return const document_.$DocumentType().fromRef(jni.Jni.accessors
         .callMethodWithArgs(
@@ -334,7 +368,7 @@ class Page extends jni.JObject {
       r"(Lcom/artifex/mupdf/fitz/Rect;Ljava/lang/String;)Lcom/artifex/mupdf/fitz/Link;");
 
   /// from: public native com.artifex.mupdf.fitz.Link createLink(com.artifex.mupdf.fitz.Rect rect, java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   link_.Link createLink(
     rect_.Rect rect,
     jni.JString string,
@@ -352,7 +386,7 @@ class Page extends jni.JObject {
       r"(Lcom/artifex/mupdf/fitz/Rect;Lcom/artifex/mupdf/fitz/LinkDestination;)Lcom/artifex/mupdf/fitz/Link;");
 
   /// from: public com.artifex.mupdf.fitz.Link createLink(com.artifex.mupdf.fitz.Rect rect, com.artifex.mupdf.fitz.LinkDestination linkDestination)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   link_.Link createLink1(
     rect_.Rect rect,
     linkdestination_.LinkDestination linkDestination,
@@ -379,7 +413,7 @@ class Page extends jni.JObject {
       .getMethodIDOf(_class.reference, r"getLabel", r"()Ljava/lang/String;");
 
   /// from: public native java.lang.String getLabel()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString getLabel() {
     return const jni.JStringType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_getLabel, jni.JniCallType.objectType, []).object);

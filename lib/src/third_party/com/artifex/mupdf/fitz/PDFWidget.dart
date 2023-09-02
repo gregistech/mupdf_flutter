@@ -102,24 +102,24 @@ class PDFWidget_TextWidgetCharLayout extends jni.JObject {
   );
 
   /// from: public com.artifex.mupdf.fitz.Rect rect
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   rect_.Rect get rect => const rect_.$RectType().fromRef(jni.Jni.accessors
       .getField(reference, _id_rect, jni.JniCallType.objectType)
       .object);
 
   /// from: public com.artifex.mupdf.fitz.Rect rect
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   set rect(rect_.Rect value) =>
       jni.Jni.env.SetObjectField(reference, _id_rect, value.reference);
 
-  static final _id_ctor =
+  static final _id_new0 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"()V");
 
   /// from: public void <init>()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory PDFWidget_TextWidgetCharLayout() {
     return PDFWidget_TextWidgetCharLayout.fromRef(jni.Jni.accessors
-        .newObjectWithArgs(_class.reference, _id_ctor, []).object);
+        .newObjectWithArgs(_class.reference, _id_new0, []).object);
   }
 }
 
@@ -172,14 +172,14 @@ class PDFWidget_TextWidgetLayout extends jni.JObject {
   );
 
   /// from: public com.artifex.mupdf.fitz.Matrix matrix
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   matrix_.Matrix get matrix =>
       const matrix_.$MatrixType().fromRef(jni.Jni.accessors
           .getField(reference, _id_matrix, jni.JniCallType.objectType)
           .object);
 
   /// from: public com.artifex.mupdf.fitz.Matrix matrix
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   set matrix(matrix_.Matrix value) =>
       jni.Jni.env.SetObjectField(reference, _id_matrix, value.reference);
 
@@ -190,14 +190,14 @@ class PDFWidget_TextWidgetLayout extends jni.JObject {
   );
 
   /// from: public com.artifex.mupdf.fitz.Matrix invMatrix
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   matrix_.Matrix get invMatrix =>
       const matrix_.$MatrixType().fromRef(jni.Jni.accessors
           .getField(reference, _id_invMatrix, jni.JniCallType.objectType)
           .object);
 
   /// from: public com.artifex.mupdf.fitz.Matrix invMatrix
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   set invMatrix(matrix_.Matrix value) =>
       jni.Jni.env.SetObjectField(reference, _id_invMatrix, value.reference);
 
@@ -208,7 +208,7 @@ class PDFWidget_TextWidgetLayout extends jni.JObject {
   );
 
   /// from: public com.artifex.mupdf.fitz.PDFWidget$TextWidgetLineLayout[] lines
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<PDFWidget_TextWidgetLineLayout> get lines =>
       const jni.JArrayType($PDFWidget_TextWidgetLineLayoutType()).fromRef(jni
           .Jni.accessors
@@ -216,18 +216,18 @@ class PDFWidget_TextWidgetLayout extends jni.JObject {
           .object);
 
   /// from: public com.artifex.mupdf.fitz.PDFWidget$TextWidgetLineLayout[] lines
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   set lines(jni.JArray<PDFWidget_TextWidgetLineLayout> value) =>
       jni.Jni.env.SetObjectField(reference, _id_lines, value.reference);
 
-  static final _id_ctor =
+  static final _id_new0 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"()V");
 
   /// from: public void <init>()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory PDFWidget_TextWidgetLayout() {
     return PDFWidget_TextWidgetLayout.fromRef(jni.Jni.accessors
-        .newObjectWithArgs(_class.reference, _id_ctor, []).object);
+        .newObjectWithArgs(_class.reference, _id_new0, []).object);
   }
 }
 
@@ -337,13 +337,13 @@ class PDFWidget_TextWidgetLineLayout extends jni.JObject {
   );
 
   /// from: public com.artifex.mupdf.fitz.Rect rect
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   rect_.Rect get rect => const rect_.$RectType().fromRef(jni.Jni.accessors
       .getField(reference, _id_rect, jni.JniCallType.objectType)
       .object);
 
   /// from: public com.artifex.mupdf.fitz.Rect rect
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   set rect(rect_.Rect value) =>
       jni.Jni.env.SetObjectField(reference, _id_rect, value.reference);
 
@@ -354,7 +354,7 @@ class PDFWidget_TextWidgetLineLayout extends jni.JObject {
   );
 
   /// from: public com.artifex.mupdf.fitz.PDFWidget$TextWidgetCharLayout[] chars
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<PDFWidget_TextWidgetCharLayout> get chars =>
       const jni.JArrayType($PDFWidget_TextWidgetCharLayoutType()).fromRef(jni
           .Jni.accessors
@@ -362,18 +362,18 @@ class PDFWidget_TextWidgetLineLayout extends jni.JObject {
           .object);
 
   /// from: public com.artifex.mupdf.fitz.PDFWidget$TextWidgetCharLayout[] chars
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   set chars(jni.JArray<PDFWidget_TextWidgetCharLayout> value) =>
       jni.Jni.env.SetObjectField(reference, _id_chars, value.reference);
 
-  static final _id_ctor =
+  static final _id_new0 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"()V");
 
   /// from: public void <init>()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory PDFWidget_TextWidgetLineLayout() {
     return PDFWidget_TextWidgetLineLayout.fromRef(jni.Jni.accessors
-        .newObjectWithArgs(_class.reference, _id_ctor, []).object);
+        .newObjectWithArgs(_class.reference, _id_new0, []).object);
   }
 }
 
@@ -518,16 +518,16 @@ class PDFWidget extends pdfannotation_.PDFAnnotation {
   /// from: static public final int PDF_SIGNATURE_DEFAULT_APPEARANCE
   static const PDF_SIGNATURE_DEFAULT_APPEARANCE = 63;
 
-  static final _id_ctor =
+  static final _id_new0 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"(J)V");
 
   /// from: protected void <init>(long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory PDFWidget(
     int j,
   ) {
     return PDFWidget.fromRef(jni.Jni.accessors
-        .newObjectWithArgs(_class.reference, _id_ctor, [j]).object);
+        .newObjectWithArgs(_class.reference, _id_new0, [j]).object);
   }
 
   static final _id_getFieldType = jni.Jni.accessors
@@ -561,7 +561,7 @@ class PDFWidget extends pdfannotation_.PDFAnnotation {
       .getMethodIDOf(_class.reference, r"getValue", r"()Ljava/lang/String;");
 
   /// from: public native java.lang.String getValue()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString getValue() {
     return const jni.JStringType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_getValue, jni.JniCallType.objectType, []).object);
@@ -582,7 +582,7 @@ class PDFWidget extends pdfannotation_.PDFAnnotation {
       .getMethodIDOf(_class.reference, r"getLabel", r"()Ljava/lang/String;");
 
   /// from: public native java.lang.String getLabel()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString getLabel() {
     return const jni.JStringType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_getLabel, jni.JniCallType.objectType, []).object);
@@ -702,7 +702,7 @@ class PDFWidget extends pdfannotation_.PDFAnnotation {
       _class.reference, r"textQuads", r"()[Lcom/artifex/mupdf/fitz/Quad;");
 
   /// from: public native com.artifex.mupdf.fitz.Quad[] textQuads()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<quad_.Quad> textQuads() {
     return const jni.JArrayType(quad_.$QuadType()).fromRef(jni.Jni.accessors
         .callMethodWithArgs(
@@ -789,7 +789,7 @@ class PDFWidget extends pdfannotation_.PDFAnnotation {
       .getMethodIDOf(_class.reference, r"getOptions", r"()[Ljava/lang/String;");
 
   /// from: public java.lang.String[] getOptions()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<jni.JString> getOptions() {
     return const jni.JArrayType(jni.JStringType()).fromRef(jni.Jni.accessors
         .callMethodWithArgs(
@@ -813,7 +813,7 @@ class PDFWidget extends pdfannotation_.PDFAnnotation {
       r"(IIILcom/artifex/mupdf/fitz/PKCS7Signer;ILcom/artifex/mupdf/fitz/Image;Ljava/lang/String;Ljava/lang/String;)Lcom/artifex/mupdf/fitz/Pixmap;");
 
   /// from: static public com.artifex.mupdf.fitz.Pixmap previewSignature(int i, int i1, int i2, com.artifex.mupdf.fitz.PKCS7Signer pKCS7Signer, int i3, com.artifex.mupdf.fitz.Image image, java.lang.String string, java.lang.String string1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static pixmap_.Pixmap previewSignature(
     int i,
     int i1,
@@ -844,7 +844,7 @@ class PDFWidget extends pdfannotation_.PDFAnnotation {
       r"(IIILcom/artifex/mupdf/fitz/PKCS7Signer;Lcom/artifex/mupdf/fitz/Image;)Lcom/artifex/mupdf/fitz/Pixmap;");
 
   /// from: static public com.artifex.mupdf.fitz.Pixmap previewSignature(int i, int i1, int i2, com.artifex.mupdf.fitz.PKCS7Signer pKCS7Signer, com.artifex.mupdf.fitz.Image image)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static pixmap_.Pixmap previewSignature1(
     int i,
     int i1,
@@ -869,7 +869,7 @@ class PDFWidget extends pdfannotation_.PDFAnnotation {
       r"(IIILcom/artifex/mupdf/fitz/PKCS7Signer;)Lcom/artifex/mupdf/fitz/Pixmap;");
 
   /// from: static public com.artifex.mupdf.fitz.Pixmap previewSignature(int i, int i1, int i2, com.artifex.mupdf.fitz.PKCS7Signer pKCS7Signer)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static pixmap_.Pixmap previewSignature2(
     int i,
     int i1,
@@ -892,7 +892,7 @@ class PDFWidget extends pdfannotation_.PDFAnnotation {
       r"(IILcom/artifex/mupdf/fitz/PKCS7Signer;Lcom/artifex/mupdf/fitz/Image;)Lcom/artifex/mupdf/fitz/Pixmap;");
 
   /// from: static public com.artifex.mupdf.fitz.Pixmap previewSignature(int i, int i1, com.artifex.mupdf.fitz.PKCS7Signer pKCS7Signer, com.artifex.mupdf.fitz.Image image)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static pixmap_.Pixmap previewSignature3(
     int i,
     int i1,
@@ -915,7 +915,7 @@ class PDFWidget extends pdfannotation_.PDFAnnotation {
       r"(IILcom/artifex/mupdf/fitz/PKCS7Signer;)Lcom/artifex/mupdf/fitz/Pixmap;");
 
   /// from: static public com.artifex.mupdf.fitz.Pixmap previewSignature(int i, int i1, com.artifex.mupdf.fitz.PKCS7Signer pKCS7Signer)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static pixmap_.Pixmap previewSignature4(
     int i,
     int i1,
@@ -936,7 +936,7 @@ class PDFWidget extends pdfannotation_.PDFAnnotation {
       r"(FLcom/artifex/mupdf/fitz/PKCS7Signer;ILcom/artifex/mupdf/fitz/Image;Ljava/lang/String;Ljava/lang/String;)Lcom/artifex/mupdf/fitz/Pixmap;");
 
   /// from: public com.artifex.mupdf.fitz.Pixmap previewSignature(float f, com.artifex.mupdf.fitz.PKCS7Signer pKCS7Signer, int i, com.artifex.mupdf.fitz.Image image, java.lang.String string, java.lang.String string1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pixmap_.Pixmap previewSignature5(
     double f,
     pkcs7signer_.PKCS7Signer pKCS7Signer,
@@ -963,7 +963,7 @@ class PDFWidget extends pdfannotation_.PDFAnnotation {
       r"(FLcom/artifex/mupdf/fitz/PKCS7Signer;Lcom/artifex/mupdf/fitz/Image;)Lcom/artifex/mupdf/fitz/Pixmap;");
 
   /// from: public com.artifex.mupdf.fitz.Pixmap previewSignature(float f, com.artifex.mupdf.fitz.PKCS7Signer pKCS7Signer, com.artifex.mupdf.fitz.Image image)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pixmap_.Pixmap previewSignature6(
     double f,
     pkcs7signer_.PKCS7Signer pKCS7Signer,
@@ -984,7 +984,7 @@ class PDFWidget extends pdfannotation_.PDFAnnotation {
       r"(FLcom/artifex/mupdf/fitz/PKCS7Signer;)Lcom/artifex/mupdf/fitz/Pixmap;");
 
   /// from: public com.artifex.mupdf.fitz.Pixmap previewSignature(float f, com.artifex.mupdf.fitz.PKCS7Signer pKCS7Signer)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pixmap_.Pixmap previewSignature7(
     double f,
     pkcs7signer_.PKCS7Signer pKCS7Signer,
@@ -1103,7 +1103,7 @@ class PDFWidget extends pdfannotation_.PDFAnnotation {
       r"(Lcom/artifex/mupdf/fitz/PKCS7Verifier;)Lcom/artifex/mupdf/fitz/PKCS7DistinguishedName;");
 
   /// from: public native com.artifex.mupdf.fitz.PKCS7DistinguishedName getDistinguishedName(com.artifex.mupdf.fitz.PKCS7Verifier pKCS7Verifier)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   pkcs7distinguishedname_.PKCS7DistinguishedName getDistinguishedName(
     pkcs7verifier_.PKCS7Verifier pKCS7Verifier,
   ) {
@@ -1148,7 +1148,7 @@ class PDFWidget extends pdfannotation_.PDFAnnotation {
       r"()Lcom/artifex/mupdf/fitz/PDFWidget$TextWidgetLayout;");
 
   /// from: public native com.artifex.mupdf.fitz.PDFWidget$TextWidgetLayout layoutTextWidget()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   PDFWidget_TextWidgetLayout layoutTextWidget() {
     return const $PDFWidget_TextWidgetLayoutType().fromRef(jni.Jni.accessors
         .callMethodWithArgs(reference, _id_layoutTextWidget,

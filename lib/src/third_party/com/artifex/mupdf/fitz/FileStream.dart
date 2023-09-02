@@ -41,44 +41,42 @@ class FileStream extends jni.JObject {
   );
 
   /// from: protected java.io.RandomAccessFile file
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject get file => const jni.JObjectType().fromRef(jni.Jni.accessors
       .getField(reference, _id_file, jni.JniCallType.objectType)
       .object);
 
   /// from: protected java.io.RandomAccessFile file
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   set file(jni.JObject value) =>
       jni.Jni.env.SetObjectField(reference, _id_file, value.reference);
 
-  static final _id_ctor = jni.Jni.accessors.getMethodIDOf(
+  static final _id_new0 = jni.Jni.accessors.getMethodIDOf(
       _class.reference, r"<init>", r"(Ljava/lang/String;Ljava/lang/String;)V");
 
   /// from: public void <init>(java.lang.String string, java.lang.String string1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory FileStream(
     jni.JString string,
     jni.JString string1,
   ) {
     return FileStream.fromRef(jni.Jni.accessors.newObjectWithArgs(
         _class.reference,
-        _id_ctor,
+        _id_new0,
         [string.reference, string1.reference]).object);
   }
 
-  static final _id_ctor1 = jni.Jni.accessors.getMethodIDOf(
+  static final _id_new1 = jni.Jni.accessors.getMethodIDOf(
       _class.reference, r"<init>", r"(Ljava/io/File;Ljava/lang/String;)V");
 
   /// from: public void <init>(java.io.File file, java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory FileStream.ctor1(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory FileStream.new1(
     jni.JObject file,
     jni.JString string,
   ) {
     return FileStream.fromRef(jni.Jni.accessors.newObjectWithArgs(
-        _class.reference,
-        _id_ctor1,
-        [file.reference, string.reference]).object);
+        _class.reference, _id_new1, [file.reference, string.reference]).object);
   }
 
   static final _id_read =

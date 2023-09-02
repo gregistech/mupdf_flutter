@@ -53,23 +53,23 @@ class Link extends jni.JObject {
         reference, _id_destroy, jni.JniCallType.voidType, []).check();
   }
 
-  static final _id_ctor =
+  static final _id_new0 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"(J)V");
 
   /// from: protected void <init>(long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory Link(
     int j,
   ) {
     return Link.fromRef(jni.Jni.accessors
-        .newObjectWithArgs(_class.reference, _id_ctor, [j]).object);
+        .newObjectWithArgs(_class.reference, _id_new0, [j]).object);
   }
 
   static final _id_getBounds = jni.Jni.accessors.getMethodIDOf(
       _class.reference, r"getBounds", r"()Lcom/artifex/mupdf/fitz/Rect;");
 
   /// from: public native com.artifex.mupdf.fitz.Rect getBounds()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   rect_.Rect getBounds() {
     return const rect_.$RectType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_getBounds, jni.JniCallType.objectType, []).object);
@@ -90,7 +90,7 @@ class Link extends jni.JObject {
       .getMethodIDOf(_class.reference, r"getURI", r"()Ljava/lang/String;");
 
   /// from: public native java.lang.String getURI()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString getURI() {
     return const jni.JStringType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_getURI, jni.JniCallType.objectType, []).object);
@@ -120,7 +120,7 @@ class Link extends jni.JObject {
       .getMethodIDOf(_class.reference, r"toString", r"()Ljava/lang/String;");
 
   /// from: public java.lang.String toString()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString toString1() {
     return const jni.JStringType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_toString1, jni.JniCallType.objectType, []).object);

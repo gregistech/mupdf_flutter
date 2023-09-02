@@ -27,6 +27,10 @@ extension FindPage on Document {
 }
 
 extension Metadata on Document {
+  String get title {
+    return getMetadata("info:Title");
+  }
+
   String getMetadata(String key) {
     return getMetaData(key.toJString()).toDartString(deleteOriginal: true);
   }

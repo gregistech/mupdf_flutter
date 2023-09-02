@@ -41,7 +41,7 @@ class ColorParams_RenderingIntent extends jni.JObject {
   );
 
   /// from: static public final com.artifex.mupdf.fitz.ColorParams$RenderingIntent PERCEPTUAL
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static ColorParams_RenderingIntent get PERCEPTUAL =>
       const $ColorParams_RenderingIntentType().fromRef(jni.Jni.accessors
           .getStaticField(
@@ -55,7 +55,7 @@ class ColorParams_RenderingIntent extends jni.JObject {
   );
 
   /// from: static public final com.artifex.mupdf.fitz.ColorParams$RenderingIntent RELATIVE_COLORIMETRIC
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static ColorParams_RenderingIntent get RELATIVE_COLORIMETRIC =>
       const $ColorParams_RenderingIntentType().fromRef(jni.Jni.accessors
           .getStaticField(_class.reference, _id_RELATIVE_COLORIMETRIC,
@@ -69,7 +69,7 @@ class ColorParams_RenderingIntent extends jni.JObject {
   );
 
   /// from: static public final com.artifex.mupdf.fitz.ColorParams$RenderingIntent SATURATION
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static ColorParams_RenderingIntent get SATURATION =>
       const $ColorParams_RenderingIntentType().fromRef(jni.Jni.accessors
           .getStaticField(
@@ -83,7 +83,7 @@ class ColorParams_RenderingIntent extends jni.JObject {
   );
 
   /// from: static public final com.artifex.mupdf.fitz.ColorParams$RenderingIntent ABSOLUTE_COLORIMETRIC
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static ColorParams_RenderingIntent get ABSOLUTE_COLORIMETRIC =>
       const $ColorParams_RenderingIntentType().fromRef(jni.Jni.accessors
           .getStaticField(_class.reference, _id_ABSOLUTE_COLORIMETRIC,
@@ -96,7 +96,7 @@ class ColorParams_RenderingIntent extends jni.JObject {
       r"()[Lcom/artifex/mupdf/fitz/ColorParams$RenderingIntent;");
 
   /// from: static public com.artifex.mupdf.fitz.ColorParams$RenderingIntent[] values()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static jni.JArray<ColorParams_RenderingIntent> values() {
     return const jni.JArrayType($ColorParams_RenderingIntentType()).fromRef(
         jni.Jni.accessors.callStaticMethodWithArgs(_class.reference, _id_values,
@@ -109,7 +109,7 @@ class ColorParams_RenderingIntent extends jni.JObject {
       r"(Ljava/lang/String;)Lcom/artifex/mupdf/fitz/ColorParams$RenderingIntent;");
 
   /// from: static public com.artifex.mupdf.fitz.ColorParams$RenderingIntent valueOf(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static ColorParams_RenderingIntent valueOf(
     jni.JString string,
   ) {
@@ -171,21 +171,21 @@ class ColorParams extends jni.JObject {
   /// from: static public final int OPM
   static const OPM1 = 128;
 
-  static final _id_ctor =
+  static final _id_new0 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"()V");
 
   /// from: public void <init>()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory ColorParams() {
     return ColorParams.fromRef(jni.Jni.accessors
-        .newObjectWithArgs(_class.reference, _id_ctor, []).object);
+        .newObjectWithArgs(_class.reference, _id_new0, []).object);
   }
 
   static final _id_RI = jni.Jni.accessors.getStaticMethodIDOf(_class.reference,
       r"RI", r"(I)Lcom/artifex/mupdf/fitz/ColorParams$RenderingIntent;");
 
   /// from: static public com.artifex.mupdf.fitz.ColorParams$RenderingIntent RI(int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static ColorParams_RenderingIntent RI(
     int i,
   ) {

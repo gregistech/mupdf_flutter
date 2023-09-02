@@ -134,12 +134,12 @@ class LinkDestination extends location_.Location {
   set zoom(double value) =>
       jni.Jni.env.SetFloatField(reference, _id_zoom, value);
 
-  static final _id_ctor1 = jni.Jni.accessors
+  static final _id_new1 = jni.Jni.accessors
       .getMethodIDOf(_class.reference, r"<init>", r"(IIIFFFFF)V");
 
   /// from: public void <init>(int i, int i1, int i2, float f, float f1, float f2, float f3, float f4)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory LinkDestination.ctor1(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory LinkDestination.new1(
     int i,
     int i1,
     int i2,
@@ -150,7 +150,7 @@ class LinkDestination extends location_.Location {
     double f4,
   ) {
     return LinkDestination.fromRef(
-        jni.Jni.accessors.newObjectWithArgs(_class.reference, _id_ctor1, [
+        jni.Jni.accessors.newObjectWithArgs(_class.reference, _id_new1, [
       jni.JValueInt(i),
       jni.JValueInt(i1),
       jni.JValueInt(i2),
@@ -166,7 +166,7 @@ class LinkDestination extends location_.Location {
       r"Fit", r"(II)Lcom/artifex/mupdf/fitz/LinkDestination;");
 
   /// from: static public com.artifex.mupdf.fitz.LinkDestination Fit(int i, int i1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static LinkDestination Fit(
     int i,
     int i1,
@@ -185,7 +185,7 @@ class LinkDestination extends location_.Location {
       r"(II)Lcom/artifex/mupdf/fitz/LinkDestination;");
 
   /// from: static public com.artifex.mupdf.fitz.LinkDestination FitB(int i, int i1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static LinkDestination FitB(
     int i,
     int i1,
@@ -202,7 +202,7 @@ class LinkDestination extends location_.Location {
       r"XYZ", r"(II)Lcom/artifex/mupdf/fitz/LinkDestination;");
 
   /// from: static public com.artifex.mupdf.fitz.LinkDestination XYZ(int i, int i1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static LinkDestination XYZ(
     int i,
     int i1,
@@ -221,7 +221,7 @@ class LinkDestination extends location_.Location {
       r"(IIF)Lcom/artifex/mupdf/fitz/LinkDestination;");
 
   /// from: static public com.artifex.mupdf.fitz.LinkDestination XYZ(int i, int i1, float f)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static LinkDestination XYZ1(
     int i,
     int i1,
@@ -241,7 +241,7 @@ class LinkDestination extends location_.Location {
       r"(IIFF)Lcom/artifex/mupdf/fitz/LinkDestination;");
 
   /// from: static public com.artifex.mupdf.fitz.LinkDestination XYZ(int i, int i1, float f, float f1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static LinkDestination XYZ2(
     int i,
     int i1,
@@ -264,7 +264,7 @@ class LinkDestination extends location_.Location {
       r"(IIFFF)Lcom/artifex/mupdf/fitz/LinkDestination;");
 
   /// from: static public com.artifex.mupdf.fitz.LinkDestination XYZ(int i, int i1, float f, float f1, float f2)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static LinkDestination XYZ3(
     int i,
     int i1,
@@ -289,7 +289,7 @@ class LinkDestination extends location_.Location {
       r"(II)Lcom/artifex/mupdf/fitz/LinkDestination;");
 
   /// from: static public com.artifex.mupdf.fitz.LinkDestination FitH(int i, int i1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static LinkDestination FitH(
     int i,
     int i1,
@@ -308,7 +308,7 @@ class LinkDestination extends location_.Location {
       r"(IIF)Lcom/artifex/mupdf/fitz/LinkDestination;");
 
   /// from: static public com.artifex.mupdf.fitz.LinkDestination FitH(int i, int i1, float f)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static LinkDestination FitH1(
     int i,
     int i1,
@@ -328,7 +328,7 @@ class LinkDestination extends location_.Location {
       r"(II)Lcom/artifex/mupdf/fitz/LinkDestination;");
 
   /// from: static public com.artifex.mupdf.fitz.LinkDestination FitBH(int i, int i1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static LinkDestination FitBH(
     int i,
     int i1,
@@ -347,7 +347,7 @@ class LinkDestination extends location_.Location {
       r"(IIF)Lcom/artifex/mupdf/fitz/LinkDestination;");
 
   /// from: static public com.artifex.mupdf.fitz.LinkDestination FitBH(int i, int i1, float f)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static LinkDestination FitBH1(
     int i,
     int i1,
@@ -367,7 +367,7 @@ class LinkDestination extends location_.Location {
       r"(II)Lcom/artifex/mupdf/fitz/LinkDestination;");
 
   /// from: static public com.artifex.mupdf.fitz.LinkDestination FitV(int i, int i1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static LinkDestination FitV(
     int i,
     int i1,
@@ -386,7 +386,7 @@ class LinkDestination extends location_.Location {
       r"(IIF)Lcom/artifex/mupdf/fitz/LinkDestination;");
 
   /// from: static public com.artifex.mupdf.fitz.LinkDestination FitV(int i, int i1, float f)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static LinkDestination FitV1(
     int i,
     int i1,
@@ -406,7 +406,7 @@ class LinkDestination extends location_.Location {
       r"(II)Lcom/artifex/mupdf/fitz/LinkDestination;");
 
   /// from: static public com.artifex.mupdf.fitz.LinkDestination FitBV(int i, int i1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static LinkDestination FitBV(
     int i,
     int i1,
@@ -425,7 +425,7 @@ class LinkDestination extends location_.Location {
       r"(IIF)Lcom/artifex/mupdf/fitz/LinkDestination;");
 
   /// from: static public com.artifex.mupdf.fitz.LinkDestination FitBV(int i, int i1, float f)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static LinkDestination FitBV1(
     int i,
     int i1,
@@ -445,7 +445,7 @@ class LinkDestination extends location_.Location {
       r"(IIFFFF)Lcom/artifex/mupdf/fitz/LinkDestination;");
 
   /// from: static public com.artifex.mupdf.fitz.LinkDestination FitR(int i, int i1, float f, float f1, float f2, float f3)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static LinkDestination FitR(
     int i,
     int i1,

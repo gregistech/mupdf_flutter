@@ -40,19 +40,19 @@ class PDFObject_PDFObjectIterator extends jni.JObject {
 
   /// The type which includes information such as the signature of this class.
   static const type = $PDFObject_PDFObjectIteratorType();
-  static final _id_ctor = jni.Jni.accessors.getMethodIDOf(
+  static final _id_new0 = jni.Jni.accessors.getMethodIDOf(
       _class.reference,
       r"<init>",
       r"(Lcom/artifex/mupdf/fitz/PDFObject;Lcom/artifex/mupdf/fitz/PDFObject;)V");
 
   /// from: public void <init>(com.artifex.mupdf.fitz.PDFObject pDFObject, com.artifex.mupdf.fitz.PDFObject pDFObject1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory PDFObject_PDFObjectIterator(
     PDFObject pDFObject,
     PDFObject pDFObject1,
   ) {
     return PDFObject_PDFObjectIterator.fromRef(jni.Jni.accessors
-        .newObjectWithArgs(_class.reference, _id_ctor,
+        .newObjectWithArgs(_class.reference, _id_new0,
             [pDFObject.reference, pDFObject1.reference]).object);
   }
 
@@ -69,7 +69,7 @@ class PDFObject_PDFObjectIterator extends jni.JObject {
       _class.reference, r"next", r"()Lcom/artifex/mupdf/fitz/PDFObject;");
 
   /// from: public com.artifex.mupdf.fitz.PDFObject next()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   PDFObject next() {
     return const $PDFObjectType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_next, jni.JniCallType.objectType, []).object);
@@ -88,7 +88,7 @@ class PDFObject_PDFObjectIterator extends jni.JObject {
       .getMethodIDOf(_class.reference, r"next", r"()Ljava/lang/Object;");
 
   /// from: public java.lang.Object next()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject next1() {
     return const jni.JObjectType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_next1, jni.JniCallType.objectType, []).object);
@@ -143,7 +143,7 @@ class PDFObject extends jni.JObject {
   );
 
   /// from: static public final com.artifex.mupdf.fitz.PDFObject Null
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static PDFObject get Null => const $PDFObjectType().fromRef(jni.Jni.accessors
       .getStaticField(_class.reference, _id_Null, jni.JniCallType.objectType)
       .object);
@@ -305,7 +305,7 @@ class PDFObject extends jni.JObject {
       .getMethodIDOf(_class.reference, r"asName", r"()Ljava/lang/String;");
 
   /// from: public native java.lang.String asName()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString asName() {
     return const jni.JStringType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_asName, jni.JniCallType.objectType, []).object);
@@ -315,7 +315,7 @@ class PDFObject extends jni.JObject {
       .getMethodIDOf(_class.reference, r"asString", r"()Ljava/lang/String;");
 
   /// from: public native java.lang.String asString()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString asString() {
     return const jni.JStringType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_asString, jni.JniCallType.objectType, []).object);
@@ -325,7 +325,7 @@ class PDFObject extends jni.JObject {
       .getMethodIDOf(_class.reference, r"asByteString", r"()[B");
 
   /// from: public native byte[] asByteString()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<jni.jbyte> asByteString() {
     return const jni.JArrayType(jni.jbyteType()).fromRef(jni.Jni.accessors
         .callMethodWithArgs(reference, _id_asByteString,
@@ -336,7 +336,7 @@ class PDFObject extends jni.JObject {
       .getMethodIDOf(_class.reference, r"toString", r"(ZZ)Ljava/lang/String;");
 
   /// from: public native java.lang.String toString(boolean z, boolean z1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString toString1(
     bool z,
     bool z1,
@@ -352,7 +352,7 @@ class PDFObject extends jni.JObject {
       .getMethodIDOf(_class.reference, r"toString", r"(Z)Ljava/lang/String;");
 
   /// from: public java.lang.String toString(boolean z)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString toString2(
     bool z,
   ) {
@@ -367,7 +367,7 @@ class PDFObject extends jni.JObject {
       .getMethodIDOf(_class.reference, r"toString", r"()Ljava/lang/String;");
 
   /// from: public java.lang.String toString()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString toString3() {
     return const jni.JStringType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_toString3, jni.JniCallType.objectType, []).object);
@@ -377,7 +377,7 @@ class PDFObject extends jni.JObject {
       _class.reference, r"resolve", r"()Lcom/artifex/mupdf/fitz/PDFObject;");
 
   /// from: public native com.artifex.mupdf.fitz.PDFObject resolve()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   PDFObject resolve() {
     return const $PDFObjectType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_resolve, jni.JniCallType.objectType, []).object);
@@ -398,7 +398,7 @@ class PDFObject extends jni.JObject {
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"readStream", r"()[B");
 
   /// from: public native byte[] readStream()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<jni.jbyte> readStream() {
     return const jni.JArrayType(jni.jbyteType()).fromRef(jni.Jni.accessors
         .callMethodWithArgs(
@@ -409,7 +409,7 @@ class PDFObject extends jni.JObject {
       .getMethodIDOf(_class.reference, r"readRawStream", r"()[B");
 
   /// from: public native byte[] readRawStream()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<jni.jbyte> readRawStream() {
     return const jni.JArrayType(jni.jbyteType()).fromRef(jni.Jni.accessors
         .callMethodWithArgs(reference, _id_readRawStream,
@@ -479,7 +479,7 @@ class PDFObject extends jni.JObject {
       _class.reference, r"get", r"(I)Lcom/artifex/mupdf/fitz/PDFObject;");
 
   /// from: public com.artifex.mupdf.fitz.PDFObject get(int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   PDFObject get0(
     int i,
   ) {
@@ -494,7 +494,7 @@ class PDFObject extends jni.JObject {
       r"get", r"(Ljava/lang/String;)Lcom/artifex/mupdf/fitz/PDFObject;");
 
   /// from: public com.artifex.mupdf.fitz.PDFObject get(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   PDFObject get1(
     jni.JString string,
   ) {
@@ -511,13 +511,47 @@ class PDFObject extends jni.JObject {
       r"(Lcom/artifex/mupdf/fitz/PDFObject;)Lcom/artifex/mupdf/fitz/PDFObject;");
 
   /// from: public com.artifex.mupdf.fitz.PDFObject get(com.artifex.mupdf.fitz.PDFObject pDFObject)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   PDFObject get2(
     PDFObject pDFObject,
   ) {
     return const $PDFObjectType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference,
         _id_get2,
+        jni.JniCallType.objectType,
+        [pDFObject.reference]).object);
+  }
+
+  static final _id_getInheritable = jni.Jni.accessors.getMethodIDOf(
+      _class.reference,
+      r"getInheritable",
+      r"(Ljava/lang/String;)Lcom/artifex/mupdf/fitz/PDFObject;");
+
+  /// from: public com.artifex.mupdf.fitz.PDFObject getInheritable(java.lang.String string)
+  /// The returned object must be released after use, by calling the [release] method.
+  PDFObject getInheritable(
+    jni.JString string,
+  ) {
+    return const $PDFObjectType().fromRef(jni.Jni.accessors.callMethodWithArgs(
+        reference,
+        _id_getInheritable,
+        jni.JniCallType.objectType,
+        [string.reference]).object);
+  }
+
+  static final _id_getInheritable1 = jni.Jni.accessors.getMethodIDOf(
+      _class.reference,
+      r"getInheritable",
+      r"(Lcom/artifex/mupdf/fitz/PDFObject;)Lcom/artifex/mupdf/fitz/PDFObject;");
+
+  /// from: public com.artifex.mupdf.fitz.PDFObject getInheritable(com.artifex.mupdf.fitz.PDFObject pDFObject)
+  /// The returned object must be released after use, by calling the [release] method.
+  PDFObject getInheritable1(
+    PDFObject pDFObject,
+  ) {
+    return const $PDFObjectType().fromRef(jni.Jni.accessors.callMethodWithArgs(
+        reference,
+        _id_getInheritable1,
         jni.JniCallType.objectType,
         [pDFObject.reference]).object);
   }
@@ -783,36 +817,36 @@ class PDFObject extends jni.JObject {
         [pDFObject.reference, date.reference]).check();
   }
 
-  static final _id_delete1 =
+  static final _id_delete =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"delete", r"(I)V");
 
   /// from: public void delete(int i)
-  void delete1(
+  void delete(
     int i,
   ) {
-    return jni.Jni.accessors.callMethodWithArgs(reference, _id_delete1,
+    return jni.Jni.accessors.callMethodWithArgs(reference, _id_delete,
         jni.JniCallType.voidType, [jni.JValueInt(i)]).check();
   }
 
-  static final _id_delete2 = jni.Jni.accessors
+  static final _id_delete1 = jni.Jni.accessors
       .getMethodIDOf(_class.reference, r"delete", r"(Ljava/lang/String;)V");
 
   /// from: public void delete(java.lang.String string)
-  void delete2(
+  void delete1(
     jni.JString string,
   ) {
-    return jni.Jni.accessors.callMethodWithArgs(reference, _id_delete2,
+    return jni.Jni.accessors.callMethodWithArgs(reference, _id_delete1,
         jni.JniCallType.voidType, [string.reference]).check();
   }
 
-  static final _id_delete3 = jni.Jni.accessors.getMethodIDOf(
+  static final _id_delete2 = jni.Jni.accessors.getMethodIDOf(
       _class.reference, r"delete", r"(Lcom/artifex/mupdf/fitz/PDFObject;)V");
 
   /// from: public void delete(com.artifex.mupdf.fitz.PDFObject pDFObject)
-  void delete3(
+  void delete2(
     PDFObject pDFObject,
   ) {
-    return jni.Jni.accessors.callMethodWithArgs(reference, _id_delete3,
+    return jni.Jni.accessors.callMethodWithArgs(reference, _id_delete2,
         jni.JniCallType.voidType, [pDFObject.reference]).check();
   }
 
@@ -884,7 +918,7 @@ class PDFObject extends jni.JObject {
       .getMethodIDOf(_class.reference, r"iterator", r"()Ljava/util/Iterator;");
 
   /// from: public java.util.Iterator iterator()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JIterator<PDFObject> iterator() {
     return const jni.JIteratorType($PDFObjectType()).fromRef(jni.Jni.accessors
         .callMethodWithArgs(

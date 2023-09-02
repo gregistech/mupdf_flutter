@@ -77,11 +77,11 @@ class StrokeState extends jni.JObject {
         reference, _id_destroy, jni.JniCallType.voidType, []).check();
   }
 
-  static final _id_ctor =
+  static final _id_new0 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"(IIIFF)V");
 
   /// from: public void <init>(int i, int i1, int i2, float f, float f1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory StrokeState(
     int i,
     int i1,
@@ -90,7 +90,7 @@ class StrokeState extends jni.JObject {
     double f1,
   ) {
     return StrokeState.fromRef(
-        jni.Jni.accessors.newObjectWithArgs(_class.reference, _id_ctor, [
+        jni.Jni.accessors.newObjectWithArgs(_class.reference, _id_new0, [
       jni.JValueInt(i),
       jni.JValueInt(i1),
       jni.JValueInt(i2),
@@ -99,12 +99,12 @@ class StrokeState extends jni.JObject {
     ]).object);
   }
 
-  static final _id_ctor1 = jni.Jni.accessors
+  static final _id_new1 = jni.Jni.accessors
       .getMethodIDOf(_class.reference, r"<init>", r"(IIIIFFF[F)V");
 
   /// from: public void <init>(int i, int i1, int i2, int i3, float f, float f1, float f2, float[] fs)
-  /// The returned object must be deleted after use, by calling the `delete` method.
-  factory StrokeState.ctor1(
+  /// The returned object must be released after use, by calling the [release] method.
+  factory StrokeState.new1(
     int i,
     int i1,
     int i2,
@@ -115,7 +115,7 @@ class StrokeState extends jni.JObject {
     jni.JArray<jni.jfloat> fs,
   ) {
     return StrokeState.fromRef(
-        jni.Jni.accessors.newObjectWithArgs(_class.reference, _id_ctor1, [
+        jni.Jni.accessors.newObjectWithArgs(_class.reference, _id_new1, [
       jni.JValueInt(i),
       jni.JValueInt(i1),
       jni.JValueInt(i2),
@@ -194,7 +194,7 @@ class StrokeState extends jni.JObject {
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"getDashes", r"()[F");
 
   /// from: public native float[] getDashes()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<jni.jfloat> getDashes() {
     return const jni.JArrayType(jni.jfloatType()).fromRef(jni.Jni.accessors
         .callMethodWithArgs(

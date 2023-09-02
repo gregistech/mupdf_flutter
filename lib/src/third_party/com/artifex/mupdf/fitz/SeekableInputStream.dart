@@ -45,28 +45,9 @@ class SeekableInputStream extends jni.JObject {
         reference, _id_read, jni.JniCallType.intType, [bs.reference]).integer;
   }
 
-  /// Maps a specific port to the implemented methods.
-  static final Map<int, Map<String, Function>> _$methods = {};
-
-  /// Maps a specific port to the type parameters.
-  static final Map<int, Map<String, jni.JObjType>> _$types = {};
-
+  /// Maps a specific port to the implemented interface.
+  static final Map<int, $SeekableInputStreamImpl> _$impls = {};
   ReceivePort? _$p;
-
-  static final Finalizer<ReceivePort> _$finalizer = Finalizer(($p) {
-    _$methods.remove($p.sendPort.nativePort);
-    _$types.remove($p.sendPort.nativePort);
-    $p.close();
-  });
-
-  @override
-  void delete() {
-    _$methods.remove(_$p?.sendPort.nativePort);
-    _$types.remove(_$p?.sendPort.nativePort);
-    _$p?.close();
-    _$finalizer.detach(this);
-    super.delete();
-  }
 
   static jni.JObjectPtr _$invoke(
     int port,
@@ -93,21 +74,25 @@ class SeekableInputStream extends jni.JObject {
     int $p,
     $MethodInvocation $i,
   ) {
-    final $d = $i.methodDescriptor.toDartString(deleteOriginal: true);
-    final $a = $i.args;
-    if ($d == r"read([B)I") {
-      final $r = _$methods[$p]![$d]!(
-        $a[0].castTo(const jni.JArrayType(jni.JByteType()),
-            deleteOriginal: true),
-      );
-      return (jni.JInteger($r)..setAsDeleted()).reference;
+    try {
+      final $d = $i.methodDescriptor.toDartString(releaseOriginal: true);
+      final $a = $i.args;
+      if ($d == r"read([B)I") {
+        final $r = _$impls[$p]!.read(
+          $a[0].castTo(const jni.JArrayType(jni.jbyteType()),
+              releaseOriginal: true),
+        );
+        return jni.JInteger($r).toPointer();
+      }
+    } catch (e) {
+      return ProtectedJniExtensions.newDartException(e.toString());
     }
     return jni.nullptr;
   }
 
-  factory SeekableInputStream.implement({
-    required int Function(jni.JArray<jni.jbyte> bs) read,
-  }) {
+  factory SeekableInputStream.implement(
+    $SeekableInputStreamImpl $impl,
+  ) {
     final $p = ReceivePort();
     final $x = SeekableInputStream.fromRef(
       ProtectedJniExtensions.newPortProxy(
@@ -117,16 +102,38 @@ class SeekableInputStream extends jni.JObject {
       ),
     ).._$p = $p;
     final $a = $p.sendPort.nativePort;
-    _$types[$a] = {};
-    _$methods[$a] = {};
-    _$methods[$a]![r"read([B)I"] = read;
-    _$finalizer.attach($x, $p, detach: $x);
+    _$impls[$a] = $impl;
     $p.listen(($m) {
+      if ($m == null) {
+        _$impls.remove($p.sendPort.nativePort);
+        $p.close();
+        return;
+      }
       final $i = $MethodInvocation.fromMessage($m);
       final $r = _$invokeMethod($p.sendPort.nativePort, $i);
       ProtectedJniExtensions.returnResult($i.result, $r);
     });
     return $x;
+  }
+}
+
+abstract class $SeekableInputStreamImpl {
+  factory $SeekableInputStreamImpl({
+    required int Function(jni.JArray<jni.jbyte> bs) read,
+  }) = _$SeekableInputStreamImpl;
+
+  int read(jni.JArray<jni.jbyte> bs);
+}
+
+class _$SeekableInputStreamImpl implements $SeekableInputStreamImpl {
+  _$SeekableInputStreamImpl({
+    required int Function(jni.JArray<jni.jbyte> bs) read,
+  }) : _read = read;
+
+  final int Function(jni.JArray<jni.jbyte> bs) _read;
+
+  int read(jni.JArray<jni.jbyte> bs) {
+    return _read(bs);
   }
 }
 

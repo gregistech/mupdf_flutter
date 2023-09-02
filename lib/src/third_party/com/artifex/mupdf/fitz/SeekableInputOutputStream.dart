@@ -35,28 +35,9 @@ class SeekableInputOutputStream extends jni.JObject {
   /// The type which includes information such as the signature of this class.
   static const type = $SeekableInputOutputStreamType();
 
-  /// Maps a specific port to the implemented methods.
-  static final Map<int, Map<String, Function>> _$methods = {};
-
-  /// Maps a specific port to the type parameters.
-  static final Map<int, Map<String, jni.JObjType>> _$types = {};
-
+  /// Maps a specific port to the implemented interface.
+  static final Map<int, $SeekableInputOutputStreamImpl> _$impls = {};
   ReceivePort? _$p;
-
-  static final Finalizer<ReceivePort> _$finalizer = Finalizer(($p) {
-    _$methods.remove($p.sendPort.nativePort);
-    _$types.remove($p.sendPort.nativePort);
-    $p.close();
-  });
-
-  @override
-  void delete() {
-    _$methods.remove(_$p?.sendPort.nativePort);
-    _$types.remove(_$p?.sendPort.nativePort);
-    _$p?.close();
-    _$finalizer.detach(this);
-    super.delete();
-  }
 
   static jni.JObjectPtr _$invoke(
     int port,
@@ -83,12 +64,18 @@ class SeekableInputOutputStream extends jni.JObject {
     int $p,
     $MethodInvocation $i,
   ) {
-    final $d = $i.methodDescriptor.toDartString(deleteOriginal: true);
-    final $a = $i.args;
+    try {
+      final $d = $i.methodDescriptor.toDartString(releaseOriginal: true);
+      final $a = $i.args;
+    } catch (e) {
+      return ProtectedJniExtensions.newDartException(e.toString());
+    }
     return jni.nullptr;
   }
 
-  factory SeekableInputOutputStream.implement() {
+  factory SeekableInputOutputStream.implement(
+    $SeekableInputOutputStreamImpl $impl,
+  ) {
     final $p = ReceivePort();
     final $x = SeekableInputOutputStream.fromRef(
       ProtectedJniExtensions.newPortProxy(
@@ -98,16 +85,28 @@ class SeekableInputOutputStream extends jni.JObject {
       ),
     ).._$p = $p;
     final $a = $p.sendPort.nativePort;
-    _$types[$a] = {};
-    _$methods[$a] = {};
-    _$finalizer.attach($x, $p, detach: $x);
+    _$impls[$a] = $impl;
     $p.listen(($m) {
+      if ($m == null) {
+        _$impls.remove($p.sendPort.nativePort);
+        $p.close();
+        return;
+      }
       final $i = $MethodInvocation.fromMessage($m);
       final $r = _$invokeMethod($p.sendPort.nativePort, $i);
       ProtectedJniExtensions.returnResult($i.result, $r);
     });
     return $x;
   }
+}
+
+abstract class $SeekableInputOutputStreamImpl {
+  factory $SeekableInputOutputStreamImpl() = _$SeekableInputOutputStreamImpl;
+}
+
+class _$SeekableInputOutputStreamImpl
+    implements $SeekableInputOutputStreamImpl {
+  _$SeekableInputOutputStreamImpl();
 }
 
 class $SeekableInputOutputStreamType

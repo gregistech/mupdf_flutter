@@ -109,6 +109,18 @@ class Document extends jni.JObject {
   /// from: static public final int PERMISSION_ANNOTATE
   static const PERMISSION_ANNOTATE = 110;
 
+  /// from: static public final int PERMISSION_FORM
+  static const PERMISSION_FORM = 102;
+
+  /// from: static public final int PERMISSION_ACCESSBILITY
+  static const PERMISSION_ACCESSBILITY = 121;
+
+  /// from: static public final int PERMISSION_ASSEMBLE
+  static const PERMISSION_ASSEMBLE = 97;
+
+  /// from: static public final int PERMISSION_PRINT_HQ
+  static const PERMISSION_PRINT_HQ = 104;
+
   static final _id_finalize =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"finalize", r"()V");
 
@@ -127,16 +139,16 @@ class Document extends jni.JObject {
         reference, _id_destroy, jni.JniCallType.voidType, []).check();
   }
 
-  static final _id_ctor =
+  static final _id_new0 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"(J)V");
 
   /// from: protected void <init>(long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory Document(
     int j,
   ) {
     return Document.fromRef(jni.Jni.accessors
-        .newObjectWithArgs(_class.reference, _id_ctor, [j]).object);
+        .newObjectWithArgs(_class.reference, _id_new0, [j]).object);
   }
 
   static final _id_openNativeWithPath = jni.Jni.accessors.getStaticMethodIDOf(
@@ -145,7 +157,7 @@ class Document extends jni.JObject {
       r"(Ljava/lang/String;Ljava/lang/String;)Lcom/artifex/mupdf/fitz/Document;");
 
   /// from: static protected native com.artifex.mupdf.fitz.Document openNativeWithPath(java.lang.String string, java.lang.String string1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static Document openNativeWithPath(
     jni.JString string,
     jni.JString string1,
@@ -164,7 +176,7 @@ class Document extends jni.JObject {
       r"(Ljava/lang/String;[B[B)Lcom/artifex/mupdf/fitz/Document;");
 
   /// from: static protected native com.artifex.mupdf.fitz.Document openNativeWithBuffer(java.lang.String string, byte[] bs, byte[] bs1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static Document openNativeWithBuffer(
     jni.JString string,
     jni.JArray<jni.jbyte> bs,
@@ -184,7 +196,7 @@ class Document extends jni.JObject {
       r"(Ljava/lang/String;Lcom/artifex/mupdf/fitz/SeekableInputStream;Lcom/artifex/mupdf/fitz/SeekableInputStream;)Lcom/artifex/mupdf/fitz/Document;");
 
   /// from: static protected native com.artifex.mupdf.fitz.Document openNativeWithStream(java.lang.String string, com.artifex.mupdf.fitz.SeekableInputStream seekableInputStream, com.artifex.mupdf.fitz.SeekableInputStream seekableInputStream1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static Document openNativeWithStream(
     jni.JString string,
     seekableinputstream_.SeekableInputStream seekableInputStream,
@@ -204,7 +216,7 @@ class Document extends jni.JObject {
           r"(Ljava/lang/String;Lcom/artifex/mupdf/fitz/SeekableInputStream;)Lcom/artifex/mupdf/fitz/Document;");
 
   /// from: static protected native com.artifex.mupdf.fitz.Document openNativeWithPathAndStream(java.lang.String string, com.artifex.mupdf.fitz.SeekableInputStream seekableInputStream)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static Document openNativeWithPathAndStream(
     jni.JString string,
     seekableinputstream_.SeekableInputStream seekableInputStream,
@@ -223,7 +235,7 @@ class Document extends jni.JObject {
       r"(Ljava/lang/String;)Lcom/artifex/mupdf/fitz/Document;");
 
   /// from: static public com.artifex.mupdf.fitz.Document openDocument(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static Document openDocument(
     jni.JString string,
   ) {
@@ -238,7 +250,7 @@ class Document extends jni.JObject {
       r"(Ljava/lang/String;Ljava/lang/String;)Lcom/artifex/mupdf/fitz/Document;");
 
   /// from: static public com.artifex.mupdf.fitz.Document openDocument(java.lang.String string, java.lang.String string1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static Document openDocument1(
     jni.JString string,
     jni.JString string1,
@@ -257,7 +269,7 @@ class Document extends jni.JObject {
       r"(Ljava/lang/String;Lcom/artifex/mupdf/fitz/SeekableInputStream;)Lcom/artifex/mupdf/fitz/Document;");
 
   /// from: static public com.artifex.mupdf.fitz.Document openDocument(java.lang.String string, com.artifex.mupdf.fitz.SeekableInputStream seekableInputStream)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static Document openDocument2(
     jni.JString string,
     seekableinputstream_.SeekableInputStream seekableInputStream,
@@ -276,7 +288,7 @@ class Document extends jni.JObject {
       r"([BLjava/lang/String;)Lcom/artifex/mupdf/fitz/Document;");
 
   /// from: static public com.artifex.mupdf.fitz.Document openDocument(byte[] bs, java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static Document openDocument3(
     jni.JArray<jni.jbyte> bs,
     jni.JString string,
@@ -295,7 +307,7 @@ class Document extends jni.JObject {
       r"([BLjava/lang/String;[B)Lcom/artifex/mupdf/fitz/Document;");
 
   /// from: static public com.artifex.mupdf.fitz.Document openDocument(byte[] bs, java.lang.String string, byte[] bs1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static Document openDocument4(
     jni.JArray<jni.jbyte> bs,
     jni.JString string,
@@ -315,7 +327,7 @@ class Document extends jni.JObject {
       r"(Lcom/artifex/mupdf/fitz/SeekableInputStream;Ljava/lang/String;)Lcom/artifex/mupdf/fitz/Document;");
 
   /// from: static public com.artifex.mupdf.fitz.Document openDocument(com.artifex.mupdf.fitz.SeekableInputStream seekableInputStream, java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static Document openDocument5(
     seekableinputstream_.SeekableInputStream seekableInputStream,
     jni.JString string,
@@ -334,7 +346,7 @@ class Document extends jni.JObject {
       r"(Lcom/artifex/mupdf/fitz/SeekableInputStream;Ljava/lang/String;Lcom/artifex/mupdf/fitz/SeekableInputStream;)Lcom/artifex/mupdf/fitz/Document;");
 
   /// from: static public com.artifex.mupdf.fitz.Document openDocument(com.artifex.mupdf.fitz.SeekableInputStream seekableInputStream, java.lang.String string, com.artifex.mupdf.fitz.SeekableInputStream seekableInputStream1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   static Document openDocument6(
     seekableinputstream_.SeekableInputStream seekableInputStream,
     jni.JString string,
@@ -443,7 +455,7 @@ class Document extends jni.JObject {
       _class.reference, r"loadPage", r"(II)Lcom/artifex/mupdf/fitz/Page;");
 
   /// from: public native com.artifex.mupdf.fitz.Page loadPage(int i, int i1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   page_.Page loadPage(
     int i,
     int i1,
@@ -470,7 +482,7 @@ class Document extends jni.JObject {
       r"(Lcom/artifex/mupdf/fitz/Location;)Lcom/artifex/mupdf/fitz/Page;");
 
   /// from: public com.artifex.mupdf.fitz.Page loadPage(com.artifex.mupdf.fitz.Location location)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   page_.Page loadPage1(
     location_.Location location,
   ) {
@@ -485,7 +497,7 @@ class Document extends jni.JObject {
       _class.reference, r"loadPage", r"(I)Lcom/artifex/mupdf/fitz/Page;");
 
   /// from: public com.artifex.mupdf.fitz.Page loadPage(int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   page_.Page loadPage2(
     int i,
   ) {
@@ -500,7 +512,7 @@ class Document extends jni.JObject {
       _class.reference, r"lastPage", r"()Lcom/artifex/mupdf/fitz/Location;");
 
   /// from: public com.artifex.mupdf.fitz.Location lastPage()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   location_.Location lastPage() {
     return const location_.$LocationType().fromRef(jni.Jni.accessors
         .callMethodWithArgs(
@@ -513,7 +525,7 @@ class Document extends jni.JObject {
       r"(Lcom/artifex/mupdf/fitz/Location;)Lcom/artifex/mupdf/fitz/Location;");
 
   /// from: public com.artifex.mupdf.fitz.Location nextPage(com.artifex.mupdf.fitz.Location location)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   location_.Location nextPage(
     location_.Location location,
   ) {
@@ -528,7 +540,7 @@ class Document extends jni.JObject {
       r"(Lcom/artifex/mupdf/fitz/Location;)Lcom/artifex/mupdf/fitz/Location;");
 
   /// from: public com.artifex.mupdf.fitz.Location previousPage(com.artifex.mupdf.fitz.Location location)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   location_.Location previousPage(
     location_.Location location,
   ) {
@@ -543,7 +555,7 @@ class Document extends jni.JObject {
       r"(Lcom/artifex/mupdf/fitz/Location;)Lcom/artifex/mupdf/fitz/Location;");
 
   /// from: public com.artifex.mupdf.fitz.Location clampLocation(com.artifex.mupdf.fitz.Location location)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   location_.Location clampLocation(
     location_.Location location,
   ) {
@@ -558,7 +570,7 @@ class Document extends jni.JObject {
       r"(I)Lcom/artifex/mupdf/fitz/Location;");
 
   /// from: public com.artifex.mupdf.fitz.Location locationFromPageNumber(int i)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   location_.Location locationFromPageNumber(
     int i,
   ) {
@@ -587,7 +599,7 @@ class Document extends jni.JObject {
       r"search", r"(IILjava/lang/String;)[[Lcom/artifex/mupdf/fitz/Quad;");
 
   /// from: public native com.artifex.mupdf.fitz.Quad[][] search(int i, int i1, java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<quad_.Quad> search(
     int i,
     int i1,
@@ -604,7 +616,7 @@ class Document extends jni.JObject {
       r"(Ljava/lang/String;)Lcom/artifex/mupdf/fitz/Location;");
 
   /// from: public native com.artifex.mupdf.fitz.Location resolveLink(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   location_.Location resolveLink(
     jni.JString string,
   ) {
@@ -619,7 +631,7 @@ class Document extends jni.JObject {
       r"(Lcom/artifex/mupdf/fitz/Outline;)Lcom/artifex/mupdf/fitz/Location;");
 
   /// from: public com.artifex.mupdf.fitz.Location resolveLink(com.artifex.mupdf.fitz.Outline outline)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   location_.Location resolveLink1(
     outline_.Outline outline,
   ) {
@@ -634,7 +646,7 @@ class Document extends jni.JObject {
       r"(Lcom/artifex/mupdf/fitz/Link;)Lcom/artifex/mupdf/fitz/Location;");
 
   /// from: public com.artifex.mupdf.fitz.Location resolveLink(com.artifex.mupdf.fitz.Link link)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   location_.Location resolveLink2(
     link_.Link link,
   ) {
@@ -649,7 +661,7 @@ class Document extends jni.JObject {
       r"(Ljava/lang/String;)Lcom/artifex/mupdf/fitz/LinkDestination;");
 
   /// from: public native com.artifex.mupdf.fitz.LinkDestination resolveLinkDestination(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   linkdestination_.LinkDestination resolveLinkDestination(
     jni.JString string,
   ) {
@@ -667,7 +679,7 @@ class Document extends jni.JObject {
       r"(Lcom/artifex/mupdf/fitz/OutlineIterator$OutlineItem;)Lcom/artifex/mupdf/fitz/LinkDestination;");
 
   /// from: public com.artifex.mupdf.fitz.LinkDestination resolveLinkDestination(com.artifex.mupdf.fitz.OutlineIterator$OutlineItem outlineItem)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   linkdestination_.LinkDestination resolveLinkDestination1(
     outlineiterator_.OutlineIterator_OutlineItem outlineItem,
   ) {
@@ -685,7 +697,7 @@ class Document extends jni.JObject {
       r"(Lcom/artifex/mupdf/fitz/Outline;)Lcom/artifex/mupdf/fitz/LinkDestination;");
 
   /// from: public com.artifex.mupdf.fitz.LinkDestination resolveLinkDestination(com.artifex.mupdf.fitz.Outline outline)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   linkdestination_.LinkDestination resolveLinkDestination2(
     outline_.Outline outline,
   ) {
@@ -703,7 +715,7 @@ class Document extends jni.JObject {
       r"(Lcom/artifex/mupdf/fitz/Link;)Lcom/artifex/mupdf/fitz/LinkDestination;");
 
   /// from: public com.artifex.mupdf.fitz.LinkDestination resolveLinkDestination(com.artifex.mupdf.fitz.Link link)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   linkdestination_.LinkDestination resolveLinkDestination3(
     link_.Link link,
   ) {
@@ -719,7 +731,7 @@ class Document extends jni.JObject {
       _class.reference, r"loadOutline", r"()[Lcom/artifex/mupdf/fitz/Outline;");
 
   /// from: public native com.artifex.mupdf.fitz.Outline[] loadOutline()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<outline_.Outline> loadOutline() {
     return const jni.JArrayType(outline_.$OutlineType()).fromRef(
         jni.Jni.accessors.callMethodWithArgs(
@@ -732,7 +744,7 @@ class Document extends jni.JObject {
       r"()Lcom/artifex/mupdf/fitz/OutlineIterator;");
 
   /// from: public native com.artifex.mupdf.fitz.OutlineIterator outlineIterator()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   outlineiterator_.OutlineIterator outlineIterator() {
     return const outlineiterator_.$OutlineIteratorType().fromRef(
         jni.Jni.accessors.callMethodWithArgs(reference, _id_outlineIterator,
@@ -745,7 +757,7 @@ class Document extends jni.JObject {
       r"(Ljava/lang/String;)Ljava/lang/String;");
 
   /// from: public native java.lang.String getMetaData(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString getMetaData(
     jni.JString string,
   ) {
@@ -804,7 +816,7 @@ class Document extends jni.JObject {
       r"(J)Lcom/artifex/mupdf/fitz/Location;");
 
   /// from: public native com.artifex.mupdf.fitz.Location findBookmark(long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   location_.Location findBookmark(
     int j,
   ) {
@@ -864,7 +876,7 @@ class Document extends jni.JObject {
       r"(Lcom/artifex/mupdf/fitz/LinkDestination;)Ljava/lang/String;");
 
   /// from: public native java.lang.String formatLinkURI(com.artifex.mupdf.fitz.LinkDestination linkDestination)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString formatLinkURI(
     linkdestination_.LinkDestination linkDestination,
   ) {

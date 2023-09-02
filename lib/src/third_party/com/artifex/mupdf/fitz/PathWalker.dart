@@ -96,28 +96,9 @@ class PathWalker extends jni.JObject {
         reference, _id_closePath, jni.JniCallType.voidType, []).check();
   }
 
-  /// Maps a specific port to the implemented methods.
-  static final Map<int, Map<String, Function>> _$methods = {};
-
-  /// Maps a specific port to the type parameters.
-  static final Map<int, Map<String, jni.JObjType>> _$types = {};
-
+  /// Maps a specific port to the implemented interface.
+  static final Map<int, $PathWalkerImpl> _$impls = {};
   ReceivePort? _$p;
-
-  static final Finalizer<ReceivePort> _$finalizer = Finalizer(($p) {
-    _$methods.remove($p.sendPort.nativePort);
-    _$types.remove($p.sendPort.nativePort);
-    $p.close();
-  });
-
-  @override
-  void delete() {
-    _$methods.remove(_$p?.sendPort.nativePort);
-    _$types.remove(_$p?.sendPort.nativePort);
-    _$p?.close();
-    _$finalizer.detach(this);
-    super.delete();
-  }
 
   static jni.JObjectPtr _$invoke(
     int port,
@@ -144,68 +125,67 @@ class PathWalker extends jni.JObject {
     int $p,
     $MethodInvocation $i,
   ) {
-    final $d = $i.methodDescriptor.toDartString(deleteOriginal: true);
-    final $a = $i.args;
-    if ($d == r"moveTo(FF)V") {
-      _$methods[$p]![$d]!(
-        $a[0]
-            .castTo(const jni.JFloatType(), deleteOriginal: true)
-            .floatValue(deleteOriginal: true),
-        $a[1]
-            .castTo(const jni.JFloatType(), deleteOriginal: true)
-            .floatValue(deleteOriginal: true),
-      );
-      return jni.nullptr;
-    }
-    if ($d == r"lineTo(FF)V") {
-      _$methods[$p]![$d]!(
-        $a[0]
-            .castTo(const jni.JFloatType(), deleteOriginal: true)
-            .floatValue(deleteOriginal: true),
-        $a[1]
-            .castTo(const jni.JFloatType(), deleteOriginal: true)
-            .floatValue(deleteOriginal: true),
-      );
-      return jni.nullptr;
-    }
-    if ($d == r"curveTo(FFFFFF)V") {
-      _$methods[$p]![$d]!(
-        $a[0]
-            .castTo(const jni.JFloatType(), deleteOriginal: true)
-            .floatValue(deleteOriginal: true),
-        $a[1]
-            .castTo(const jni.JFloatType(), deleteOriginal: true)
-            .floatValue(deleteOriginal: true),
-        $a[2]
-            .castTo(const jni.JFloatType(), deleteOriginal: true)
-            .floatValue(deleteOriginal: true),
-        $a[3]
-            .castTo(const jni.JFloatType(), deleteOriginal: true)
-            .floatValue(deleteOriginal: true),
-        $a[4]
-            .castTo(const jni.JFloatType(), deleteOriginal: true)
-            .floatValue(deleteOriginal: true),
-        $a[5]
-            .castTo(const jni.JFloatType(), deleteOriginal: true)
-            .floatValue(deleteOriginal: true),
-      );
-      return jni.nullptr;
-    }
-    if ($d == r"closePath()V") {
-      _$methods[$p]![$d]!();
-      return jni.nullptr;
+    try {
+      final $d = $i.methodDescriptor.toDartString(releaseOriginal: true);
+      final $a = $i.args;
+      if ($d == r"moveTo(FF)V") {
+        _$impls[$p]!.moveTo(
+          $a[0]
+              .castTo(const jni.JFloatType(), releaseOriginal: true)
+              .floatValue(releaseOriginal: true),
+          $a[1]
+              .castTo(const jni.JFloatType(), releaseOriginal: true)
+              .floatValue(releaseOriginal: true),
+        );
+        return jni.nullptr;
+      }
+      if ($d == r"lineTo(FF)V") {
+        _$impls[$p]!.lineTo(
+          $a[0]
+              .castTo(const jni.JFloatType(), releaseOriginal: true)
+              .floatValue(releaseOriginal: true),
+          $a[1]
+              .castTo(const jni.JFloatType(), releaseOriginal: true)
+              .floatValue(releaseOriginal: true),
+        );
+        return jni.nullptr;
+      }
+      if ($d == r"curveTo(FFFFFF)V") {
+        _$impls[$p]!.curveTo(
+          $a[0]
+              .castTo(const jni.JFloatType(), releaseOriginal: true)
+              .floatValue(releaseOriginal: true),
+          $a[1]
+              .castTo(const jni.JFloatType(), releaseOriginal: true)
+              .floatValue(releaseOriginal: true),
+          $a[2]
+              .castTo(const jni.JFloatType(), releaseOriginal: true)
+              .floatValue(releaseOriginal: true),
+          $a[3]
+              .castTo(const jni.JFloatType(), releaseOriginal: true)
+              .floatValue(releaseOriginal: true),
+          $a[4]
+              .castTo(const jni.JFloatType(), releaseOriginal: true)
+              .floatValue(releaseOriginal: true),
+          $a[5]
+              .castTo(const jni.JFloatType(), releaseOriginal: true)
+              .floatValue(releaseOriginal: true),
+        );
+        return jni.nullptr;
+      }
+      if ($d == r"closePath()V") {
+        _$impls[$p]!.closePath();
+        return jni.nullptr;
+      }
+    } catch (e) {
+      return ProtectedJniExtensions.newDartException(e.toString());
     }
     return jni.nullptr;
   }
 
-  factory PathWalker.implement({
-    required void Function(double f, double f1) moveTo,
-    required void Function(double f, double f1) lineTo,
-    required void Function(
-            double f, double f1, double f2, double f3, double f4, double f5)
-        curveTo,
-    required void Function() closePath,
-  }) {
+  factory PathWalker.implement(
+    $PathWalkerImpl $impl,
+  ) {
     final $p = ReceivePort();
     final $x = PathWalker.fromRef(
       ProtectedJniExtensions.newPortProxy(
@@ -215,19 +195,71 @@ class PathWalker extends jni.JObject {
       ),
     ).._$p = $p;
     final $a = $p.sendPort.nativePort;
-    _$types[$a] = {};
-    _$methods[$a] = {};
-    _$methods[$a]![r"moveTo(FF)V"] = moveTo;
-    _$methods[$a]![r"lineTo(FF)V"] = lineTo;
-    _$methods[$a]![r"curveTo(FFFFFF)V"] = curveTo;
-    _$methods[$a]![r"closePath()V"] = closePath;
-    _$finalizer.attach($x, $p, detach: $x);
+    _$impls[$a] = $impl;
     $p.listen(($m) {
+      if ($m == null) {
+        _$impls.remove($p.sendPort.nativePort);
+        $p.close();
+        return;
+      }
       final $i = $MethodInvocation.fromMessage($m);
       final $r = _$invokeMethod($p.sendPort.nativePort, $i);
       ProtectedJniExtensions.returnResult($i.result, $r);
     });
     return $x;
+  }
+}
+
+abstract class $PathWalkerImpl {
+  factory $PathWalkerImpl({
+    required void Function(double f, double f1) moveTo,
+    required void Function(double f, double f1) lineTo,
+    required void Function(
+            double f, double f1, double f2, double f3, double f4, double f5)
+        curveTo,
+    required void Function() closePath,
+  }) = _$PathWalkerImpl;
+
+  void moveTo(double f, double f1);
+  void lineTo(double f, double f1);
+  void curveTo(double f, double f1, double f2, double f3, double f4, double f5);
+  void closePath();
+}
+
+class _$PathWalkerImpl implements $PathWalkerImpl {
+  _$PathWalkerImpl({
+    required void Function(double f, double f1) moveTo,
+    required void Function(double f, double f1) lineTo,
+    required void Function(
+            double f, double f1, double f2, double f3, double f4, double f5)
+        curveTo,
+    required void Function() closePath,
+  })  : _moveTo = moveTo,
+        _lineTo = lineTo,
+        _curveTo = curveTo,
+        _closePath = closePath;
+
+  final void Function(double f, double f1) _moveTo;
+  final void Function(double f, double f1) _lineTo;
+  final void Function(
+      double f, double f1, double f2, double f3, double f4, double f5) _curveTo;
+  final void Function() _closePath;
+
+  void moveTo(double f, double f1) {
+    return _moveTo(f, f1);
+  }
+
+  void lineTo(double f, double f1) {
+    return _lineTo(f, f1);
+  }
+
+  void curveTo(
+      double f, double f1, double f2, double f3, double f4, double f5) {
+    return _curveTo(f, f1, f2, f3, f4, f5);
+  }
+
+  void closePath() {
+    return _closePath();
   }
 }
 

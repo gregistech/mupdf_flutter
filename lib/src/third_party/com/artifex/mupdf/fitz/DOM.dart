@@ -34,14 +34,14 @@ class DOM_DOMAttribute extends jni.JObject {
 
   /// The type which includes information such as the signature of this class.
   static const type = $DOM_DOMAttributeType();
-  static final _id_ctor =
+  static final _id_new0 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"()V");
 
   /// from: public void <init>()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory DOM_DOMAttribute() {
     return DOM_DOMAttribute.fromRef(jni.Jni.accessors
-        .newObjectWithArgs(_class.reference, _id_ctor, []).object);
+        .newObjectWithArgs(_class.reference, _id_new0, []).object);
   }
 }
 
@@ -116,23 +116,23 @@ class DOM extends jni.JObject {
         reference, _id_destroy, jni.JniCallType.voidType, []).check();
   }
 
-  static final _id_ctor =
+  static final _id_new0 =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"(J)V");
 
   /// from: protected void <init>(long j)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   factory DOM(
     int j,
   ) {
     return DOM.fromRef(jni.Jni.accessors
-        .newObjectWithArgs(_class.reference, _id_ctor, [j]).object);
+        .newObjectWithArgs(_class.reference, _id_new0, [j]).object);
   }
 
   static final _id_body = jni.Jni.accessors.getMethodIDOf(
       _class.reference, r"body", r"()Lcom/artifex/mupdf/fitz/DOM;");
 
   /// from: public native com.artifex.mupdf.fitz.DOM body()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   DOM body() {
     return const $DOMType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_body, jni.JniCallType.objectType, []).object);
@@ -142,7 +142,7 @@ class DOM extends jni.JObject {
       _class.reference, r"document", r"()Lcom/artifex/mupdf/fitz/DOM;");
 
   /// from: public native com.artifex.mupdf.fitz.DOM document()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   DOM document() {
     return const $DOMType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_document, jni.JniCallType.objectType, []).object);
@@ -154,7 +154,7 @@ class DOM extends jni.JObject {
       r"(Ljava/lang/String;)Lcom/artifex/mupdf/fitz/DOM;");
 
   /// from: public native com.artifex.mupdf.fitz.DOM createTextNode(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   DOM createTextNode(
     jni.JString string,
   ) {
@@ -171,7 +171,7 @@ class DOM extends jni.JObject {
       r"(Ljava/lang/String;)Lcom/artifex/mupdf/fitz/DOM;");
 
   /// from: public native com.artifex.mupdf.fitz.DOM createElement(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   DOM createElement(
     jni.JString string,
   ) {
@@ -228,7 +228,7 @@ class DOM extends jni.JObject {
       _class.reference, r"clone", r"()Lcom/artifex/mupdf/fitz/DOM;");
 
   /// from: public native com.artifex.mupdf.fitz.DOM clone()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   DOM clone() {
     return const $DOMType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_clone, jni.JniCallType.objectType, []).object);
@@ -238,7 +238,7 @@ class DOM extends jni.JObject {
       _class.reference, r"parent", r"()Lcom/artifex/mupdf/fitz/DOM;");
 
   /// from: public native com.artifex.mupdf.fitz.DOM parent()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   DOM parent() {
     return const $DOMType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_parent, jni.JniCallType.objectType, []).object);
@@ -248,7 +248,7 @@ class DOM extends jni.JObject {
       _class.reference, r"firstChild", r"()Lcom/artifex/mupdf/fitz/DOM;");
 
   /// from: public native com.artifex.mupdf.fitz.DOM firstChild()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   DOM firstChild() {
     return const $DOMType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_firstChild, jni.JniCallType.objectType, []).object);
@@ -258,7 +258,7 @@ class DOM extends jni.JObject {
       _class.reference, r"next", r"()Lcom/artifex/mupdf/fitz/DOM;");
 
   /// from: public native com.artifex.mupdf.fitz.DOM next()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   DOM next() {
     return const $DOMType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_next, jni.JniCallType.objectType, []).object);
@@ -268,7 +268,7 @@ class DOM extends jni.JObject {
       _class.reference, r"previous", r"()Lcom/artifex/mupdf/fitz/DOM;");
 
   /// from: public native com.artifex.mupdf.fitz.DOM previous()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   DOM previous() {
     return const $DOMType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_previous, jni.JniCallType.objectType, []).object);
@@ -280,7 +280,7 @@ class DOM extends jni.JObject {
       r"(Ljava/lang/String;Ljava/lang/String;)Lcom/artifex/mupdf/fitz/DOM;");
 
   /// from: public native com.artifex.mupdf.fitz.DOM addAttribute(java.lang.String string, java.lang.String string1)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   DOM addAttribute(
     jni.JString string,
     jni.JString string1,
@@ -298,7 +298,7 @@ class DOM extends jni.JObject {
       r"(Ljava/lang/String;)Lcom/artifex/mupdf/fitz/DOM;");
 
   /// from: public native com.artifex.mupdf.fitz.DOM removeAttribute(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   DOM removeAttribute(
     jni.JString string,
   ) {
@@ -313,7 +313,7 @@ class DOM extends jni.JObject {
       r"attribute", r"(Ljava/lang/String;)Ljava/lang/String;");
 
   /// from: public native java.lang.String attribute(java.lang.String string)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JString attribute(
     jni.JString string,
   ) {
@@ -330,7 +330,7 @@ class DOM extends jni.JObject {
       r"()[Lcom/artifex/mupdf/fitz/DOM$DOMAttribute;");
 
   /// from: public native com.artifex.mupdf.fitz.DOM$DOMAttribute[] attributes()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JArray<DOM_DOMAttribute> attributes() {
     return const jni.JArrayType($DOM_DOMAttributeType()).fromRef(
         jni.Jni.accessors.callMethodWithArgs(
@@ -343,7 +343,7 @@ class DOM extends jni.JObject {
       r"(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/artifex/mupdf/fitz/DOM;");
 
   /// from: public native com.artifex.mupdf.fitz.DOM find(java.lang.String string, java.lang.String string1, java.lang.String string2)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   DOM find(
     jni.JString string,
     jni.JString string1,
@@ -362,7 +362,7 @@ class DOM extends jni.JObject {
       r"(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/artifex/mupdf/fitz/DOM;");
 
   /// from: public native com.artifex.mupdf.fitz.DOM findNext(java.lang.String string, java.lang.String string1, java.lang.String string2)
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   DOM findNext(
     jni.JString string,
     jni.JString string1,
@@ -379,7 +379,7 @@ class DOM extends jni.JObject {
       .getMethodIDOf(_class.reference, r"clone", r"()Ljava/lang/Object;");
 
   /// from: public java.lang.Object clone()
-  /// The returned object must be deleted after use, by calling the `delete` method.
+  /// The returned object must be released after use, by calling the [release] method.
   jni.JObject clone1() {
     return const jni.JObjectType().fromRef(jni.Jni.accessors.callMethodWithArgs(
         reference, _id_clone1, jni.JniCallType.objectType, []).object);
