@@ -32,6 +32,6 @@ extension Metadata on Document {
   }
 
   String getMetadata(String key) {
-    return getMetaData(key.toJString()).toDartString(deleteOriginal: true);
+    return getMetaData(key.toJString()).toDartString();
   }
 }
