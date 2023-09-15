@@ -5,6 +5,7 @@
 // ignore_for_file: camel_case_types
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: file_names
+// ignore_for_file: lines_longer_than_80_chars
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 // ignore_for_file: non_constant_identifier_names
 // ignore_for_file: overridden_fields
@@ -19,6 +20,8 @@ import "dart:isolate" show ReceivePort;
 import "dart:ffi" as ffi;
 import "package:jni/internal_helpers_for_jnigen.dart";
 import "package:jni/jni.dart" as jni;
+
+import "../../../../java/io/RandomAccessFile.dart" as randomaccessfile_;
 
 /// from: com.artifex.mupdf.fitz.FileStream
 class FileStream extends jni.JObject {
@@ -42,13 +45,14 @@ class FileStream extends jni.JObject {
 
   /// from: protected java.io.RandomAccessFile file
   /// The returned object must be released after use, by calling the [release] method.
-  jni.JObject get file => const jni.JObjectType().fromRef(jni.Jni.accessors
-      .getField(reference, _id_file, jni.JniCallType.objectType)
-      .object);
+  randomaccessfile_.RandomAccessFile get file =>
+      const randomaccessfile_.$RandomAccessFileType().fromRef(jni.Jni.accessors
+          .getField(reference, _id_file, jni.JniCallType.objectType)
+          .object);
 
   /// from: protected java.io.RandomAccessFile file
   /// The returned object must be released after use, by calling the [release] method.
-  set file(jni.JObject value) =>
+  set file(randomaccessfile_.RandomAccessFile value) =>
       jni.Jni.env.SetObjectField(reference, _id_file, value.reference);
 
   static final _id_new0 = jni.Jni.accessors.getMethodIDOf(

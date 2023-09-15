@@ -21,74 +21,116 @@ import "dart:ffi" as ffi;
 import "package:jni/internal_helpers_for_jnigen.dart";
 import "package:jni/jni.dart" as jni;
 
-import "Device.dart" as device_;
+import "../../artifex/mupdf/fitz/Device.dart" as device_;
 
-import "Path.dart" as path_;
+import "../../artifex/mupdf/fitz/Rect.dart" as rect_;
 
-import "Matrix.dart" as matrix_;
+import "../../artifex/mupdf/fitz/Path.dart" as path_;
 
-import "ColorSpace.dart" as colorspace_;
+import "../../artifex/mupdf/fitz/Matrix.dart" as matrix_;
 
-import "StrokeState.dart" as strokestate_;
+import "../../artifex/mupdf/fitz/ColorSpace.dart" as colorspace_;
 
-import "Text.dart" as text_;
+import "../../artifex/mupdf/fitz/StrokeState.dart" as strokestate_;
 
-import "Shade.dart" as shade_;
+import "../../artifex/mupdf/fitz/Text.dart" as text_;
 
-import "Image.dart" as image_;
+import "../../artifex/mupdf/fitz/Shade.dart" as shade_;
 
-import "Rect.dart" as rect_;
+import "../../artifex/mupdf/fitz/Image.dart" as image_;
 
-import "DefaultColorSpaces.dart" as defaultcolorspaces_;
+import "../../artifex/mupdf/fitz/DefaultColorSpaces.dart"
+    as defaultcolorspaces_;
 
-/// from: com.artifex.mupdf.fitz.NativeDevice
-class NativeDevice extends device_.Device {
+/// from: com.gergovari.mupdf.RectDevice
+class RectDevice extends device_.Device {
   @override
-  late final jni.JObjType<NativeDevice> $type = type;
+  late final jni.JObjType<RectDevice> $type = type;
 
-  NativeDevice.fromRef(
+  RectDevice.fromRef(
     jni.JObjectPtr ref,
   ) : super.fromRef(ref);
 
-  static final _class =
-      jni.Jni.findJClass(r"com/artifex/mupdf/fitz/NativeDevice");
+  static final _class = jni.Jni.findJClass(r"com/gergovari/mupdf/RectDevice");
 
   /// The type which includes information such as the signature of this class.
-  static const type = $NativeDeviceType();
-  static final _id_finalize =
-      jni.Jni.accessors.getMethodIDOf(_class.reference, r"finalize", r"()V");
+  static const type = $RectDeviceType();
+  static final _id_current = jni.Jni.accessors.getFieldIDOf(
+    _class.reference,
+    r"current",
+    r"Lcom/artifex/mupdf/fitz/Device;",
+  );
 
-  /// from: protected native void finalize()
-  void finalize() {
-    return jni.Jni.accessors.callMethodWithArgs(
-        reference, _id_finalize, jni.JniCallType.voidType, []).check();
-  }
-
-  static final _id_destroy =
-      jni.Jni.accessors.getMethodIDOf(_class.reference, r"destroy", r"()V");
-
-  /// from: public void destroy()
-  void destroy() {
-    return jni.Jni.accessors.callMethodWithArgs(
-        reference, _id_destroy, jni.JniCallType.voidType, []).check();
-  }
-
-  static final _id_new1 =
-      jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"(J)V");
-
-  /// from: protected void <init>(long j)
+  /// from: public com.artifex.mupdf.fitz.Device current
   /// The returned object must be released after use, by calling the [release] method.
-  factory NativeDevice.new1(
-    int j,
+  device_.Device get current =>
+      const device_.$DeviceType().fromRef(jni.Jni.accessors
+          .getField(reference, _id_current, jni.JniCallType.objectType)
+          .object);
+
+  /// from: public com.artifex.mupdf.fitz.Device current
+  /// The returned object must be released after use, by calling the [release] method.
+  set current(device_.Device value) =>
+      jni.Jni.env.SetObjectField(reference, _id_current, value.reference);
+
+  static final _id_new2 = jni.Jni.accessors
+      .getMethodIDOf(_class.reference, r"<init>", r"(Ljava/lang/String;)V");
+
+  /// from: public void <init>(java.lang.String path)
+  /// The returned object must be released after use, by calling the [release] method.
+  factory RectDevice.new2(
+    jni.JString path,
   ) {
-    return NativeDevice.fromRef(jni.Jni.accessors
-        .newObjectWithArgs(_class.reference, _id_new1, [j]).object);
+    return RectDevice.fromRef(jni.Jni.accessors.newObjectWithArgs(
+        _class.reference, _id_new2, [path.reference]).object);
+  }
+
+  static final _id_filterDevice = jni.Jni.accessors.getMethodIDOf(
+      _class.reference,
+      r"filterDevice",
+      r"(Lcom/artifex/mupdf/fitz/Rect;)Lcom/artifex/mupdf/fitz/Device;");
+
+  /// from: public com.artifex.mupdf.fitz.Device filterDevice(com.artifex.mupdf.fitz.Rect target)
+  /// The returned object must be released after use, by calling the [release] method.
+  device_.Device filterDevice(
+    rect_.Rect target,
+  ) {
+    return const device_.$DeviceType().fromRef(jni.Jni.accessors
+        .callMethodWithArgs(reference, _id_filterDevice,
+            jni.JniCallType.objectType, [target.reference]).object);
+  }
+
+  static final _id_beginPage =
+      jni.Jni.accessors.getMethodIDOf(_class.reference, r"beginPage", r"()V");
+
+  /// from: public void beginPage()
+  void beginPage() {
+    return jni.Jni.accessors.callMethodWithArgs(
+        reference, _id_beginPage, jni.JniCallType.voidType, []).check();
+  }
+
+  static final _id_endPage =
+      jni.Jni.accessors.getMethodIDOf(_class.reference, r"endPage", r"()V");
+
+  /// from: public void endPage()
+  void endPage() {
+    return jni.Jni.accessors.callMethodWithArgs(
+        reference, _id_endPage, jni.JniCallType.voidType, []).check();
+  }
+
+  static final _id_done =
+      jni.Jni.accessors.getMethodIDOf(_class.reference, r"done", r"()V");
+
+  /// from: public void done()
+  void done() {
+    return jni.Jni.accessors.callMethodWithArgs(
+        reference, _id_done, jni.JniCallType.voidType, []).check();
   }
 
   static final _id_close =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"close", r"()V");
 
-  /// from: public native final void close()
+  /// from: public void close()
   void close() {
     return jni.Jni.accessors.callMethodWithArgs(
         reference, _id_close, jni.JniCallType.voidType, []).check();
@@ -99,24 +141,24 @@ class NativeDevice extends device_.Device {
       r"fillPath",
       r"(Lcom/artifex/mupdf/fitz/Path;ZLcom/artifex/mupdf/fitz/Matrix;Lcom/artifex/mupdf/fitz/ColorSpace;[FFI)V");
 
-  /// from: public native final void fillPath(com.artifex.mupdf.fitz.Path path, boolean z, com.artifex.mupdf.fitz.Matrix matrix, com.artifex.mupdf.fitz.ColorSpace colorSpace, float[] fs, float f, int i)
+  /// from: public void fillPath(com.artifex.mupdf.fitz.Path path, boolean b, com.artifex.mupdf.fitz.Matrix matrix, com.artifex.mupdf.fitz.ColorSpace colorSpace, float[] floats, float v, int i)
   void fillPath(
     path_.Path path,
-    bool z,
+    bool b,
     matrix_.Matrix matrix,
     colorspace_.ColorSpace colorSpace,
-    jni.JArray<jni.jfloat> fs,
-    double f,
+    jni.JArray<jni.jfloat> floats,
+    double v,
     int i,
   ) {
     return jni.Jni.accessors
         .callMethodWithArgs(reference, _id_fillPath, jni.JniCallType.voidType, [
       path.reference,
-      z ? 1 : 0,
+      b ? 1 : 0,
       matrix.reference,
       colorSpace.reference,
-      fs.reference,
-      jni.JValueFloat(f),
+      floats.reference,
+      jni.JValueFloat(v),
       jni.JValueInt(i)
     ]).check();
   }
@@ -126,14 +168,14 @@ class NativeDevice extends device_.Device {
       r"strokePath",
       r"(Lcom/artifex/mupdf/fitz/Path;Lcom/artifex/mupdf/fitz/StrokeState;Lcom/artifex/mupdf/fitz/Matrix;Lcom/artifex/mupdf/fitz/ColorSpace;[FFI)V");
 
-  /// from: public native final void strokePath(com.artifex.mupdf.fitz.Path path, com.artifex.mupdf.fitz.StrokeState strokeState, com.artifex.mupdf.fitz.Matrix matrix, com.artifex.mupdf.fitz.ColorSpace colorSpace, float[] fs, float f, int i)
+  /// from: public void strokePath(com.artifex.mupdf.fitz.Path path, com.artifex.mupdf.fitz.StrokeState strokeState, com.artifex.mupdf.fitz.Matrix matrix, com.artifex.mupdf.fitz.ColorSpace colorSpace, float[] floats, float v, int i)
   void strokePath(
     path_.Path path,
     strokestate_.StrokeState strokeState,
     matrix_.Matrix matrix,
     colorspace_.ColorSpace colorSpace,
-    jni.JArray<jni.jfloat> fs,
-    double f,
+    jni.JArray<jni.jfloat> floats,
+    double v,
     int i,
   ) {
     return jni.Jni.accessors.callMethodWithArgs(
@@ -142,8 +184,8 @@ class NativeDevice extends device_.Device {
       strokeState.reference,
       matrix.reference,
       colorSpace.reference,
-      fs.reference,
-      jni.JValueFloat(f),
+      floats.reference,
+      jni.JValueFloat(v),
       jni.JValueInt(i)
     ]).check();
   }
@@ -153,17 +195,17 @@ class NativeDevice extends device_.Device {
       r"clipPath",
       r"(Lcom/artifex/mupdf/fitz/Path;ZLcom/artifex/mupdf/fitz/Matrix;)V");
 
-  /// from: public native final void clipPath(com.artifex.mupdf.fitz.Path path, boolean z, com.artifex.mupdf.fitz.Matrix matrix)
+  /// from: public void clipPath(com.artifex.mupdf.fitz.Path path, boolean b, com.artifex.mupdf.fitz.Matrix matrix)
   void clipPath(
     path_.Path path,
-    bool z,
+    bool b,
     matrix_.Matrix matrix,
   ) {
     return jni.Jni.accessors.callMethodWithArgs(
         reference,
         _id_clipPath,
         jni.JniCallType.voidType,
-        [path.reference, z ? 1 : 0, matrix.reference]).check();
+        [path.reference, b ? 1 : 0, matrix.reference]).check();
   }
 
   static final _id_clipStrokePath = jni.Jni.accessors.getMethodIDOf(
@@ -171,7 +213,7 @@ class NativeDevice extends device_.Device {
       r"clipStrokePath",
       r"(Lcom/artifex/mupdf/fitz/Path;Lcom/artifex/mupdf/fitz/StrokeState;Lcom/artifex/mupdf/fitz/Matrix;)V");
 
-  /// from: public native final void clipStrokePath(com.artifex.mupdf.fitz.Path path, com.artifex.mupdf.fitz.StrokeState strokeState, com.artifex.mupdf.fitz.Matrix matrix)
+  /// from: public void clipStrokePath(com.artifex.mupdf.fitz.Path path, com.artifex.mupdf.fitz.StrokeState strokeState, com.artifex.mupdf.fitz.Matrix matrix)
   void clipStrokePath(
     path_.Path path,
     strokestate_.StrokeState strokeState,
@@ -189,13 +231,13 @@ class NativeDevice extends device_.Device {
       r"fillText",
       r"(Lcom/artifex/mupdf/fitz/Text;Lcom/artifex/mupdf/fitz/Matrix;Lcom/artifex/mupdf/fitz/ColorSpace;[FFI)V");
 
-  /// from: public native final void fillText(com.artifex.mupdf.fitz.Text text, com.artifex.mupdf.fitz.Matrix matrix, com.artifex.mupdf.fitz.ColorSpace colorSpace, float[] fs, float f, int i)
+  /// from: public void fillText(com.artifex.mupdf.fitz.Text text, com.artifex.mupdf.fitz.Matrix matrix, com.artifex.mupdf.fitz.ColorSpace colorSpace, float[] floats, float v, int i)
   void fillText(
     text_.Text text,
     matrix_.Matrix matrix,
     colorspace_.ColorSpace colorSpace,
-    jni.JArray<jni.jfloat> fs,
-    double f,
+    jni.JArray<jni.jfloat> floats,
+    double v,
     int i,
   ) {
     return jni.Jni.accessors
@@ -203,8 +245,8 @@ class NativeDevice extends device_.Device {
       text.reference,
       matrix.reference,
       colorSpace.reference,
-      fs.reference,
-      jni.JValueFloat(f),
+      floats.reference,
+      jni.JValueFloat(v),
       jni.JValueInt(i)
     ]).check();
   }
@@ -214,14 +256,14 @@ class NativeDevice extends device_.Device {
       r"strokeText",
       r"(Lcom/artifex/mupdf/fitz/Text;Lcom/artifex/mupdf/fitz/StrokeState;Lcom/artifex/mupdf/fitz/Matrix;Lcom/artifex/mupdf/fitz/ColorSpace;[FFI)V");
 
-  /// from: public native final void strokeText(com.artifex.mupdf.fitz.Text text, com.artifex.mupdf.fitz.StrokeState strokeState, com.artifex.mupdf.fitz.Matrix matrix, com.artifex.mupdf.fitz.ColorSpace colorSpace, float[] fs, float f, int i)
+  /// from: public void strokeText(com.artifex.mupdf.fitz.Text text, com.artifex.mupdf.fitz.StrokeState strokeState, com.artifex.mupdf.fitz.Matrix matrix, com.artifex.mupdf.fitz.ColorSpace colorSpace, float[] floats, float v, int i)
   void strokeText(
     text_.Text text,
     strokestate_.StrokeState strokeState,
     matrix_.Matrix matrix,
     colorspace_.ColorSpace colorSpace,
-    jni.JArray<jni.jfloat> fs,
-    double f,
+    jni.JArray<jni.jfloat> floats,
+    double v,
     int i,
   ) {
     return jni.Jni.accessors.callMethodWithArgs(
@@ -230,8 +272,8 @@ class NativeDevice extends device_.Device {
       strokeState.reference,
       matrix.reference,
       colorSpace.reference,
-      fs.reference,
-      jni.JValueFloat(f),
+      floats.reference,
+      jni.JValueFloat(v),
       jni.JValueInt(i)
     ]).check();
   }
@@ -241,7 +283,7 @@ class NativeDevice extends device_.Device {
       r"clipText",
       r"(Lcom/artifex/mupdf/fitz/Text;Lcom/artifex/mupdf/fitz/Matrix;)V");
 
-  /// from: public native final void clipText(com.artifex.mupdf.fitz.Text text, com.artifex.mupdf.fitz.Matrix matrix)
+  /// from: public void clipText(com.artifex.mupdf.fitz.Text text, com.artifex.mupdf.fitz.Matrix matrix)
   void clipText(
     text_.Text text,
     matrix_.Matrix matrix,
@@ -255,7 +297,7 @@ class NativeDevice extends device_.Device {
       r"clipStrokeText",
       r"(Lcom/artifex/mupdf/fitz/Text;Lcom/artifex/mupdf/fitz/StrokeState;Lcom/artifex/mupdf/fitz/Matrix;)V");
 
-  /// from: public native final void clipStrokeText(com.artifex.mupdf.fitz.Text text, com.artifex.mupdf.fitz.StrokeState strokeState, com.artifex.mupdf.fitz.Matrix matrix)
+  /// from: public void clipStrokeText(com.artifex.mupdf.fitz.Text text, com.artifex.mupdf.fitz.StrokeState strokeState, com.artifex.mupdf.fitz.Matrix matrix)
   void clipStrokeText(
     text_.Text text,
     strokestate_.StrokeState strokeState,
@@ -273,7 +315,7 @@ class NativeDevice extends device_.Device {
       r"ignoreText",
       r"(Lcom/artifex/mupdf/fitz/Text;Lcom/artifex/mupdf/fitz/Matrix;)V");
 
-  /// from: public native final void ignoreText(com.artifex.mupdf.fitz.Text text, com.artifex.mupdf.fitz.Matrix matrix)
+  /// from: public void ignoreText(com.artifex.mupdf.fitz.Text text, com.artifex.mupdf.fitz.Matrix matrix)
   void ignoreText(
     text_.Text text,
     matrix_.Matrix matrix,
@@ -287,18 +329,18 @@ class NativeDevice extends device_.Device {
       r"fillShade",
       r"(Lcom/artifex/mupdf/fitz/Shade;Lcom/artifex/mupdf/fitz/Matrix;FI)V");
 
-  /// from: public native final void fillShade(com.artifex.mupdf.fitz.Shade shade, com.artifex.mupdf.fitz.Matrix matrix, float f, int i)
+  /// from: public void fillShade(com.artifex.mupdf.fitz.Shade shade, com.artifex.mupdf.fitz.Matrix matrix, float v, int i)
   void fillShade(
     shade_.Shade shade,
     matrix_.Matrix matrix,
-    double f,
+    double v,
     int i,
   ) {
     return jni.Jni.accessors.callMethodWithArgs(
         reference, _id_fillShade, jni.JniCallType.voidType, [
       shade.reference,
       matrix.reference,
-      jni.JValueFloat(f),
+      jni.JValueFloat(v),
       jni.JValueInt(i)
     ]).check();
   }
@@ -308,18 +350,18 @@ class NativeDevice extends device_.Device {
       r"fillImage",
       r"(Lcom/artifex/mupdf/fitz/Image;Lcom/artifex/mupdf/fitz/Matrix;FI)V");
 
-  /// from: public native final void fillImage(com.artifex.mupdf.fitz.Image image, com.artifex.mupdf.fitz.Matrix matrix, float f, int i)
+  /// from: public void fillImage(com.artifex.mupdf.fitz.Image image, com.artifex.mupdf.fitz.Matrix matrix, float v, int i)
   void fillImage(
     image_.Image image,
     matrix_.Matrix matrix,
-    double f,
+    double v,
     int i,
   ) {
     return jni.Jni.accessors.callMethodWithArgs(
         reference, _id_fillImage, jni.JniCallType.voidType, [
       image.reference,
       matrix.reference,
-      jni.JValueFloat(f),
+      jni.JValueFloat(v),
       jni.JValueInt(i)
     ]).check();
   }
@@ -329,13 +371,13 @@ class NativeDevice extends device_.Device {
       r"fillImageMask",
       r"(Lcom/artifex/mupdf/fitz/Image;Lcom/artifex/mupdf/fitz/Matrix;Lcom/artifex/mupdf/fitz/ColorSpace;[FFI)V");
 
-  /// from: public native final void fillImageMask(com.artifex.mupdf.fitz.Image image, com.artifex.mupdf.fitz.Matrix matrix, com.artifex.mupdf.fitz.ColorSpace colorSpace, float[] fs, float f, int i)
+  /// from: public void fillImageMask(com.artifex.mupdf.fitz.Image image, com.artifex.mupdf.fitz.Matrix matrix, com.artifex.mupdf.fitz.ColorSpace colorSpace, float[] floats, float v, int i)
   void fillImageMask(
     image_.Image image,
     matrix_.Matrix matrix,
     colorspace_.ColorSpace colorSpace,
-    jni.JArray<jni.jfloat> fs,
-    double f,
+    jni.JArray<jni.jfloat> floats,
+    double v,
     int i,
   ) {
     return jni.Jni.accessors.callMethodWithArgs(
@@ -343,8 +385,8 @@ class NativeDevice extends device_.Device {
       image.reference,
       matrix.reference,
       colorSpace.reference,
-      fs.reference,
-      jni.JValueFloat(f),
+      floats.reference,
+      jni.JValueFloat(v),
       jni.JValueInt(i)
     ]).check();
   }
@@ -354,7 +396,7 @@ class NativeDevice extends device_.Device {
       r"clipImageMask",
       r"(Lcom/artifex/mupdf/fitz/Image;Lcom/artifex/mupdf/fitz/Matrix;)V");
 
-  /// from: public native final void clipImageMask(com.artifex.mupdf.fitz.Image image, com.artifex.mupdf.fitz.Matrix matrix)
+  /// from: public void clipImageMask(com.artifex.mupdf.fitz.Image image, com.artifex.mupdf.fitz.Matrix matrix)
   void clipImageMask(
     image_.Image image,
     matrix_.Matrix matrix,
@@ -366,7 +408,7 @@ class NativeDevice extends device_.Device {
   static final _id_popClip =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"popClip", r"()V");
 
-  /// from: public native final void popClip()
+  /// from: public void popClip()
   void popClip() {
     return jni.Jni.accessors.callMethodWithArgs(
         reference, _id_popClip, jni.JniCallType.voidType, []).check();
@@ -377,20 +419,20 @@ class NativeDevice extends device_.Device {
       r"beginMask",
       r"(Lcom/artifex/mupdf/fitz/Rect;ZLcom/artifex/mupdf/fitz/ColorSpace;[FI)V");
 
-  /// from: public native final void beginMask(com.artifex.mupdf.fitz.Rect rect, boolean z, com.artifex.mupdf.fitz.ColorSpace colorSpace, float[] fs, int i)
+  /// from: public void beginMask(com.artifex.mupdf.fitz.Rect rect, boolean b, com.artifex.mupdf.fitz.ColorSpace colorSpace, float[] floats, int i)
   void beginMask(
     rect_.Rect rect,
-    bool z,
+    bool b,
     colorspace_.ColorSpace colorSpace,
-    jni.JArray<jni.jfloat> fs,
+    jni.JArray<jni.jfloat> floats,
     int i,
   ) {
     return jni.Jni.accessors.callMethodWithArgs(
         reference, _id_beginMask, jni.JniCallType.voidType, [
       rect.reference,
-      z ? 1 : 0,
+      b ? 1 : 0,
       colorSpace.reference,
-      fs.reference,
+      floats.reference,
       jni.JValueInt(i)
     ]).check();
   }
@@ -398,7 +440,7 @@ class NativeDevice extends device_.Device {
   static final _id_endMask =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"endMask", r"()V");
 
-  /// from: public native final void endMask()
+  /// from: public void endMask()
   void endMask() {
     return jni.Jni.accessors.callMethodWithArgs(
         reference, _id_endMask, jni.JniCallType.voidType, []).check();
@@ -409,30 +451,30 @@ class NativeDevice extends device_.Device {
       r"beginGroup",
       r"(Lcom/artifex/mupdf/fitz/Rect;Lcom/artifex/mupdf/fitz/ColorSpace;ZZIF)V");
 
-  /// from: public native final void beginGroup(com.artifex.mupdf.fitz.Rect rect, com.artifex.mupdf.fitz.ColorSpace colorSpace, boolean z, boolean z1, int i, float f)
+  /// from: public void beginGroup(com.artifex.mupdf.fitz.Rect rect, com.artifex.mupdf.fitz.ColorSpace colorSpace, boolean b, boolean b1, int i, float v)
   void beginGroup(
     rect_.Rect rect,
     colorspace_.ColorSpace colorSpace,
-    bool z,
-    bool z1,
+    bool b,
+    bool b1,
     int i,
-    double f,
+    double v,
   ) {
     return jni.Jni.accessors.callMethodWithArgs(
         reference, _id_beginGroup, jni.JniCallType.voidType, [
       rect.reference,
       colorSpace.reference,
-      z ? 1 : 0,
-      z1 ? 1 : 0,
+      b ? 1 : 0,
+      b1 ? 1 : 0,
       jni.JValueInt(i),
-      jni.JValueFloat(f)
+      jni.JValueFloat(v)
     ]).check();
   }
 
   static final _id_endGroup =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"endGroup", r"()V");
 
-  /// from: public native final void endGroup()
+  /// from: public void endGroup()
   void endGroup() {
     return jni.Jni.accessors.callMethodWithArgs(
         reference, _id_endGroup, jni.JniCallType.voidType, []).check();
@@ -443,12 +485,12 @@ class NativeDevice extends device_.Device {
       r"beginTile",
       r"(Lcom/artifex/mupdf/fitz/Rect;Lcom/artifex/mupdf/fitz/Rect;FFLcom/artifex/mupdf/fitz/Matrix;I)I");
 
-  /// from: public native final int beginTile(com.artifex.mupdf.fitz.Rect rect, com.artifex.mupdf.fitz.Rect rect1, float f, float f1, com.artifex.mupdf.fitz.Matrix matrix, int i)
+  /// from: public int beginTile(com.artifex.mupdf.fitz.Rect rect, com.artifex.mupdf.fitz.Rect rect1, float v, float v1, com.artifex.mupdf.fitz.Matrix matrix, int i)
   int beginTile(
     rect_.Rect rect,
     rect_.Rect rect1,
-    double f,
-    double f1,
+    double v,
+    double v1,
     matrix_.Matrix matrix,
     int i,
   ) {
@@ -456,8 +498,8 @@ class NativeDevice extends device_.Device {
         .callMethodWithArgs(reference, _id_beginTile, jni.JniCallType.intType, [
       rect.reference,
       rect1.reference,
-      jni.JValueFloat(f),
-      jni.JValueFloat(f1),
+      jni.JValueFloat(v),
+      jni.JValueFloat(v1),
       matrix.reference,
       jni.JValueInt(i)
     ]).integer;
@@ -466,7 +508,7 @@ class NativeDevice extends device_.Device {
   static final _id_endTile =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"endTile", r"()V");
 
-  /// from: public native final void endTile()
+  /// from: public void endTile()
   void endTile() {
     return jni.Jni.accessors.callMethodWithArgs(
         reference, _id_endTile, jni.JniCallType.voidType, []).check();
@@ -475,7 +517,7 @@ class NativeDevice extends device_.Device {
   static final _id_renderFlags = jni.Jni.accessors
       .getMethodIDOf(_class.reference, r"renderFlags", r"(II)V");
 
-  /// from: public native final void renderFlags(int i, int i1)
+  /// from: public void renderFlags(int i, int i1)
   void renderFlags(
     int i,
     int i1,
@@ -492,7 +534,7 @@ class NativeDevice extends device_.Device {
       r"setDefaultColorSpaces",
       r"(Lcom/artifex/mupdf/fitz/DefaultColorSpaces;)V");
 
-  /// from: public native final void setDefaultColorSpaces(com.artifex.mupdf.fitz.DefaultColorSpaces defaultColorSpaces)
+  /// from: public void setDefaultColorSpaces(com.artifex.mupdf.fitz.DefaultColorSpaces defaultColorSpaces)
   void setDefaultColorSpaces(
     defaultcolorspaces_.DefaultColorSpaces defaultColorSpaces,
   ) {
@@ -506,18 +548,18 @@ class NativeDevice extends device_.Device {
   static final _id_beginLayer = jni.Jni.accessors
       .getMethodIDOf(_class.reference, r"beginLayer", r"(Ljava/lang/String;)V");
 
-  /// from: public native final void beginLayer(java.lang.String string)
+  /// from: public void beginLayer(java.lang.String s)
   void beginLayer(
-    jni.JString string,
+    jni.JString s,
   ) {
     return jni.Jni.accessors.callMethodWithArgs(reference, _id_beginLayer,
-        jni.JniCallType.voidType, [string.reference]).check();
+        jni.JniCallType.voidType, [s.reference]).check();
   }
 
   static final _id_endLayer =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"endLayer", r"()V");
 
-  /// from: public native final void endLayer()
+  /// from: public void endLayer()
   void endLayer() {
     return jni.Jni.accessors.callMethodWithArgs(
         reference, _id_endLayer, jni.JniCallType.voidType, []).check();
@@ -526,23 +568,23 @@ class NativeDevice extends device_.Device {
   static final _id_beginStructure = jni.Jni.accessors.getMethodIDOf(
       _class.reference, r"beginStructure", r"(ILjava/lang/String;I)V");
 
-  /// from: public native final void beginStructure(int i, java.lang.String string, int i1)
+  /// from: public void beginStructure(int i, java.lang.String s, int i1)
   void beginStructure(
     int i,
-    jni.JString string,
+    jni.JString s,
     int i1,
   ) {
     return jni.Jni.accessors.callMethodWithArgs(
         reference,
         _id_beginStructure,
         jni.JniCallType.voidType,
-        [jni.JValueInt(i), string.reference, jni.JValueInt(i1)]).check();
+        [jni.JValueInt(i), s.reference, jni.JValueInt(i1)]).check();
   }
 
   static final _id_endStructure = jni.Jni.accessors
       .getMethodIDOf(_class.reference, r"endStructure", r"()V");
 
-  /// from: public native final void endStructure()
+  /// from: public void endStructure()
   void endStructure() {
     return jni.Jni.accessors.callMethodWithArgs(
         reference, _id_endStructure, jni.JniCallType.voidType, []).check();
@@ -551,33 +593,33 @@ class NativeDevice extends device_.Device {
   static final _id_beginMetatext = jni.Jni.accessors.getMethodIDOf(
       _class.reference, r"beginMetatext", r"(ILjava/lang/String;)V");
 
-  /// from: public native final void beginMetatext(int i, java.lang.String string)
+  /// from: public void beginMetatext(int i, java.lang.String s)
   void beginMetatext(
     int i,
-    jni.JString string,
+    jni.JString s,
   ) {
     return jni.Jni.accessors.callMethodWithArgs(reference, _id_beginMetatext,
-        jni.JniCallType.voidType, [jni.JValueInt(i), string.reference]).check();
+        jni.JniCallType.voidType, [jni.JValueInt(i), s.reference]).check();
   }
 
   static final _id_endMetatext =
       jni.Jni.accessors.getMethodIDOf(_class.reference, r"endMetatext", r"()V");
 
-  /// from: public native final void endMetatext()
+  /// from: public void endMetatext()
   void endMetatext() {
     return jni.Jni.accessors.callMethodWithArgs(
         reference, _id_endMetatext, jni.JniCallType.voidType, []).check();
   }
 }
 
-class $NativeDeviceType extends jni.JObjType<NativeDevice> {
-  const $NativeDeviceType();
+class $RectDeviceType extends jni.JObjType<RectDevice> {
+  const $RectDeviceType();
 
   @override
-  String get signature => r"Lcom/artifex/mupdf/fitz/NativeDevice;";
+  String get signature => r"Lcom/gergovari/mupdf/RectDevice;";
 
   @override
-  NativeDevice fromRef(jni.JObjectPtr ref) => NativeDevice.fromRef(ref);
+  RectDevice fromRef(jni.JObjectPtr ref) => RectDevice.fromRef(ref);
 
   @override
   jni.JObjType get superType => const device_.$DeviceType();
@@ -586,11 +628,10 @@ class $NativeDeviceType extends jni.JObjType<NativeDevice> {
   final superCount = 2;
 
   @override
-  int get hashCode => ($NativeDeviceType).hashCode;
+  int get hashCode => ($RectDeviceType).hashCode;
 
   @override
   bool operator ==(Object other) {
-    return other.runtimeType == ($NativeDeviceType) &&
-        other is $NativeDeviceType;
+    return other.runtimeType == ($RectDeviceType) && other is $RectDeviceType;
   }
 }

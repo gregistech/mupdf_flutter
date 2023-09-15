@@ -5,7 +5,7 @@ output:
 
 android_sdk_config:
   add_gradle_deps: true
-  android_example: example/
+  android_example: ../lazyext/
 
 source_path:
   - "android/src/main/java"
@@ -78,6 +78,8 @@ classes:
   - com.artifex.mupdf.fitz.android.AndroidDrawDevice
   - com.artifex.mupdf.fitz.android.AndroidImage
   - com.gergovari.mupdf.BBoxFinder
+  - com.gergovari.mupdf.RectDevice
+  - java.io.RandomAccessFile
 
 enable_experiment:
   - interface_implementation

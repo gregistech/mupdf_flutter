@@ -63,11 +63,9 @@ android {
 repositories {
     google()
     mavenCentral()
-    flatDir {
-        dirs "../mvn_jar"
-    }
+      maven { url 'https://maven.ghostscript.com' }
 }
 
 dependencies {
-    implementation 'com.artifex.mupdf:fitz:1.22.0@aar'
+    implementation 'com.artifex.mupdf:fitz:1.23.0@aar'
 }

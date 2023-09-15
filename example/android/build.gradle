@@ -15,7 +15,7 @@ allprojects {
     repositories {
         google()
         flatDir {
-            dirs "../../../mvn_jar"
+            dirs "../../mvn_jar"
         }
         mavenCentral()
     }
@@ -31,4 +31,25 @@ subprojects {
 
 tasks.register("clean", Delete) {
     delete rootProject.buildDir
+}
+// Gradle stub for listing dependencies in jnigen. If found in
+// android/build.gradle, please delete the following function.
+task getReleaseCompileClasspath(type: Copy) {
+  project.afterEvaluate {
+    try {
+      def app = project(':app')
+      def android = app.android
+      def cp = [android.getBootClasspath()[0]]
+      android.applicationVariants.each { variant ->
+        if (variant.name.equals('release')) {
+          cp += variant.javaCompile.classpath.getFiles()
+        }
+      }
+      cp.each { println it }
+    } catch (Exception e) {
+      System.err.println("Gradle stub cannot find JAR libraries. This might be because no APK build has happened yet.")
+      System.err.println("If you are seeing this error in `flutter build` output, it is likely that `jnigen` left some stubs in the build.gradle file. Please restore that file from your version control system or manually remove the stub functions named getReleaseCompileClasspath and / or getSources.")
+      throw e
+    }
+  }
 }
