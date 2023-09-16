@@ -410,8 +410,12 @@ class DocumentPageList implements List<mupdf.Page> {
 
   @override
   List<mupdf.Page> sublist(int start, [int? end]) {
-    // TODO: implement sublist
-    throw UnimplementedError();
+    end ??= length;
+    List<mupdf.Page> result = [];
+    for (int i = start; i < end && i < length; i++) {
+      result.add(this[i]);
+    }
+    return result;
   }
 
   @override

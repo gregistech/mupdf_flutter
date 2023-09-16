@@ -44,7 +44,7 @@ public class RectDevice extends Device {
         if (result) {
             lowest = getLowest(rect);
         }
-        return result;
+        return result && (rect.x0 >= 0 && rect.x1 >= 0 && rect.y0 <= 842 && rect.y1 <= 842);
     }
 
     public void beginPage() {
