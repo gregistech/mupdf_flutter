@@ -42,108 +42,58 @@ import "../../artifex/mupdf/fitz/Image.dart" as image_;
 import "../../artifex/mupdf/fitz/DefaultColorSpaces.dart"
     as defaultcolorspaces_;
 
-/// from: com.gergovari.mupdf.RectDevice
-class RectDevice extends device_.Device {
+/// from: com.gergovari.mupdf.FindHighestInRectDevice
+class FindHighestInRectDevice extends device_.Device {
   @override
-  late final jni.JObjType<RectDevice> $type = type;
+  late final jni.JObjType<FindHighestInRectDevice> $type = type;
 
-  RectDevice.fromRef(
+  FindHighestInRectDevice.fromRef(
     jni.JObjectPtr ref,
   ) : super.fromRef(ref);
 
-  static final _class = jni.Jni.findJClass(r"com/gergovari/mupdf/RectDevice");
+  static final _class =
+      jni.Jni.findJClass(r"com/gergovari/mupdf/FindHighestInRectDevice");
 
   /// The type which includes information such as the signature of this class.
-  static const type = $RectDeviceType();
-  static final _id_current = jni.Jni.accessors.getFieldIDOf(
+  static const type = $FindHighestInRectDeviceType();
+  static final _id_highest = jni.Jni.accessors.getFieldIDOf(
     _class.reference,
-    r"current",
-    r"Lcom/artifex/mupdf/fitz/Device;",
-  );
-
-  /// from: public com.artifex.mupdf.fitz.Device current
-  /// The returned object must be released after use, by calling the [release] method.
-  device_.Device get current =>
-      const device_.$DeviceType().fromRef(jni.Jni.accessors
-          .getField(reference, _id_current, jni.JniCallType.objectType)
-          .object);
-
-  /// from: public com.artifex.mupdf.fitz.Device current
-  /// The returned object must be released after use, by calling the [release] method.
-  set current(device_.Device value) =>
-      jni.Jni.env.SetObjectField(reference, _id_current, value.reference);
-
-  static final _id_lowest = jni.Jni.accessors.getFieldIDOf(
-    _class.reference,
-    r"lowest",
+    r"highest",
     r"F",
   );
 
-  /// from: public float lowest
-  double get lowest => jni.Jni.accessors
-      .getField(reference, _id_lowest, jni.JniCallType.floatType)
+  /// from: public float highest
+  double get highest => jni.Jni.accessors
+      .getField(reference, _id_highest, jni.JniCallType.floatType)
       .float;
 
-  /// from: public float lowest
-  set lowest(double value) =>
-      jni.Jni.env.SetFloatField(reference, _id_lowest, value);
+  /// from: public float highest
+  set highest(double value) =>
+      jni.Jni.env.SetFloatField(reference, _id_highest, value);
 
-  static final _id_new2 = jni.Jni.accessors
-      .getMethodIDOf(_class.reference, r"<init>", r"(Ljava/lang/String;)V");
+  static final _id_new0 =
+      jni.Jni.accessors.getMethodIDOf(_class.reference, r"<init>", r"()V");
 
-  /// from: public void <init>(java.lang.String path)
+  /// from: public void <init>()
   /// The returned object must be released after use, by calling the [release] method.
-  factory RectDevice.new2(
-    jni.JString path,
-  ) {
-    return RectDevice.fromRef(jni.Jni.accessors.newObjectWithArgs(
-        _class.reference, _id_new2, [path.reference]).object);
+  factory FindHighestInRectDevice() {
+    return FindHighestInRectDevice.fromRef(jni.Jni.accessors
+        .newObjectWithArgs(_class.reference, _id_new0, []).object);
   }
 
   static final _id_filterDevice = jni.Jni.accessors.getMethodIDOf(
       _class.reference,
       r"filterDevice",
-      r"(Lcom/artifex/mupdf/fitz/Rect;F)Lcom/artifex/mupdf/fitz/Device;");
+      r"(Lcom/artifex/mupdf/fitz/Rect;)Lcom/artifex/mupdf/fitz/Device;");
 
-  /// from: public com.artifex.mupdf.fitz.Device filterDevice(com.artifex.mupdf.fitz.Rect target, float newHighest)
+  /// from: public com.artifex.mupdf.fitz.Device filterDevice(com.artifex.mupdf.fitz.Rect target)
   /// The returned object must be released after use, by calling the [release] method.
   device_.Device filterDevice(
     rect_.Rect target,
-    double newHighest,
   ) {
     return const device_.$DeviceType().fromRef(jni.Jni.accessors
-        .callMethodWithArgs(
-            reference,
-            _id_filterDevice,
-            jni.JniCallType.objectType,
-            [target.reference, jni.JValueFloat(newHighest)]).object);
-  }
-
-  static final _id_beginPage =
-      jni.Jni.accessors.getMethodIDOf(_class.reference, r"beginPage", r"()V");
-
-  /// from: public void beginPage()
-  void beginPage() {
-    return jni.Jni.accessors.callMethodWithArgs(
-        reference, _id_beginPage, jni.JniCallType.voidType, []).check();
-  }
-
-  static final _id_endPage =
-      jni.Jni.accessors.getMethodIDOf(_class.reference, r"endPage", r"()V");
-
-  /// from: public void endPage()
-  void endPage() {
-    return jni.Jni.accessors.callMethodWithArgs(
-        reference, _id_endPage, jni.JniCallType.voidType, []).check();
-  }
-
-  static final _id_done =
-      jni.Jni.accessors.getMethodIDOf(_class.reference, r"done", r"()V");
-
-  /// from: public void done()
-  void done() {
-    return jni.Jni.accessors.callMethodWithArgs(
-        reference, _id_done, jni.JniCallType.voidType, []).check();
+        .callMethodWithArgs(reference, _id_filterDevice,
+            jni.JniCallType.objectType, [target.reference]).object);
   }
 
   static final _id_close =
@@ -631,14 +581,16 @@ class RectDevice extends device_.Device {
   }
 }
 
-class $RectDeviceType extends jni.JObjType<RectDevice> {
-  const $RectDeviceType();
+class $FindHighestInRectDeviceType
+    extends jni.JObjType<FindHighestInRectDevice> {
+  const $FindHighestInRectDeviceType();
 
   @override
-  String get signature => r"Lcom/gergovari/mupdf/RectDevice;";
+  String get signature => r"Lcom/gergovari/mupdf/FindHighestInRectDevice;";
 
   @override
-  RectDevice fromRef(jni.JObjectPtr ref) => RectDevice.fromRef(ref);
+  FindHighestInRectDevice fromRef(jni.JObjectPtr ref) =>
+      FindHighestInRectDevice.fromRef(ref);
 
   @override
   jni.JObjType get superType => const device_.$DeviceType();
@@ -647,10 +599,11 @@ class $RectDeviceType extends jni.JObjType<RectDevice> {
   final superCount = 2;
 
   @override
-  int get hashCode => ($RectDeviceType).hashCode;
+  int get hashCode => ($FindHighestInRectDeviceType).hashCode;
 
   @override
   bool operator ==(Object other) {
-    return other.runtimeType == ($RectDeviceType) && other is $RectDeviceType;
+    return other.runtimeType == ($FindHighestInRectDeviceType) &&
+        other is $FindHighestInRectDeviceType;
   }
 }

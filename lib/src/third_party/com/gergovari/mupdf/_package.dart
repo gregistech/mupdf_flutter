@@ -1,2 +1,2 @@
-export "BBoxFinder.dart";
+export "FindHighestInRectDevice.dart";
 export "RectDevice.dart";

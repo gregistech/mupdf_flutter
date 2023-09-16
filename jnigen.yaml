@@ -77,7 +77,7 @@ classes:
   - com.artifex.mupdf.fitz.TryLaterException
   - com.artifex.mupdf.fitz.android.AndroidDrawDevice
   - com.artifex.mupdf.fitz.android.AndroidImage
-  - com.gergovari.mupdf.BBoxFinder
+  - com.gergovari.mupdf.FindHighestInRectDevice
   - com.gergovari.mupdf.RectDevice
   - java.io.RandomAccessFile
 
