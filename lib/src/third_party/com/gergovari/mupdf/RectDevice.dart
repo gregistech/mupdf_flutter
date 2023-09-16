@@ -137,13 +137,14 @@ class RectDevice extends device_.Device {
         reference, _id_endPage, jni.JniCallType.voidType, []).check();
   }
 
-  static final _id_done =
-      jni.Jni.accessors.getMethodIDOf(_class.reference, r"done", r"()V");
+  static final _id_done = jni.Jni.accessors
+      .getMethodIDOf(_class.reference, r"done", r"()Ljava/lang/String;");
 
-  /// from: public void done()
-  void done() {
-    return jni.Jni.accessors.callMethodWithArgs(
-        reference, _id_done, jni.JniCallType.voidType, []).check();
+  /// from: public java.lang.String done()
+  /// The returned object must be released after use, by calling the [release] method.
+  jni.JString done() {
+    return const jni.JStringType().fromRef(jni.Jni.accessors.callMethodWithArgs(
+        reference, _id_done, jni.JniCallType.objectType, []).object);
   }
 
   static final _id_close =

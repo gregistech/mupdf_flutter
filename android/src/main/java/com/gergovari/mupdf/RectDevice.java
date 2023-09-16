@@ -18,12 +18,14 @@ import com.artifex.mupdf.fitz.Text;
 public class RectDevice extends Device {
     public RectDevice(String path) {
         writer = new DocumentWriter(path, "PDF", "pretty,ascii,compress-images,compress-fonts");
+        this.path = path;
     }
 
     DocumentWriter writer;
     public Device current;
     private float highest = Float.POSITIVE_INFINITY;
     public float lowest = 0;
+    private String path;
     private float getLowest(Rect rect) {
         if (rect.y1 <= 842) {
             rect.offset(0, -highest);
@@ -55,8 +57,9 @@ public class RectDevice extends Device {
         writer.endPage();
     }
 
-    public void done() {
+    public String done() {
         writer.close();
+        return path;
     }
 
     @Override
