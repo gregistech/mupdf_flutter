@@ -25,6 +25,8 @@ import "../../artifex/mupdf/fitz/Device.dart" as device_;
 
 import "../../artifex/mupdf/fitz/Rect.dart" as rect_;
 
+import "../../artifex/mupdf/fitz/Page.dart" as page_;
+
 import "../../artifex/mupdf/fitz/Path.dart" as path_;
 
 import "../../artifex/mupdf/fitz/Matrix.dart" as matrix_;
@@ -55,6 +57,23 @@ class RectDevice extends device_.Device {
 
   /// The type which includes information such as the signature of this class.
   static const type = $RectDeviceType();
+  static final _id_pageSize = jni.Jni.accessors.getFieldIDOf(
+    _class.reference,
+    r"pageSize",
+    r"Lcom/artifex/mupdf/fitz/Rect;",
+  );
+
+  /// from: public com.artifex.mupdf.fitz.Rect pageSize
+  /// The returned object must be released after use, by calling the [release] method.
+  rect_.Rect get pageSize => const rect_.$RectType().fromRef(jni.Jni.accessors
+      .getField(reference, _id_pageSize, jni.JniCallType.objectType)
+      .object);
+
+  /// from: public com.artifex.mupdf.fitz.Rect pageSize
+  /// The returned object must be released after use, by calling the [release] method.
+  set pageSize(rect_.Rect value) =>
+      jni.Jni.env.SetObjectField(reference, _id_pageSize, value.reference);
+
   static final _id_current = jni.Jni.accessors.getFieldIDOf(
     _class.reference,
     r"current",
@@ -88,35 +107,39 @@ class RectDevice extends device_.Device {
   set lowest(double value) =>
       jni.Jni.env.SetFloatField(reference, _id_lowest, value);
 
-  static final _id_new2 = jni.Jni.accessors
-      .getMethodIDOf(_class.reference, r"<init>", r"(Ljava/lang/String;)V");
+  static final _id_new2 = jni.Jni.accessors.getMethodIDOf(_class.reference,
+      r"<init>", r"(Ljava/lang/String;Lcom/artifex/mupdf/fitz/Rect;)V");
 
-  /// from: public void <init>(java.lang.String path)
+  /// from: public void <init>(java.lang.String path, com.artifex.mupdf.fitz.Rect pageSize)
   /// The returned object must be released after use, by calling the [release] method.
   factory RectDevice.new2(
     jni.JString path,
+    rect_.Rect pageSize,
   ) {
     return RectDevice.fromRef(jni.Jni.accessors.newObjectWithArgs(
-        _class.reference, _id_new2, [path.reference]).object);
+        _class.reference,
+        _id_new2,
+        [path.reference, pageSize.reference]).object);
   }
 
   static final _id_filterDevice = jni.Jni.accessors.getMethodIDOf(
       _class.reference,
       r"filterDevice",
-      r"(Lcom/artifex/mupdf/fitz/Rect;F)Lcom/artifex/mupdf/fitz/Device;");
+      r"(Lcom/artifex/mupdf/fitz/Page;Lcom/artifex/mupdf/fitz/Rect;F)Lcom/artifex/mupdf/fitz/Device;");
 
-  /// from: public com.artifex.mupdf.fitz.Device filterDevice(com.artifex.mupdf.fitz.Rect target, float newHighest)
+  /// from: public com.artifex.mupdf.fitz.Device filterDevice(com.artifex.mupdf.fitz.Page source, com.artifex.mupdf.fitz.Rect filter, float y)
   /// The returned object must be released after use, by calling the [release] method.
   device_.Device filterDevice(
-    rect_.Rect target,
-    double newHighest,
+    page_.Page source,
+    rect_.Rect filter,
+    double y,
   ) {
     return const device_.$DeviceType().fromRef(jni.Jni.accessors
         .callMethodWithArgs(
             reference,
             _id_filterDevice,
             jni.JniCallType.objectType,
-            [target.reference, jni.JValueFloat(newHighest)]).object);
+            [source.reference, filter.reference, jni.JValueFloat(y)]).object);
   }
 
   static final _id_beginPage =
