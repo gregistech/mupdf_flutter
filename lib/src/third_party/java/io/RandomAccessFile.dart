@@ -21,6 +21,8 @@ import "dart:ffi" as ffi;
 import "package:jni/internal_helpers_for_jnigen.dart";
 import "package:jni/jni.dart" as jni;
 
+import "File.dart" as file_;
+
 /// from: java.io.RandomAccessFile
 class RandomAccessFile extends jni.JObject {
   @override
@@ -55,7 +57,7 @@ class RandomAccessFile extends jni.JObject {
   /// from: public void <init>(java.io.File file, java.lang.String string)
   /// The returned object must be released after use, by calling the [release] method.
   factory RandomAccessFile.new1(
-    jni.JObject file,
+    file_.File file,
     jni.JString string,
   ) {
     return RandomAccessFile.fromRef(jni.Jni.accessors.newObjectWithArgs(

@@ -1,5 +1,10 @@
+import 'dart:typed_data';
+
 import 'package:jni/jni.dart';
+import 'package:mupdf_android/mupdf_android.dart';
 import 'package:mupdf_android/src/third_party/com/artifex/mupdf/fitz/_package.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:uuid/uuid.dart';
 
 import 'document_page_list.dart';
 
@@ -33,5 +38,15 @@ extension Metadata on Document {
 
   String getMetadata(String key) {
     return getMetaData(key.toJString()).toDartString();
+  }
+}
+
+extension Data on PDFDocument {
+  Future<String> get temporaryPath async {
+    String path =
+        "${(await getTemporaryDirectory()).path}/${const Uuid().v4()}.pdf";
+    save(path.toJString(),
+        "pretty,ascii,compress-images,compress-fonts".toJString());
+    return path;
   }
 }

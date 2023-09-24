@@ -79,6 +79,7 @@ classes:
   - com.artifex.mupdf.fitz.android.AndroidImage
   - com.gergovari.mupdf.FindHighestInRectDevice
   - com.gergovari.mupdf.RectDevice
+  - java.io.File
   - java.io.RandomAccessFile
 
 enable_experiment:

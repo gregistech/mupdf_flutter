@@ -6,6 +6,7 @@ import 'package:mupdf_android/src/third_party/com/artifex/mupdf/fitz/_package.da
 
 export 'package:mupdf_android/src/third_party/com/artifex/mupdf/fitz/_package.dart';
 export 'package:mupdf_android/src/third_party/com/gergovari/mupdf/_package.dart';
+export 'package:mupdf_android/src/third_party/java/io/_package.dart';
 export 'package:mupdf_android/extensions.dart';
 
 class MuPDF {

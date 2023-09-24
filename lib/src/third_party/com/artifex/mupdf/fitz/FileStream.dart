@@ -23,6 +23,8 @@ import "package:jni/jni.dart" as jni;
 
 import "../../../../java/io/RandomAccessFile.dart" as randomaccessfile_;
 
+import "../../../../java/io/File.dart" as file_;
+
 /// from: com.artifex.mupdf.fitz.FileStream
 class FileStream extends jni.JObject {
   @override
@@ -76,7 +78,7 @@ class FileStream extends jni.JObject {
   /// from: public void <init>(java.io.File file, java.lang.String string)
   /// The returned object must be released after use, by calling the [release] method.
   factory FileStream.new1(
-    jni.JObject file,
+    file_.File file,
     jni.JString string,
   ) {
     return FileStream.fromRef(jni.Jni.accessors.newObjectWithArgs(
